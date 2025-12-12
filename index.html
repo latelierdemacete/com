@@ -667,31 +667,49 @@
         .scroll-top:hover {
             transform: translateY(-5px);
         }
-        .about-layout {
+   /* --- PHOTO RONDE À PROPOS (hauteur automatique matching texte) --- */
+.about-layout {
     display: grid;
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
     gap: 2rem;
-    align-items: center;
+    align-items: stretch; /* étire les deux colonnes à la même hauteur */
 }
 
+/* La colonne droite devient un conteneur vertical flexible */
 .about-portrait {
-    width: 220px;
-    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Hauteur automatique = même hauteur que la colonne de gauche */
+    height: 100%;
+
+    /* La taille interne sera gérée par l'aspect-ratio */
+}
+
+/* Photo ronde parfaitement centrée */
+.about-portrait-inner {
+    aspect-ratio: 1 / 1;     /* rond parfait */
+    height: 100%;            /* occupe toute la hauteur disponible */
+    max-height: 350px;       /* limite raisonnable pour éviter qu’elle devienne trop grande */
     border-radius: 50%;
+    overflow: hidden;
+    background: #fdf4fb;
     margin: 0 auto;
-    background: conic-gradient(from 40deg, #fbd3e0, #ffe0b8, #d6cfff, #c6f1e3, #fbd3e0);
+
+    background: conic-gradient(
+        from 40deg,
+        #fbd3e0,
+        #ffe0b8,
+        #d6cfff,
+        #c6f1e3,
+        #fbd3e0
+    );
     padding: 6px;
     box-shadow: 0 12px 30px rgba(168, 108, 139, 0.35);
 }
 
-.about-portrait-inner {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #fdf4fb;
-}
-
+/* Image interne */
 .about-portrait-inner img {
     width: 100%;
     height: 100%;
