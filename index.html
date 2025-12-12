@@ -56,7 +56,7 @@
             flex-wrap: wrap;
         }
 
-        /* NOUVEAU BLOC LOGO + TEXTE (header) */
+        /* HEADER : LOGO + TEXTE */
         .logo {
             display: flex;
             align-items: center;
@@ -159,7 +159,7 @@
             border-radius: 3px;
         }
 
-        /* NOUVEAU HERO (premier bloc du .fr adapté) */
+        /* HERO (premier bloc du .fr adapté) */
         .hero {
             display: grid;
             grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
@@ -274,7 +274,7 @@
             object-fit: cover;
         }
 
-        /* LOGO + TITRE dans le premier bloc */
+        /* LOGO + TITRE dans le premier bloc (logo agrandi ×3) */
         .hero-title-with-logo {
             display: flex;
             align-items: center;
@@ -283,12 +283,12 @@
         }
 
         .hero-logo {
-            width: 60px;
-            height: 60px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--rose-pastel);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            border: 4px solid var(--rose-pastel);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.18);
         }
 
         .prestations-grid {
@@ -441,55 +441,96 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .contact-info {
-            max-width: 600px;
-            margin: 2rem auto;
+        /* Anciennes classes contact (plus utilisées) conservées mais sans effet */
+        .contact-info {}
+        .contact-item {}
+        .contact-item a {}
+
+        /* STYLES CONTACT harmonisés avec le site fr */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            box-shadow: 0 16px 40px rgba(190, 139, 170, 0.18);
+            padding: 2.5rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+        }
+
+        .section-title {
+            font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+            font-size: 2.1rem;
             text-align: center;
+            margin-bottom: 0.5rem;
+            color: #b35a87;
         }
 
-        .contact-item {
-            background: rgba(255, 255, 255, 0.6);
-            padding: 1.5rem;
-            margin: 1rem 0;
-            border-radius: 15px;
-            font-size: 1.2rem;
-            transition: all 0.3s;
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.05rem;
+            opacity: 0.85;
+            margin-bottom: 2rem;
+            color: var(--texte-clair);
         }
 
-        .contact-item:hover {
-            background: rgba(255, 255, 255, 0.9);
-            transform: scale(1.02);
+        .contact-layout {
+            max-width: 650px;
+            margin: 0 auto;
         }
 
-        .contact-item a {
-            color: var(--texte-fonce);
-            text-decoration: none;
-            transition: color 0.3s;
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1rem;
         }
 
-        .contact-item a:hover {
-            color: var(--lavande);
+        .contact-list li {
+            margin-bottom: 0.6rem;
         }
 
-        .instagram-btn {
+        .contact-label {
+            font-weight: 500;
+        }
+
+        .contact-highlight {
+            font-size: 1.1rem;
+        }
+
+        .ig-button {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 25px;
+            padding: 0.7rem 1.3rem;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            background: radial-gradient(circle at 20% 20%, #f8b9cf, #f5c36f, #bda7ff);
+            box-shadow: 0 10px 22px rgba(174, 105, 139, 0.35);
+            color: #3c213a;
+            font-weight: 500;
+            font-size: 0.95rem;
             text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-top: 1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 0.75rem;
         }
 
-        .instagram-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+        .ig-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .ig-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .contact-note {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
         }
 
         footer {
@@ -587,7 +628,6 @@
         <nav>
             <!-- HEADER AVEC LOGO IMAGE + TITRE + BASELINE -->
             <a href="#accueil" class="logo">
-                <!-- Remplace le src ci-dessous par le chemin réel de ton logo -->
                 <img src="images/mon-logo.png" alt="L'Atelier de Macete" class="logo-img">
                 <div class="logo-text">
                     <span class="logo-title">L'Atelier de Macete</span>
@@ -608,7 +648,7 @@
         </nav>
     </header>
 
-    <!-- PREMIER BLOC REMPLACÉ PAR LE HERO DU SITE .FR -->
+    <!-- HERO -->
     <section id="accueil" class="hero">
         <div class="hero-content">
             <div class="hero-title-with-logo">
@@ -778,25 +818,56 @@
         </div>
     </section>
 
+    <!-- CONTACT harmonisé, sans QR code -->
     <section id="contact">
-        <h2>Contact</h2>
-        <div class="contact-info">
-            <div class="contact-item">
-                <strong>Téléphone :</strong><br>
-                <a href="tel:0680533230">06 80 53 32 30</a>
-            </div>
-            <div class="contact-item">
-                <strong>Email :</strong><br>
-                <a href="mailto:latelierdemacete@gmail.com">latelierdemacete@gmail.com</a>
-            </div>
-            <div class="contact-item">
-                <strong>Instagram :</strong><br>
-                <a href="https://www.instagram.com/latelier_de_macete/" target="_blank" class="instagram-btn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                    @latelier_de_macete
-                </a>
+        <div class="container">
+            <div class="section-card">
+                <h2 class="section-title">Contact</h2>
+                <p class="section-subtitle">
+                    Pour toute demande d’animation ou de devis, contactez directement l’Atelier de Macete.
+                </p>
+
+                <div class="contact-layout">
+                    <div>
+                        <ul class="contact-list">
+                            <li>
+                                <span class="contact-label">Téléphone :</span>
+                                <span class="contact-highlight"> 06&nbsp;80&nbsp;53&nbsp;32&nbsp;30</span>
+                            </li>
+                            <li>
+                                <span class="contact-label">Email :</span>
+                                <a href="mailto:latelierdemacete@gmail.com" class="contact-highlight">
+                                    latelierdemacete@gmail.com
+                                </a>
+                            </li>
+                            <li>
+                                <span class="contact-label">Instagram :</span>
+                                <span class="contact-highlight">@latelier_de_macete</span>
+                            </li>
+                        </ul>
+
+                        <a href="https://www.instagram.com/latelier_de_macete" target="_blank" rel="noopener" class="ig-button">
+                            <span class="ig-icon" aria-hidden="true">
+                                <!-- Icône Instagram simple en SVG -->
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <linearGradient id="ig-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#f58529" />
+                                        <stop offset="50%" stop-color="#dd2a7b" />
+                                        <stop offset="100%" stop-color="#8134af" />
+                                    </linearGradient>
+                                    <rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="url(#ig-grad)"/>
+                                    <circle cx="12" cy="12" r="4.2" fill="none" stroke="#fff" stroke-width="1.6"/>
+                                    <circle cx="17" cy="7" r="1.1" fill="#fff"/>
+                                </svg>
+                            </span>
+                            <span>Suivre l’Atelier sur Instagram</span>
+                        </a>
+                        <p class="contact-note">
+                            Les réservations et devis se font par téléphone, email ou message Instagram.
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
