@@ -667,6 +667,37 @@
         .scroll-top:hover {
             transform: translateY(-5px);
         }
+        .about-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 2rem;
+    align-items: center;
+}
+
+.about-portrait {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    margin: 0 auto;
+    background: conic-gradient(from 40deg, #fbd3e0, #ffe0b8, #d6cfff, #c6f1e3, #fbd3e0);
+    padding: 6px;
+    box-shadow: 0 12px 30px rgba(168, 108, 139, 0.35);
+}
+
+.about-portrait-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #fdf4fb;
+}
+
+.about-portrait-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
     </style>
 </head>
 <body>
@@ -898,17 +929,32 @@
 <!-- À PROPOS -->
 <section id="apropos">
     <h2>À propos</h2>
-    <div class="about-content">
-        <p>Passionnée par l'art et la créativité, je mets mon talent au service de vos événements pour créer des moments magiques et inoubliables.</p>
-        <p>Formée aux techniques professionnelles de maquillage artistique, je travaille avec du matériel de qualité supérieure, respectueux de toutes les peaux, y compris les plus sensibles.</p>
-        <p>Chaque prestation est unique et personnalisée selon vos envies et le thème de votre événement.</p>
-    </div>
-    <div class="values">
-        <div class="value-item">Prestations soignées</div>
-        <div class="value-item">Matériel professionnel</div>
-        <div class="value-item">Hygiène irréprochable</div>
+
+    <div class="about-layout">
+        
+        <!-- TEXTE À GAUCHE -->
+        <div class="about-content">
+            <p>Passionnée par l'art et la créativité, je mets mon talent au service de vos événements pour créer des moments magiques et inoubliables.</p>
+            <p>Formée aux techniques professionnelles de maquillage artistique, je travaille avec du matériel de qualité supérieure, respectueux de toutes les peaux, y compris les plus sensibles.</p>
+            <p>Chaque prestation est unique et personnalisée selon vos envies et le thème de votre événement.</p>
+
+            <div class="values">
+                <div class="value-item">Prestations soignées</div>
+                <div class="value-item">Matériel professionnel</div>
+                <div class="value-item">Hygiène irréprochable</div>
+            </div>
+        </div>
+
+        <!-- PHOTO RONDE À DROITE (comme le site FR) -->
+        <div class="about-portrait">
+            <div class="about-portrait-inner">
+                <img src="images/portrait.jpg" alt="Portrait Macete">
+            </div>
+        </div>
+
     </div>
 </section>
+
 
 <!-- CONTACT -->
 <section id="contact">
