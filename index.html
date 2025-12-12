@@ -383,23 +383,25 @@
         .gallery-item:hover {
             transform: scale(1.05) rotate(5deg);
         }
-.gallery-inner {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fdf5fb;
-}
 
-.gallery-inner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
+        .gallery-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fdf5fb;
+        }
+
+        .gallery-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
         /* TARIFS */
         .tarifs-grid {
             display: grid;
@@ -568,13 +570,13 @@
         }
 
         .contact-logo img {
-    height: 230px;
-    width: 230px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 6px 22px rgba(0,0,0,0.15);
-    border: 3px solid var(--rose-pastel);
-}
+            height: 230px;
+            width: 230px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 6px 22px rgba(0,0,0,0.15);
+            border: 3px solid var(--rose-pastel);
+        }
 
         footer {
             background: rgba(255, 255, 255, 0.9);
@@ -636,17 +638,17 @@
             .contact-layout {
                 grid-template-columns: 1fr;
             }
-        }
+
             /* A PROPOS : photo sous le texte sur mobile */
-    .about-layout {
-        grid-template-columns: 1fr !important;
-        text-align: center;
-    }
+            .about-layout {
+                grid-template-columns: 1fr !important;
+                text-align: center;
+            }
 
-    .about-portrait {
-        margin-top: 1.5rem;
-    }
-
+            .about-portrait {
+                margin-top: 1.5rem;
+            }
+        }
 
         .scroll-top {
             position: fixed;
@@ -677,54 +679,47 @@
         .scroll-top:hover {
             transform: translateY(-5px);
         }
-   /* --- PHOTO RONDE À PROPOS (hauteur automatique matching texte) --- */
-.about-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-    gap: 2rem;
-    align-items: stretch; /* étire les deux colonnes à la même hauteur */
-}
 
-/* La colonne droite devient un conteneur vertical flexible */
-.about-portrait {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+        /* --- PHOTO RONDE À PROPOS (hauteur automatique matching texte) --- */
+        .about-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+            gap: 2rem;
+            align-items: stretch;
+        }
 
-    /* Hauteur automatique = même hauteur que la colonne de gauche */
-    height: 100%;
+        .about-portrait {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
 
-    /* La taille interne sera gérée par l'aspect-ratio */
-}
+        .about-portrait-inner {
+            aspect-ratio: 1 / 1;
+            height: 100%;
+            max-height: 350px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #fdf4fb;
+            margin: 0 auto;
+            background: conic-gradient(
+                from 40deg,
+                #fbd3e0,
+                #ffe0b8,
+                #d6cfff,
+                #c6f1e3,
+                #fbd3e0
+            );
+            padding: 6px;
+            box-shadow: 0 12px 30px rgba(168, 108, 139, 0.35);
+        }
 
-/* Photo ronde parfaitement centrée */
-.about-portrait-inner {
-    aspect-ratio: 1 / 1;     /* rond parfait */
-    height: 100%;            /* occupe toute la hauteur disponible */
-    max-height: 350px;       /* limite raisonnable pour éviter qu’elle devienne trop grande */
-    border-radius: 50%;
-    overflow: hidden;
-    background: #fdf4fb;
-    margin: 0 auto;
-
-    background: conic-gradient(
-        from 40deg,
-        #fbd3e0,
-        #ffe0b8,
-        #d6cfff,
-        #c6f1e3,
-        #fbd3e0
-    );
-    padding: 6px;
-    box-shadow: 0 12px 30px rgba(168, 108, 139, 0.35);
-}
-
-/* Image interne */
-.about-portrait-inner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+        .about-portrait-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
     </style>
 </head>
@@ -865,54 +860,52 @@
     <p style="text-align: center; margin-bottom: 2rem; color: var(--texte-clair);">Découvrez quelques-unes de mes créations</p>
     <div class="gallery-grid">
         <div class="gallery-item">
-    <div class="gallery-inner">
-        <img src="images/galerie-1.jpg" alt="Maquillage artistique">
-    </div>
-</div>
+            <div class="gallery-inner">
+                <img src="images/galerie-1.jpg" alt="Maquillage artistique">
+            </div>
+        </div>
         <div class="gallery-item">
-    <img src="images/galerie-2.jpg" alt="Maquillage artistique">
-</div>
+            <img src="images/galerie-2.jpg" alt="Maquillage artistique">
+        </div>
         <div class="gallery-item">
-    <img src="images/galerie-3.jpg" alt="Maquillage artistique">
-</div>
+            <img src="images/galerie-3.jpg" alt="Maquillage artistique">
+        </div>
         <div class="gallery-item">
-    <img src="images/galerie-4.jpg" alt="Maquillage artistique">
-</div>
+            <img src="images/galerie-4.jpg" alt="Maquillage artistique">
+        </div>
         <div class="gallery-item">
-    <img src="images/galerie-5.jpg" alt="Maquillage artistique">
-</div>
+            <img src="images/galerie-5.jpg" alt="Maquillage artistique">
+        </div>
         <div class="gallery-item">
-    <img src="images/galerie-6.jpg" alt="Maquillage artistique">
-</div>
+            <img src="images/galerie-6.jpg" alt="Maquillage artistique">
+        </div>
         <div class="gallery-item">
-    <img src="images/galerie-7.jpg" alt="Maquillage artistique">
-</div>
+            <img src="images/galerie-7.jpg" alt="Maquillage artistique">
+        </div>
         <div class="gallery-item">
-    <img src="images/galerie-8.jpg" alt="Maquillage artistique">
-</div>
-        <!-- 2 nouvelles pour compléter la 2e ligne et une 3e ligne complète -->
+            <img src="images/galerie-8.jpg" alt="Maquillage artistique">
+        </div>
         <div class="gallery-item">
-    <img src="images/galerie-9.jpg" alt="Maquillage artistique">
-</div>
+            <img src="images/galerie-9.jpg" alt="Maquillage artistique">
+        </div>
         <div class="gallery-item">
-    <img src="images/galerie-10.jpg" alt="Maquillage artistique">
-</div>
+            <img src="images/galerie-10.jpg" alt="Maquillage artistique">
+        </div>
         <div class="gallery-item">
-    <img src="images/galerie-11.jpg" alt="Maquillage artistique">
-</div>
+            <img src="images/galerie-11.jpg" alt="Maquillage artistique">
+        </div>
         <div class="gallery-item">
-    <img src="images/galerie-12.jpg" alt="Maquillage artistique">
-</div>
+            <img src="images/galerie-12.jpg" alt="Maquillage artistique">
+        </div>
         <div class="gallery-item">
-    <img src="images/galerie-13.jpg" alt="Maquillage artistique">
-</div>
-<div class="gallery-item">
-    <img src="images/galerie-14.jpg" alt="Maquillage artistique">
-</div>
-<div class="gallery-item">
-    <img src="images/galerie-15.jpg" alt="Maquillage artistique">
-</div>
-
+            <img src="images/galerie-13.jpg" alt="Maquillage artistique">
+        </div>
+        <div class="gallery-item">
+            <img src="images/galerie-14.jpg" alt="Maquillage artistique">
+        </div>
+        <div class="gallery-item">
+            <img src="images/galerie-15.jpg" alt="Maquillage artistique">
+        </div>
     </div>
 </section>
 
@@ -959,7 +952,6 @@
     <h2>À propos</h2>
 
     <div class="about-layout">
-        
         <!-- TEXTE À GAUCHE -->
         <div class="about-content">
             <p>Passionnée par l'art et la créativité, je mets mon talent au service de vos événements pour créer des moments magiques et inoubliables.</p>
@@ -973,16 +965,14 @@
             </div>
         </div>
 
-        <!-- PHOTO RONDE À DROITE (comme le site FR) -->
+        <!-- PHOTO RONDE À DROITE -->
         <div class="about-portrait">
             <div class="about-portrait-inner">
                 <img src="images/portrait.jpg" alt="Portrait Macete">
             </div>
         </div>
-
     </div>
 </section>
-
 
 <!-- CONTACT -->
 <section id="contact">
