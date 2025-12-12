@@ -383,7 +383,23 @@
         .gallery-item:hover {
             transform: scale(1.05) rotate(5deg);
         }
+.gallery-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fdf5fb;
+}
 
+.gallery-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
         /* TARIFS */
         .tarifs-grid {
             display: grid;
