@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarifs – Anniversaires | L'Atelier de Macete</title>
+    <meta name="description" content="Détails des tarifs anniversaires – L'Atelier de Macete">
+
+    <!-- Tu peux copier/coller ici TOUT ton <style> actuel de index.html -->
+    <style>
+        /* >>> COLLE ICI TOUT LE BLOC <style> DE TON index.html <<< */
+
+        /* En plus, on peut ajouter juste ça pour le bouton retour si tu veux un peu d'espace */
+        .tarifs-page-wrapper {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-back {
+            margin-top: 2rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index.html#accueil" class="logo">
+            <img src="images/mon-logo.png" alt="L'Atelier de Macete" class="logo-img">
+            <div class="logo-text">
+                <span class="logo-title">L'Atelier de Macete</span>
+                <span class="logo-tagline">Maquillage artistique &amp; paillettes</span>
+            </div>
+        </a>
+
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#accueil">Accueil</a></li>
+            <li><a href="index.html#prestations">Prestations</a></li>
+            <li><a href="index.html#evenements">Événements</a></li>
+            <li><a href="index.html#galerie">Galerie</a></li>
+            <li><a href="index.html#tarifs">Tarifs</a></li>
+            <li><a href="index.html#apropos">À propos</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="tarifs-page-wrapper">
+        <h2>Tarifs – Anniversaires</h2>
+        <p style="text-align:center; color: var(--texte-clair); margin-bottom:2rem;">
+            Exemple de présentation détaillée pour les prestations anniversaires.
+            Adapte les textes et les prix selon ta grille réelle.
+        </p>
+
+        <h3 class="cursive" style="text-align:center; margin-bottom:1rem;">Formule Anniversaire Classique</h3>
+        <ul>
+            <li>Durée : 2 heures de maquillage artistique</li>
+            <li>Nombre d’enfants inclus : jusqu’à 8 (à adapter)</li>
+            <li>Maquillages au choix dans un catalogue adapté à l’âge</li>
+            <li>Matériel professionnel fourni (pinceaux, éponges, produits)</li>
+            <li>Installation d’un petit espace maquillage (table + chaise si nécessaire)</li>
+        </ul>
+
+        <p style="margin-top:1rem;">
+            <strong>Tarif indicatif :</strong> XX € (à adapter selon la distance, le nombre d’enfants, etc.)
+        </p>
+
+        <h3 class="cursive" style="text-align:center; margin:2rem 0 1rem;">Options possibles</h3>
+        <ul>
+            <li>Temps supplémentaire par tranche de 30 minutes</li>
+            <li>Ajout de tatouages pailletés</li>
+            <li>Thèmes personnalisés (licornes, super-héros, pirates, etc.)</li>
+        </ul>
+
+        <!-- BOUTON RETOUR -->
+        <a href="index.html#tarifs" class="btn-ghost btn-back">← Retour aux tarifs</a>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 L'Atelier de Macete - Tous droits réservés</p>
+    <p class="cursive" style="margin-top: 1rem;">Créativité, professionnalisme et magie au rendez-vous</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        const navLinks = document.getElementById('navLinks');
+        navLinks.classList.toggle('active');
+    }
+
+    const navLinksItems = document.querySelectorAll('.nav-links a');
+    navLinksItems.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                document.getElementById('navLinks').classList.remove('active');
+            }
+        });
+    });
+</script>
+</body>
+</html>
