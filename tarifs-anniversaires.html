@@ -4,30 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarifs – Anniversaires | L'Atelier de Macete</title>
-    <meta name="description" content="Détails des tarifs anniversaires – L'Atelier de Macete">
+    <meta name="description" content="Détails des tarifs anniversaires – L'Atelier de Macete, maquillage artistique & paillettes.">
 
-    <!-- Tu peux copier/coller ici TOUT ton <style> actuel de index.html -->
+    <!-- Ici tu peux simplement copier-coller TOUT le <style> de index.html
+         pour que le fond, les polices, les boutons, etc. soient identiques -->
     <style>
-        /* >>> COLLE ICI TOUT LE BLOC <style> DE TON index.html <<< */
-
-        /* En plus, on peut ajouter juste ça pour le bouton retour si tu veux un peu d'espace */
-        .tarifs-page-wrapper {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 3rem 2rem;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-back {
-            margin-top: 2rem;
-            display: inline-block;
-        }
+        /* COLLE ICI l'intégralité de ton <style> de index.html,
+           exactement le même que dans la page principale. */
     </style>
 </head>
 <body>
+
 <header>
     <nav>
         <a href="index.html#accueil" class="logo">
@@ -51,38 +38,47 @@
     </nav>
 </header>
 
-<main>
-    <section class="tarifs-page-wrapper">
-        <h2>Tarifs – Anniversaires</h2>
-        <p style="text-align:center; color: var(--texte-clair); margin-bottom:2rem;">
-            Exemple de présentation détaillée pour les prestations anniversaires.
-            Adapte les textes et les prix selon ta grille réelle.
-        </p>
+<section>
+    <h2>Tarifs – Anniversaires</h2>
 
-        <h3 class="cursive" style="text-align:center; margin-bottom:1rem;">Formule Anniversaire Classique</h3>
-        <ul>
-            <li>Durée : 2 heures de maquillage artistique</li>
-            <li>Nombre d’enfants inclus : jusqu’à 8 (à adapter)</li>
-            <li>Maquillages au choix dans un catalogue adapté à l’âge</li>
-            <li>Matériel professionnel fourni (pinceaux, éponges, produits)</li>
-            <li>Installation d’un petit espace maquillage (table + chaise si nécessaire)</li>
-        </ul>
+    <p style="text-align:center; margin-bottom:2rem; color: var(--texte-clair);">
+        Exemple de présentation détaillée pour les prestations anniversaire.
+        Adapte les textes et montants selon tes besoins.
+    </p>
 
-        <p style="margin-top:1rem;">
-            <strong>Tarif indicatif :</strong> XX € (à adapter selon la distance, le nombre d’enfants, etc.)
-        </p>
+    <div class="tarifs-grid">
+        <div class="tarif-card">
+            <h3 class="cursive">Formule Anniversaire 2h</h3>
+            <div class="price">XX €</div>
+            <ul>
+                <li>Maquillage artistique pour X enfants</li>
+                <li>Thèmes au choix (princesses, super-héros, animaux...)</li>
+                <li>Tout le matériel de maquillage fourni</li>
+                <li>Déplacement dans la zone définie</li>
+            </ul>
+        </div>
 
-        <h3 class="cursive" style="text-align:center; margin:2rem 0 1rem;">Options possibles</h3>
-        <ul>
-            <li>Temps supplémentaire par tranche de 30 minutes</li>
-            <li>Ajout de tatouages pailletés</li>
-            <li>Thèmes personnalisés (licornes, super-héros, pirates, etc.)</li>
-        </ul>
+        <div class="tarif-card">
+            <h3 class="cursive">Formule Anniversaire 3h</h3>
+            <div class="price">XX €</div>
+            <ul>
+                <li>Maquillage artistique pour un groupe plus important</li>
+                <li>Adapté aux grands événements anniversaire</li>
+                <li>Matériel professionnel et hygiène irréprochable</li>
+                <li>Possibilité de personnaliser la formule</li>
+            </ul>
+        </div>
+    </div>
 
-        <!-- BOUTON RETOUR -->
-        <a href="index.html#tarifs" class="btn-ghost btn-back">← Retour aux tarifs</a>
-    </section>
-</main>
+    <p style="margin-top:2rem; text-align:center; color: var(--texte-clair);">
+        Pour un devis personnalisé (nombre d’enfants, lieu, durée, thème),
+        contactez-moi directement par téléphone, email ou Instagram.
+    </p>
+
+    <div style="text-align:center; margin-top:2.5rem;">
+        <a href="index.html#tarifs" class="btn-ghost">← Retour aux tarifs</a>
+    </div>
+</section>
 
 <footer>
     <p>&copy; 2024 L'Atelier de Macete - Tous droits réservés</p>
@@ -104,5 +100,6 @@
         });
     });
 </script>
+
 </body>
 </html>
