@@ -419,6 +419,43 @@ border: none;
             border: 3px solid var(--peche);
             text-align: center;
         }
+/* Effet hover Glow Pastel + Glitter */
+.tarif-card-link .tarif-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden; /* nécessaire pour confiner les paillettes */
+}
+
+.tarif-card-link:hover .tarif-card {
+    transform: scale(1.04);
+    box-shadow: 0 0 22px rgba(255, 182, 217, 0.7); /* glow pastel */
+}
+/* Glitter animé */
+.tarif-card-link .tarif-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+        rgba(255,255,255,0.6) 0%,
+        rgba(255,255,255,0.15) 40%,
+        transparent 70%
+    );
+    background-size: 250% 250%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    animation: glitterMove 3s linear infinite;
+}
+
+.tarif-card-link:hover .tarif-card::before {
+    opacity: 1; /* paillettes visibles uniquement au survol */
+}
+
+@keyframes glitterMove {
+    0%   { background-position: 0% 0%; }
+    50%  { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
 
         .tarif-card h3 {
             color: var(--lavande);
