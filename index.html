@@ -404,37 +404,52 @@ border: none;
             border-radius: 50%;
         }
 
-        /* TARIFS */
-        .tarifs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .tarif-card {
-            background: linear-gradient(135deg, rgba(255, 212, 184, 0.3), rgba(200, 230, 213, 0.3));
-            padding: 2rem;
-            border-radius: 20px;
-            border: 3px solid var(--peche);
-            text-align: center;
-        }
-/* Effet hover Glow Pastel + Glitter */
-.tarif-card-link .tarif-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden; /* nécessaire pour confiner les paillettes */
+/* TARIFS */
+.tarifs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
+/* Empêche texte bleu et souligné */
+.tarif-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.tarif-card-link:visited {
+    color: inherit;
+}
+
+.tarif-card {
+    background: linear-gradient(135deg, rgba(255, 212, 184, 0.3), rgba(200, 230, 213, 0.3));
+    padding: 2rem;
+    border-radius: 20px;
+    border: 3px solid var(--peche);
+    text-align: center;
+
+    /* Nécessaire pour l’effet */
+    position: relative;
+    overflow: hidden;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- Effet Glow Pastel au survol --- */
 .tarif-card-link:hover .tarif-card {
     transform: scale(1.04);
-    box-shadow: 0 0 22px rgba(255, 182, 217, 0.7); /* glow pastel */
+    box-shadow: 
+        0 0 18px rgba(255, 182, 217, 0.6),
+        0 0 30px rgba(200, 230, 213, 0.5);
 }
-/* Glitter animé */
-.tarif-card-link .tarif-card::before {
+
+/* --- Glitter animé --- */
+.tarif-card::before {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: -50%;
     background-image: radial-gradient(
         rgba(255,255,255,0.6) 0%,
         rgba(255,255,255,0.15) 40%,
@@ -443,12 +458,22 @@ border: none;
     background-size: 250% 250%;
     opacity: 0;
     transition: opacity 0.4s ease;
+
+    /* Animation du glitter */
+    animation: glitterMove 4s linear infinite;
     pointer-events: none;
-    animation: glitterMove 3s linear infinite;
 }
 
+/* Visible au survol */
 .tarif-card-link:hover .tarif-card::before {
-    opacity: 1; /* paillettes visibles uniquement au survol */
+    opacity: 1;
+}
+
+/* --- Animation glitter qui bouge doucement --- */
+@keyframes glitterMove {
+    0% { transform: translate(-20%, -20%) rotate(0deg); }
+    50% { transform: translate(20%, 20%) rotate(180deg); }
+    100% { transform: translate(-20%, -20%) rotate(360deg); }
 }
 
 @keyframes glitterMove {
