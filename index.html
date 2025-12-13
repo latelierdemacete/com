@@ -403,84 +403,133 @@ border: none;
             object-fit: cover;
             border-radius: 50%;
         }
-/* --- GALERIE – tourbillon de miniatures cliquable --- */
+/* --- GALERIE : tourbillon de vignettes --- */
 .gallery-swirl-wrapper {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
 }
 
-.gallery-swirl-link {
-    text-decoration: none;
-    display: inline-block;
-}
-
-.gallery-swirl {
+.swirl-container {
     position: relative;
-    width: 340px;
-    height: 340px;
-    /* pas de fond blanc ici → on laisse le fond général du site */
+    width: min(360px, 80vw);
+    height: min(360px, 80vw);
+    background: none;            /* pas de fond blanc */
+    box-shadow: none;
 }
 
-/* Vignettes rondes */
+/* Base commune à toutes les vignettes */
 .swirl-item {
     position: absolute;
-    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
     border-radius: 50%;
     overflow: hidden;
     border: 4px solid var(--lavande);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
     background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert-clair));
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.18);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Tailles : minuscule au centre → très grand à l’extérieur */
+.swirl-big {
+    width: 150px;
+    height: 150px;
+}
+
+.swirl-medium {
+    width: 105px;
+    height: 105px;
+}
+
+.swirl-small {
+    width: 70px;
+    height: 70px;
+}
+
+.swirl-tiny {
+    width: 40px;
+    height: 40px;
+}
+
+/* Les images remplissent bien le rond */
 .swirl-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 50%;
 }
 
-/* Tailles : minuscule au centre, puis moyen, puis grand à l'extérieur */
-.swirl-big {
-    width: 140px;
-    height: 140px;
+/* Positions : spiral centrée (on part du centre, et on tourne en grandissant) */
+.swirl-11 { /* centre minuscule */
+    transform: translate(-50%, -50%) translate(0, 0);
 }
 
-.swirl-medium {
-    width: 90px;
-    height: 90px;
+.swirl-10 { /* juste autour du centre */
+    transform: translate(-50%, -50%) translate(25px, -10px);
 }
 
-.swirl-small {
-    width: 45px;
-    height: 45px;
+.swirl-9 {  /* petit cercle proche du centre */
+    transform: translate(-50%, -50%) translate(-35px, 20px);
 }
 
-/* Positions pour créer un tourbillon centré */
-.swirl-1  { top: 15%; left: 50%; }
-.swirl-2  { top: 28%; left: 78%; }
-.swirl-3  { top: 50%; left: 90%; }
-.swirl-4  { top: 72%; left: 78%; }
-.swirl-5  { top: 85%; left: 50%; }
-.swirl-6  { top: 72%; left: 22%; }
-.swirl-7  { top: 50%; left: 10%; }
-.swirl-8  { top: 28%; left: 22%; }
-
-/* Vignettes plus petites, très proches du centre */
-.swirl-9  { top: 45%; left: 52%; }   /* medium, proche du centre */
-.swirl-10 { top: 52%; left: 48%; }   /* small, presque centre */
-.swirl-11 { top: 50%; left: 50%; }   /* small, centre exact */
-
-/* Hover sur tout le tourbillon */
-.gallery-swirl-link:hover .swirl-item {
-    box-shadow: 0 0 22px rgba(255, 182, 217, 0.7);
+/* anneau intermédiaire */
+.swirl-8 {
+    transform: translate(-50%, -50%) translate(70px, -25px);
 }
 
-.gallery-swirl-link:hover .swirl-small,
-.gallery-swirl-link:hover .swirl-medium,
-.gallery-swirl-link:hover .swirl-big {
-    transform: translate(-50%, -50%) scale(1.04);
+.swirl-7 {
+    transform: translate(-50%, -50%) translate(20px, 80px);
+}
+
+.swirl-6 {
+    transform: translate(-50%, -50%) translate(-75px, 55px);
+}
+
+/* anneau extérieur (les plus grandes) */
+.swirl-5 {
+    transform: translate(-50%, -50%) translate(0, -150px);
+}
+
+.swirl-4 {
+    transform: translate(-50%, -50%) translate(130px, -75px);
+}
+
+.swirl-3 {
+    transform: translate(-50%, -50%) translate(150px, 60px);
+}
+
+.swirl-2 {
+    transform: translate(-50%, -50%) translate(0, 160px);
+}
+
+.swirl-1 {
+    transform: translate(-50%, -50%) translate(-150px, -60px);
+}
+
+@media (max-width: 768px) {
+    .swirl-container {
+        width: min(300px, 80vw);
+        height: min(300px, 80vw);
+    }
+
+    .swirl-big {
+        width: 130px;
+        height: 130px;
+    }
+
+    .swirl-medium {
+        width: 90px;
+        height: 90px;
+    }
+
+    .swirl-small {
+        width: 60px;
+        height: 60px;
+    }
+
+    .swirl-tiny {
+        width: 35px;
+        height: 35px;
+    }
 }
 
 /* TARIFS */
