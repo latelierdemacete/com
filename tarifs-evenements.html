@@ -368,8 +368,8 @@
             height: 200px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert-clair), var(--bleu-clair));
-padding: 4px;
-border: none;
+            padding: 4px;
+            border: none;
 
             display: flex;
             align-items: center;
@@ -404,83 +404,70 @@ border: none;
             border-radius: 50%;
         }
 
-/* TARIFS */
-.tarifs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
+        /* TARIFS */
+        .tarifs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
 
-/* Empêche texte bleu et souligné */
-.tarif-card-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
+        /* Empêche texte bleu et souligné */
+        .tarif-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
 
-.tarif-card-link:visited {
-    color: inherit;
-}
+        .tarif-card-link:visited {
+            color: inherit;
+        }
 
-.tarif-card {
-    background: linear-gradient(135deg, rgba(255, 212, 184, 0.3), rgba(200, 230, 213, 0.3));
-    padding: 2rem;
-    border-radius: 20px;
-    border: 3px solid var(--peche);
-    text-align: center;
+        .tarif-card {
+            background: linear-gradient(135deg, rgba(255, 212, 184, 0.3), rgba(200, 230, 213, 0.3));
+            padding: 2rem;
+            border-radius: 20px;
+            border: 3px solid var(--peche);
+            text-align: center;
 
-    /* Nécessaire pour l’effet */
-    position: relative;
-    overflow: hidden;
+            position: relative;
+            overflow: hidden;
 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+            transition: transform 0.3s.ease, box-shadow 0.3s ease;
+        }
 
-/* --- Effet Glow Pastel au survol --- */
-.tarif-card-link:hover .tarif-card {
-    transform: scale(1.04);
-    box-shadow: 
-        0 0 18px rgba(255, 182, 217, 0.6),
-        0 0 30px rgba(200, 230, 213, 0.5);
-}
+        .tarif-card-link:hover .tarif-card {
+            transform: scale(1.04);
+            box-shadow:
+                0 0 18px rgba(255, 182, 217, 0.6),
+                0 0 30px rgba(200, 230, 213, 0.5);
+        }
 
-/* --- Glitter animé --- */
-.tarif-card::before {
-    content: "";
-    position: absolute;
-    inset: -50%;
-    background-image: radial-gradient(
-        rgba(255,255,255,0.6) 0%,
-        rgba(255,255,255,0.15) 40%,
-        transparent 70%
-    );
-    background-size: 250% 250%;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+        .tarif-card::before {
+            content: "";
+            position: absolute;
+            inset: -50%;
+            background-image: radial-gradient(
+                rgba(255,255,255,0.6) 0%,
+                rgba(255,255,255,0.15) 40%,
+                transparent 70%
+            );
+            background-size: 250% 250%;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            animation: glitterMove 4s linear infinite;
+            pointer-events: none;
+        }
 
-    /* Animation du glitter */
-    animation: glitterMove 4s linear infinite;
-    pointer-events: none;
-}
+        .tarif-card-link:hover .tarif-card::before {
+            opacity: 1;
+        }
 
-/* Visible au survol */
-.tarif-card-link:hover .tarif-card::before {
-    opacity: 1;
-}
-
-/* --- Animation glitter qui bouge doucement --- */
-@keyframes glitterMove {
-    0% { transform: translate(-20%, -20%) rotate(0deg); }
-    50% { transform: translate(20%, 20%) rotate(180deg); }
-    100% { transform: translate(-20%, -20%) rotate(360deg); }
-}
-
-@keyframes glitterMove {
-    0%   { background-position: 0% 0%; }
-    50%  { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
-}
+        @keyframes glitterMove {
+            0%   { background-position: 0% 0%; }
+            50%  { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
 
         .tarif-card h3 {
             color: var(--lavande);
@@ -626,7 +613,6 @@ border: none;
             margin-top: 0.5rem;
         }
 
-        /* Logo à la place du QR code */
         .contact-logo {
             display: flex;
             justify-content: center;
@@ -702,15 +688,16 @@ border: none;
             .contact-layout {
                 grid-template-columns: 1fr;
             }
-.hero-title-with-logo {
-        flex-direction: column;
-        align-items: flex-start; /* ou center si tu préfères centrer */
-    }
 
-    .hero-title-main {
-        font-size: 2.1rem; /* plus petit pour éviter qu'il dépasse */
-    }
-            /* A PROPOS : photo sous le texte sur mobile */
+            .hero-title-with-logo {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-title-main {
+                font-size: 2.1rem;
+            }
+
             .about-layout {
                 grid-template-columns: 1fr !important;
                 text-align: center;
@@ -751,7 +738,6 @@ border: none;
             transform: translateY(-5px);
         }
 
-        /* --- PHOTO RONDE À PROPOS (hauteur automatique matching texte) --- */
         .about-layout {
             display: grid;
             grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
@@ -767,28 +753,26 @@ border: none;
         }
 
         .about-portrait-inner {
-    aspect-ratio: 1 / 1;
-    height: 100%;
-    max-height: 350px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto;
+            aspect-ratio: 1 / 1;
+            height: 100%;
+            max-height: 350px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
 
-    /* même style que les ronds de la galerie */
-    border: none;
-padding: 4px;
-background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert-clair), var(--bleu-clair));
+            border: none;
+            padding: 4px;
+            background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert-clair), var(--bleu-clair));
 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
 
-
-       .about-portrait-inner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
+        .about-portrait-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
 
     </style>
 </head>
@@ -818,57 +802,76 @@ background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert
     </nav>
 </header>
 
-
 <section>
     <h2>Tarifs – Événements</h2>
 
     <p style="text-align:center; margin-bottom:2rem; color: var(--texte-clair);">
-        Des prestations adaptées aux événements professionnels, associatifs, familiaux ou festifs.
-        Découvrez les différentes formules possibles pour vos animations maquillage.
+        Prestations adaptées aux événements publics, professionnels et associatifs : mairies, CE, marchés, festivals, écoles, animations commerciales…
+        Stand décoré inclus systématiquement.
     </p>
 
     <div class="tarifs-grid">
 
-        <!-- FORMULE 1 -->
+        <!-- FORMULE 2H -->
         <div class="tarif-card">
-            <h3 class="cursive">Événement Demi-journée</h3>
-            <div class="price">XX €</div>
+            <h3 class="cursive">Formule Événement 2h</h3>
+            <div class="price">150 €</div>
             <ul>
                 <li>Maquillages enfants et adultes</li>
-                <li>Adapté aux kermesses, fêtes de quartier, marchés, écoles…</li>
-                <li>Matériel professionnel fourni</li>
-                <li>Durée : 3h</li>
+                <li>Stand décoré inclus</li>
+                <li>Environ 14 à 16 maquillages (7–8/h)</li>
+                <li>Idéal pour petites fêtes, kermesses, animations courtes</li>
             </ul>
         </div>
 
-        <!-- FORMULE 2 -->
+        <!-- FORMULE 4H -->
         <div class="tarif-card">
-            <h3 class="cursive">Événement Journée</h3>
-            <div class="price">XX €</div>
+            <h3 class="cursive">Formule Événement 4h</h3>
+            <div class="price">250 €</div>
             <ul>
-                <li>Présence sur toute la durée de l’événement</li>
-                <li>Idéal pour les entreprises, salons, festivals…</li>
-                <li>Grand volume de participants possible</li>
-                <li>Durée : 6–7h</li>
+                <li>Maquillages en continu enfants et adultes</li>
+                <li>Stand décoré inclus</li>
+                <li>Environ 28 à 32 maquillages (7–8/h)</li>
+                <li>Parfait pour fêtes de quartier, marchés, événements municipaux</li>
             </ul>
         </div>
 
-        <!-- FORMULE 3 -->
+        <!-- FORMULE JOURNÉE 8H -->
         <div class="tarif-card">
-            <h3 class="cursive">Événement Premium</h3>
-            <div class="price">Sur devis</div>
+            <h3 class="cursive">Formule Journée 8h</h3>
+            <div class="price">400 €</div>
             <ul>
-                <li>Animation sur-mesure selon vos besoins</li>
-                <li>Possibilité paillettes, tatouages temporaires, thème personnalisé</li>
-                <li>Idéal mariages, soirées privées, lancement de produit</li>
-                <li>Durée flexible</li>
+                <li>Présence sur la journée complète</li>
+                <li>Maquillages enfants et adultes en continu</li>
+                <li>Stand décoré inclus</li>
+                <li>Idéal pour grands événements, festivals, journées CE</li>
             </ul>
         </div>
 
     </div>
 
     <p style="margin-top:2rem; text-align:center; color: var(--texte-clair);">
-        Pour toute demande spécifique ou devis personnalisé, contactez-moi directement.
+        Option bar à paillettes &amp; tatouages éphémères : <strong>+30 €</strong>.
+    </p>
+
+    <p style="text-align:center; color: var(--texte-clair);">
+        Déplacement : <strong>1 € / km</strong> depuis le siège de l’entreprise.
+    </p>
+
+    <p style="text-align:center; color: var(--texte-clair); margin-top:1rem;">
+        Majoration des tarifs sur certaines dates spéciales :  
+        <strong>+20 %</strong> les 14 février, 14 juillet, 31 octobre, 24 décembre, 25 décembre, 31 décembre.  
+        <strong>+10 %</strong> à Pâques, Carnaval et Mardi gras.
+    </p>
+
+    <p style="text-align:center; color: var(--texte-clair); margin-top:1rem;">
+        Période hivernale (novembre à mars) : prestations assurées en intérieur uniquement.
+        En extérieur, uniquement si un moyen de chauffage est prévu et l’espace est abrité :
+        <strong>supplément extérieur hiver : +50 €</strong>.
+    </p>
+
+    <p style="margin-top:1.5rem; text-align:center; color: var(--texte-clair);">
+        Pour une demande spécifique ou un devis personnalisé, contactez-moi directement par téléphone, email ou Instagram.
     </p>
 
     <div style="text-align:center; margin-top:2.5rem;">
@@ -876,12 +879,10 @@ background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert
     </div>
 </section>
 
-
 <footer>
     <p>&copy; 2024 L'Atelier de Macete - Tous droits réservés</p>
     <p class="cursive" style="margin-top: 1rem;">Créativité, professionnalisme et magie au rendez-vous</p>
 </footer>
-
 
 <script>
     function toggleMenu() {
