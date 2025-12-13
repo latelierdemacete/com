@@ -370,8 +370,8 @@
             height: 200px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert-clair), var(--bleu-clair));
-padding: 4px;
-border: none;
+            padding: 4px;
+            border: none;
 
             display: flex;
             align-items: center;
@@ -406,83 +406,70 @@ border: none;
             border-radius: 50%;
         }
 
-/* TARIFS */
-.tarifs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
+        /* TARIFS */
+        .tarifs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
 
-/* Empêche texte bleu et souligné */
-.tarif-card-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
+        /* Empêche texte bleu et souligné */
+        .tarif-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
 
-.tarif-card-link:visited {
-    color: inherit;
-}
+        .tarif-card-link:visited {
+            color: inherit;
+        }
 
-.tarif-card {
-    background: linear-gradient(135deg, rgba(255, 212, 184, 0.3), rgba(200, 230, 213, 0.3));
-    padding: 2rem;
-    border-radius: 20px;
-    border: 3px solid var(--peche);
-    text-align: center;
+        .tarif-card {
+            background: linear-gradient(135deg, rgba(255, 212, 184, 0.3), rgba(200, 230, 213, 0.3));
+            padding: 2rem;
+            border-radius: 20px;
+            border: 3px solid var(--peche);
+            text-align: center;
 
-    /* Nécessaire pour l’effet */
-    position: relative;
-    overflow: hidden;
+            position: relative;
+            overflow: hidden;
 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-/* --- Effet Glow Pastel au survol --- */
-.tarif-card-link:hover .tarif-card {
-    transform: scale(1.04);
-    box-shadow: 
-        0 0 18px rgba(255, 182, 217, 0.6),
-        0 0 30px rgba(200, 230, 213, 0.5);
-}
+        .tarif-card-link:hover .tarif-card {
+            transform: scale(1.04);
+            box-shadow:
+                0 0 18px rgba(255, 182, 217, 0.6),
+                0 0 30px rgba(200, 230, 213, 0.5);
+        }
 
-/* --- Glitter animé --- */
-.tarif-card::before {
-    content: "";
-    position: absolute;
-    inset: -50%;
-    background-image: radial-gradient(
-        rgba(255,255,255,0.6) 0%,
-        rgba(255,255,255,0.15) 40%,
-        transparent 70%
-    );
-    background-size: 250% 250%;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+        .tarif-card::before {
+            content: "";
+            position: absolute;
+            inset: -50%;
+            background-image: radial-gradient(
+                rgba(255,255,255,0.6) 0%,
+                rgba(255,255,255,0.15) 40%,
+                transparent 70%
+            );
+            background-size: 250% 250%;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            animation: glitterMove 4s linear infinite;
+            pointer-events: none;
+        }
 
-    /* Animation du glitter */
-    animation: glitterMove 4s linear infinite;
-    pointer-events: none;
-}
+        .tarif-card-link:hover .tarif-card::before {
+            opacity: 1;
+        }
 
-/* Visible au survol */
-.tarif-card-link:hover .tarif-card::before {
-    opacity: 1;
-}
-
-/* --- Animation glitter qui bouge doucement --- */
-@keyframes glitterMove {
-    0% { transform: translate(-20%, -20%) rotate(0deg); }
-    50% { transform: translate(20%, 20%) rotate(180deg); }
-    100% { transform: translate(-20%, -20%) rotate(360deg); }
-}
-
-@keyframes glitterMove {
-    0%   { background-position: 0% 0%; }
-    50%  { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
-}
+        @keyframes glitterMove {
+            0%   { background-position: 0% 0%; }
+            50%  { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
 
         .tarif-card h3 {
             color: var(--lavande);
@@ -704,15 +691,16 @@ border: none;
             .contact-layout {
                 grid-template-columns: 1fr;
             }
-.hero-title-with-logo {
-        flex-direction: column;
-        align-items: flex-start; /* ou center si tu préfères centrer */
-    }
 
-    .hero-title-main {
-        font-size: 2.1rem; /* plus petit pour éviter qu'il dépasse */
-    }
-            /* A PROPOS : photo sous le texte sur mobile */
+            .hero-title-with-logo {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-title-main {
+                font-size: 2.1rem;
+            }
+
             .about-layout {
                 grid-template-columns: 1fr !important;
                 text-align: center;
@@ -769,28 +757,26 @@ border: none;
         }
 
         .about-portrait-inner {
-    aspect-ratio: 1 / 1;
-    height: 100%;
-    max-height: 350px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto;
+            aspect-ratio: 1 / 1;
+            height: 100%;
+            max-height: 350px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
 
-    /* même style que les ronds de la galerie */
-    border: none;
-padding: 4px;
-background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert-clair), var(--bleu-clair));
+            border: none;
+            padding: 4px;
+            background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert-clair), var(--bleu-clair));
 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
 
-
-       .about-portrait-inner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
+        .about-portrait-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
 
     </style>
 </head>
@@ -823,37 +809,45 @@ background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert
     <h2>Tarifs – Anniversaires</h2>
 
     <p style="text-align:center; margin-bottom:2rem; color: var(--texte-clair);">
-        Exemple de présentation détaillée pour les prestations anniversaire.
-        Adapte les textes et montants selon tes besoins.
+        Une formule claire et modulable pour offrir un anniversaire créatif, festif et sans stress.
     </p>
 
     <div class="tarifs-grid">
         <div class="tarif-card">
-            <h3 class="cursive">Formule Anniversaire 2h</h3>
-            <div class="price">XX €</div>
+            <h3 class="cursive">Pack Anniversaire – 10 enfants</h3>
+            <div class="price">130 €</div>
             <ul>
-                <li>Maquillage artistique pour X enfants</li>
-                <li>Thèmes au choix (princesses, super-héros, animaux...)</li>
-                <li>Tout le matériel de maquillage fourni</li>
-                <li>Déplacement dans la zone définie</li>
+                <li>Maquillage artistique pour jusqu'à 10 enfants</li>
+                <li>Durée moyenne : 1h30 à 2h</li>
+                <li>Modèles au choix, adaptables au thème de la fête</li>
+                <li>Matériel professionnel et hygiène soignée</li>
+                <li>Table à fournir par vos soins</li>
+                <li>Enfant supplémentaire : 12 € / enfant</li>
             </ul>
         </div>
 
         <div class="tarif-card">
-            <h3 class="cursive">Formule Anniversaire 3h</h3>
-            <div class="price">XX €</div>
+            <h3 class="cursive">Option Stand &amp; Décoration</h3>
+            <div class="price">+ 50 €</div>
             <ul>
-                <li>Maquillage artistique pour un groupe plus important</li>
-                <li>Adapté aux grands événements anniversaire</li>
-                <li>Matériel professionnel et hygiène irréprochable</li>
-                <li>Possibilité de personnaliser la formule</li>
+                <li>Installation d'un stand dédié au maquillage</li>
+                <li>Décoration douce et festive de l'espace</li>
+                <li>Mise en place et rangement inclus</li>
+                <li>Idéal pour un effet « wahou » à l'arrivée des invités</li>
             </ul>
         </div>
     </div>
 
     <p style="margin-top:2rem; text-align:center; color: var(--texte-clair);">
-        Pour un devis personnalisé (nombre d’enfants, lieu, durée, thème),
-        contactez-moi directement par téléphone, email ou Instagram.
+        Déplacement : offert dans un rayon de 15&nbsp;km autour du siège de l'entreprise, puis 1&nbsp;€/km au-delà.
+    </p>
+
+    <p style="text-align:center; color: var(--texte-clair);">
+        Majoration possible sur certaines dates spéciales : Saint-Valentin, 14&nbsp;juillet, Halloween, 24–25&nbsp;décembre, 31&nbsp;décembre.
+    </p>
+
+    <p style="margin-top:1.5rem; text-align:center; color: var(--texte-clair);">
+        Pour réserver ou obtenir un devis personnalisé (nombre d’enfants, lieu, thème), contactez-moi directement par téléphone, email ou Instagram.
     </p>
 
     <div style="text-align:center; margin-top:2.5rem;">
