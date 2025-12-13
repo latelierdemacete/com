@@ -403,6 +403,75 @@ border: none;
             object-fit: cover;
             border-radius: 50%;
         }
+/* --- Aperçu Galerie en tourbillon cliquable --- */
+.gallery-preview-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+.gallery-preview {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    margin: 0 auto;
+    background: radial-gradient(
+        circle at 20% 20%,
+        rgba(255, 255, 255, 0.95),
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.25)
+    );
+    box-shadow: 0 12px 28px rgba(177, 120, 151, 0.25);
+    overflow: visible;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-preview:hover {
+    transform: scale(1.03) rotate(2deg);
+    box-shadow: 0 16px 40px rgba(177, 120, 151, 0.35);
+}
+
+.gallery-preview-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--lavande);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    transform-origin: center;
+}
+
+/* images dans les miniatures du tourbillon */
+.gallery-preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Positions pour créer un effet tourbillon */
+.gallery-preview-item:nth-child(1) {
+    transform: translate(-50%, -50%) translate(0, -140px);
+}
+.gallery-preview-item:nth-child(2) {
+    transform: translate(-50%, -50%) translate(115px, -60px);
+}
+.gallery-preview-item:nth-child(3) {
+    transform: translate(-50%, -50%) translate(85px, 80px);
+}
+.gallery-preview-item:nth-child(4) {
+    transform: translate(-50%, -50%) translate(-60px, 120px);
+}
+.gallery-preview-item:nth-child(5) {
+    transform: translate(-50%, -50%) translate(-140px, 15px);
+}
+.gallery-preview-item:nth-child(6) {
+    transform: translate(-50%, -50%) translate(-35px, -85px);
+}
 
 /* TARIFS */
 .tarifs-grid {
