@@ -403,137 +403,124 @@ border: none;
             object-fit: cover;
             border-radius: 50%;
         }
-/* --- GALERIE : bouton rond "Voir la galerie" avec mini-vignettes --- */
-.gallery-preview-link {
-    text-decoration: none;
-    color: inherit;
+/* ===== GALERIE — Carrousel circulaire 6 photos (CSS only) ===== */
+
+.gallery-orbit-link{
+  display:block;
+  text-decoration:none;
+  color:inherit;
 }
 
-.gallery-bubble-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
+.gallery-orbit{
+  position:relative;
+  width:min(560px, 92vw);
+  height:min(560px, 92vw);
+  margin: 2.5rem auto 1rem;
 }
 
-.gallery-bubble {
-    position: relative;
-    width: min(320px, 80vw);
-    height: min(320px, 80vw);
-    border-radius: 50%;
-    padding: 6px;
-    background: linear-gradient(135deg,
-        var(--rose-pastel),
-        var(--peche),
-        var(--vert-clair),
-        var(--bleu-clair)
-    );
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+.orbit-ring{
+  position:absolute;
+  inset:0;
+  animation: orbitSpin 22s linear infinite;
 }
 
-.gallery-bubble-inner {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.96);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 1.6rem;
-    position: relative;
-    overflow: hidden;
+/* vignette commune */
+.orbit-item{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  padding:5px;
+
+  background: linear-gradient(
+    135deg,
+    var(--rose-pastel),
+    var(--peche),
+    var(--vert-clair),
+    var(--bleu-clair)
+  );
+
+  box-shadow: 0 10px 26px rgba(0,0,0,0.18);
+  animation: orbitCounter 22s linear infinite;
 }
 
-.gallery-bubble-overtitle {
-    font-size: 0.85rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--texte-clair);
-    margin-bottom: 0.4rem;
+.orbit-item span{
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  overflow:hidden;
+  background:#fff;
 }
 
-.gallery-bubble-title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--lavande);
-    margin-bottom: 0.5rem;
+.orbit-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.gallery-bubble-text {
-    font-size: 0.95rem;
-    color: var(--texte-fonce);
-    max-width: 15rem;
+/* positions parfaitement circulaires (60°) */
+.orbit-1{ transform: translate(-50%,-50%) rotate(0deg)   translateY(-210px); }
+.orbit-2{ transform: translate(-50%,-50%) rotate(60deg)  translateY(-210px); }
+.orbit-3{ transform: translate(-50%,-50%) rotate(120deg) translateY(-210px); }
+.orbit-4{ transform: translate(-50%,-50%) rotate(180deg) translateY(-210px); }
+.orbit-5{ transform: translate(-50%,-50%) rotate(240deg) translateY(-210px); }
+.orbit-6{ transform: translate(-50%,-50%) rotate(300deg) translateY(-210px); }
+
+/* CTA */
+.gallery-orbit-cta{
+  text-align:center;
+  margin-top:1rem;
+  font-weight:700;
 }
 
-/* mini-vignettes autour du cercle */
-.gallery-bubble-thumb {
-    position: absolute;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid #fff;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+.gallery-orbit-cta span{
+  display:inline-block;
+  padding:0.6rem 1.1rem;
+  border-radius:999px;
+  background: rgba(255,255,255,0.75);
+  border:1px solid rgba(255,182,217,0.6);
+  box-shadow:0 10px 22px rgba(174,105,139,0.22);
 }
 
-/* tailles décroissantes mais lisibles */
-.gallery-thumb-lg {
-    width: 78px;
-    height: 78px;
+/* animations */
+@keyframes orbitSpin{
+  from{ transform: rotate(0deg); }
+  to{ transform: rotate(360deg); }
 }
 
-.gallery-thumb-md {
-    width: 62px;
-    height: 62px;
+@keyframes orbitCounter{
+  from{ transform: rotate(0deg); }
+  to{ transform: rotate(-360deg); }
 }
 
-.gallery-thumb-sm {
-    width: 50px;
-    height: 50px;
+/* responsive */
+@media (max-width: 768px){
+  .gallery-orbit{
+    width:min(420px, 92vw);
+    height:min(420px, 92vw);
+  }
+
+  .orbit-item{
+    width:130px;
+    height:130px;
+  }
+
+  .orbit-1{ transform: translate(-50%,-50%) rotate(0deg)   translateY(-155px); }
+  .orbit-2{ transform: translate(-50%,-50%) rotate(60deg)  translateY(-155px); }
+  .orbit-3{ transform: translate(-50%,-50%) rotate(120deg) translateY(-155px); }
+  .orbit-4{ transform: translate(-50%,-50%) rotate(180deg) translateY(-155px); }
+  .orbit-5{ transform: translate(-50%,-50%) rotate(240deg) translateY(-155px); }
+  .orbit-6{ transform: translate(-50%,-50%) rotate(300deg) translateY(-155px); }
 }
 
-/* positions autour du rond */
-.gallery-thumb-top {
-    top: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.gallery-thumb-right {
-    top: 50%;
-    right: -4px;
-    transform: translateY(-50%);
-}
-
-.gallery-thumb-bottom {
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.gallery-thumb-left {
-    top: 50%;
-    left: -4px;
-    transform: translateY(-50%);
-}
-
-.gallery-bubble-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* hover */
-.gallery-preview-link:hover .gallery-bubble {
-    transform: scale(1.03);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
-}
-
-@media (max-width: 768px) {
-    .gallery-bubble {
-        width: min(280px, 90vw);
-        height: min(280px, 90vw);
-    }
+@media (prefers-reduced-motion: reduce){
+  .orbit-ring,
+  .orbit-item{
+    animation:none !important;
+  }
 }
 
 
@@ -1066,33 +1053,41 @@ background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert
         Découvrez quelques-unes de mes créations – cliquez pour voir toute la galerie.
     </p>
 
-      <a href="galerie.html" class="gallery-preview-link">
-        <div class="gallery-bubble-wrapper">
-            <div class="gallery-bubble">
-                <div class="gallery-bubble-inner">
-                    <p class="gallery-bubble-overtitle">Découvrir les réalisations</p>
-                    <p class="gallery-bubble-title">Voir la galerie photos</p>
-                    <p class="gallery-bubble-text">
-                        Parcourez les maquillages enfants, adultes, bar à paillettes et tatouages éphémères.
-                    </p>
-                </div>
+      <a class="gallery-orbit-link" href="galerie.html" aria-label="Ouvrir la galerie complète">
+  <div class="gallery-orbit">
+    <div class="orbit-ring">
 
-                <!-- 4 mini-vignettes autour du bouton -->
-                <div class="gallery-bubble-thumb gallery-thumb-lg gallery-thumb-top">
-                    <img src="images/galerie-1.jpg" alt="Maquillage artistique 1">
-                </div>
-                <div class="gallery-bubble-thumb gallery-thumb-md gallery-thumb-right">
-                    <img src="images/galerie-2.jpg" alt="Maquillage artistique 2">
-                </div>
-                <div class="gallery-bubble-thumb gallery-thumb-sm gallery-thumb-bottom">
-                    <img src="images/galerie-3.jpg" alt="Maquillage artistique 3">
-                </div>
-                <div class="gallery-bubble-thumb gallery-thumb-md gallery-thumb-left">
-                    <img src="images/galerie-4.jpg" alt="Maquillage artistique 4">
-                </div>
-            </div>
-        </div>
-    </a>
+      <div class="orbit-item orbit-1">
+        <span><img src="images/galerie-1.jpg" alt="Maquillage artistique"></span>
+      </div>
+
+      <div class="orbit-item orbit-2">
+        <span><img src="images/galerie-2.jpg" alt="Maquillage artistique"></span>
+      </div>
+
+      <div class="orbit-item orbit-3">
+        <span><img src="images/galerie-3.jpg" alt="Maquillage artistique"></span>
+      </div>
+
+      <div class="orbit-item orbit-4">
+        <span><img src="images/galerie-4.jpg" alt="Maquillage artistique"></span>
+      </div>
+
+      <div class="orbit-item orbit-5">
+        <span><img src="images/galerie-5.jpg" alt="Maquillage artistique"></span>
+      </div>
+
+      <div class="orbit-item orbit-6">
+        <span><img src="images/galerie-6.jpg" alt="Maquillage artistique"></span>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="gallery-orbit-cta">
+    <span>Parcourez les maquillages enfants, adultes, bar à paillettes et tatouages éphémères.</span>
+  </div>
+</a>
 </section>
 
 <!-- TARIFS -->
