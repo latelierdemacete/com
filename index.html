@@ -443,8 +443,19 @@ border: none;
   );
 
   box-shadow: 0 10px 26px rgba(0,0,0,0.18);
-  animation: orbitCounter 22s linear infinite;
+  /* IMPORTANT : plus d'animation ici */
 }
+/* l’image reste “droite” pendant que l’anneau tourne */
+.orbit-item span{
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  overflow:hidden;
+  background:#fff;
+  animation: orbitCounter 22s linear infinite; /* on anime le contenu, pas le conteneur */
+}
+
 
 .orbit-item span{
   display:block;
