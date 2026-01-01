@@ -446,15 +446,7 @@ border: none;
   /* IMPORTANT : plus d'animation ici */
 }
 /* l’image reste “droite” pendant que l’anneau tourne */
-.orbit-item span{
-  display:block;
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  overflow:hidden;
-  background:#fff;
-  animation: orbitCounter 22s linear infinite; /* on anime le contenu, pas le conteneur */
-}
+
 
 
 .orbit-item span{
@@ -502,10 +494,7 @@ border: none;
   to{ transform: rotate(360deg); }
 }
 
-@keyframes orbitCounter{
-  from{ transform: rotate(0deg); }
-  to{ transform: rotate(-360deg); }
-}
+
 
 /* responsive */
 @media (max-width: 768px){
