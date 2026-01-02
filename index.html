@@ -465,6 +465,15 @@ border: none;
   overflow:hidden;
   background:#fff;
 }
+/* Contre-rotation pour que les images restent droites */
+.orbit-item span{
+  animation: orbitCounterSpin 22s linear infinite;
+}
+
+@keyframes orbitCounterSpin{
+  from{ transform: rotate(0deg); }
+  to{ transform: rotate(-360deg); }
+}
 
 .orbit-item img{
   width:100%;
