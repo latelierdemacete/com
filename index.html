@@ -425,10 +425,8 @@ border: none;
 .orbit-ring{
   position:absolute;
   inset:0;
-
-  /* rotation + effet avance/recul */
   transform-style: preserve-3d;
-  animation: orbitSpin 22s linear infinite, orbitDepth 4.6s ease-in-out infinite;
+  animation: orbitSpin 22s linear infinite;
 }
 
 /* vignette commune */
@@ -451,6 +449,26 @@ border: none;
 
   box-shadow: 0 10px 26px rgba(0,0,0,0.18);
   transform-style: preserve-3d;
+}
+/* vraie orbite : chaque vignette "passe devant / derrière" */
+.orbit-item{
+  will-change: transform, filter;
+  animation: orbitFloat 4.6s ease-in-out infinite;
+}
+
+/* décalage de phase pour étaler l'orbite */
+.orbit-1{ animation-delay: 0s; }
+.orbit-2{ animation-delay: -0.77s; }
+.orbit-3{ animation-delay: -1.53s; }
+.orbit-4{ animation-delay: -2.30s; }
+.orbit-5{ animation-delay: -3.07s; }
+.orbit-6{ animation-delay: -3.84s; }
+
+/* orbite : devant = plus grand + plus net / derrière = plus petit + plus flou */
+@keyframes orbitFloat{
+  0%   { transform: var(--pos) translateZ(-120px) scale(0.88); filter: blur(1.2px); opacity: 0.85; }
+  50%  { transform: var(--pos) translateZ(120px)  scale(1.08); filter: blur(0px);  opacity: 1; }
+  100% { transform: var(--pos) translateZ(-120px) scale(0.88); filter: blur(1.2px); opacity: 0.85; }
 }
 
 /* intérieur rond */
