@@ -416,12 +416,19 @@ border: none;
   width:min(560px, 92vw);
   height:min(560px, 92vw);
   margin: 2.5rem auto 1rem;
+
+  /* profondeur */
+  perspective: 900px;
+  perspective-origin: 50% 50%;
 }
 
 .orbit-ring{
   position:absolute;
   inset:0;
-  animation: orbitSpin 22s linear infinite;
+
+  /* rotation + effet avance/recul */
+  transform-style: preserve-3d;
+  animation: orbitSpin 22s linear infinite, orbitDepth 4.6s ease-in-out infinite;
 }
 
 /* vignette commune */
@@ -443,12 +450,10 @@ border: none;
   );
 
   box-shadow: 0 10px 26px rgba(0,0,0,0.18);
-  /* IMPORTANT : plus d'animation ici */
+  transform-style: preserve-3d;
 }
-/* l’image reste “droite” pendant que l’anneau tourne */
 
-
-
+/* intérieur rond */
 .orbit-item span{
   display:block;
   width:100%;
@@ -464,13 +469,14 @@ border: none;
   object-fit:cover;
 }
 
-/* positions parfaitement circulaires (60°) */
-.orbit-1{ transform: translate(-50%,-50%) rotate(0deg)   translateY(-210px); }
-.orbit-2{ transform: translate(-50%,-50%) rotate(60deg)  translateY(-210px); }
-.orbit-3{ transform: translate(-50%,-50%) rotate(120deg) translateY(-210px); }
-.orbit-4{ transform: translate(-50%,-50%) rotate(180deg) translateY(-210px); }
-.orbit-5{ transform: translate(-50%,-50%) rotate(240deg) translateY(-210px); }
-.orbit-6{ transform: translate(-50%,-50%) rotate(300deg) translateY(-210px); }
+/* --- Positions en cercle + contre-rotation pour rester DROIT --- */
+/* Note: -210px = rayon. Ajuste si tu veux plus grand/petit cercle. */
+.orbit-1{ transform: translate(-50%,-50%) rotate(0deg)   translateY(-210px) rotate(0deg); }
+.orbit-2{ transform: translate(-50%,-50%) rotate(60deg)  translateY(-210px) rotate(-60deg); }
+.orbit-3{ transform: translate(-50%,-50%) rotate(120deg) translateY(-210px) rotate(-120deg); }
+.orbit-4{ transform: translate(-50%,-50%) rotate(180deg) translateY(-210px) rotate(-180deg); }
+.orbit-5{ transform: translate(-50%,-50%) rotate(240deg) translateY(-210px) rotate(-240deg); }
+.orbit-6{ transform: translate(-50%,-50%) rotate(300deg) translateY(-210px) rotate(-300deg); }
 
 /* CTA */
 .gallery-orbit-cta{
@@ -494,7 +500,12 @@ border: none;
   to{ transform: rotate(360deg); }
 }
 
-
+/* effet "avance puis recule" */
+@keyframes orbitDepth{
+  0%   { transform: translateZ(0px); }
+  50%  { transform: translateZ(90px); }
+  100% { transform: translateZ(0px); }
+}
 
 /* responsive */
 @media (max-width: 768px){
@@ -508,19 +519,17 @@ border: none;
     height:130px;
   }
 
-  .orbit-1{ transform: translate(-50%,-50%) rotate(0deg)   translateY(-155px); }
-  .orbit-2{ transform: translate(-50%,-50%) rotate(60deg)  translateY(-155px); }
-  .orbit-3{ transform: translate(-50%,-50%) rotate(120deg) translateY(-155px); }
-  .orbit-4{ transform: translate(-50%,-50%) rotate(180deg) translateY(-155px); }
-  .orbit-5{ transform: translate(-50%,-50%) rotate(240deg) translateY(-155px); }
-  .orbit-6{ transform: translate(-50%,-50%) rotate(300deg) translateY(-155px); }
+  /* rayon plus petit */
+  .orbit-1{ transform: translate(-50%,-50%) rotate(0deg)   translateY(-155px) rotate(0deg); }
+  .orbit-2{ transform: translate(-50%,-50%) rotate(60deg)  translateY(-155px) rotate(-60deg); }
+  .orbit-3{ transform: translate(-50%,-50%) rotate(120deg) translateY(-155px) rotate(-120deg); }
+  .orbit-4{ transform: translate(-50%,-50%) rotate(180deg) translateY(-155px) rotate(-180deg); }
+  .orbit-5{ transform: translate(-50%,-50%) rotate(240deg) translateY(-155px) rotate(-240deg); }
+  .orbit-6{ transform: translate(-50%,-50%) rotate(300deg) translateY(-155px) rotate(-300deg); }
 }
 
 @media (prefers-reduced-motion: reduce){
-  .orbit-ring,
-  .orbit-item{
-    animation:none !important;
-  }
+  .orbit-ring{ animation:none !important; }
 }
 
 
