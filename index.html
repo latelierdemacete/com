@@ -403,7 +403,7 @@ border: none;
             object-fit: cover;
             border-radius: 50%;
         }
-/* ===== GALERIE — Carrousel circulaire 6 photos (CSS only) ===== */
+/* ===== GALERIE — Orbite 3D 6 photos (CSS only) ===== */
 
 .gallery-orbit-link{
   display:block;
@@ -417,30 +417,31 @@ border: none;
   height:min(560px, 92vw);
   margin: 2.5rem auto 1rem;
 
-  /* profondeur */
+  /* IMPORTANT : donne l'effet 3D */
   perspective: 900px;
-  perspective-origin: 50% 50%;
 }
 
 .orbit-ring{
   position:absolute;
   inset:0;
   transform-style: preserve-3d;
+
+  /* rotation de l'orbite */
   animation: orbitSpin 22s linear infinite;
 }
 
-/* vignette commune */
+/* vignette */
 .orbit-item{
   position:absolute;
   top:50%;
   left:50%;
+
   width:160px;
   height:160px;
   border-radius:50%;
   padding:5px;
 
-  background: linear-gradient(
-    135deg,
+  background: linear-gradient(135deg,
     var(--rose-pastel),
     var(--peche),
     var(--vert-clair),
@@ -448,30 +449,14 @@ border: none;
   );
 
   box-shadow: 0 10px 26px rgba(0,0,0,0.18);
+
   transform-style: preserve-3d;
-}
-/* vraie orbite : chaque vignette "passe devant / derrière" */
-.orbit-item{
-  will-change: transform, filter;
-  animation: orbitFloat 4.6s ease-in-out infinite;
-}
+  will-change: transform, filter, opacity;
 
-/* décalage de phase pour étaler l'orbite */
-.orbit-1{ animation-delay: 0s; }
-.orbit-2{ animation-delay: -0.77s; }
-.orbit-3{ animation-delay: -1.53s; }
-.orbit-4{ animation-delay: -2.30s; }
-.orbit-5{ animation-delay: -3.07s; }
-.orbit-6{ animation-delay: -3.84s; }
-
-/* orbite : devant = plus grand + plus net / derrière = plus petit + plus flou */
-@keyframes orbitFloat{
-  0%   { transform: var(--pos) translateZ(-120px) scale(0.88); filter: blur(1.2px); opacity: 0.85; }
-  50%  { transform: var(--pos) translateZ(120px)  scale(1.08); filter: blur(0px);  opacity: 1; }
-  100% { transform: var(--pos) translateZ(-120px) scale(0.88); filter: blur(1.2px); opacity: 0.85; }
+  /* mouvement 3D individuel (avance/recule) */
+  animation: orbitFloat 4.8s ease-in-out infinite;
 }
 
-/* intérieur rond */
 .orbit-item span{
   display:block;
   width:100%;
@@ -485,16 +470,41 @@ border: none;
   width:100%;
   height:100%;
   object-fit:cover;
+  display:block;
 }
 
-/* --- Positions en cercle + contre-rotation pour rester DROIT --- */
-/* Note: -210px = rayon. Ajuste si tu veux plus grand/petit cercle. */
-.orbit-1{ transform: translate(-50%,-50%) rotate(0deg)   translateY(-210px) rotate(0deg); }
-.orbit-2{ transform: translate(-50%,-50%) rotate(60deg)  translateY(-210px) rotate(-60deg); }
-.orbit-3{ transform: translate(-50%,-50%) rotate(120deg) translateY(-210px) rotate(-120deg); }
-.orbit-4{ transform: translate(-50%,-50%) rotate(180deg) translateY(-210px) rotate(-180deg); }
-.orbit-5{ transform: translate(-50%,-50%) rotate(240deg) translateY(-210px) rotate(-240deg); }
-.orbit-6{ transform: translate(-50%,-50%) rotate(300deg) translateY(-210px) rotate(-300deg); }
+/* Positions + delays (IMPORTANT : une seule définition par orbit-X) */
+/* Le rotate(-angle) à la fin garde les images DROITES (pas de rotation sur elles-mêmes) */
+.orbit-1{ --pos: translate(-50%,-50%) rotate(0deg)   translateY(-210px) rotate(0deg);    animation-delay: 0s; }
+.orbit-2{ --pos: translate(-50%,-50%) rotate(60deg)  translateY(-210px) rotate(-60deg);  animation-delay: -0.8s; }
+.orbit-3{ --pos: translate(-50%,-50%) rotate(120deg) translateY(-210px) rotate(-120deg); animation-delay: -1.6s; }
+.orbit-4{ --pos: translate(-50%,-50%) rotate(180deg) translateY(-210px) rotate(-180deg); animation-delay: -2.4s; }
+.orbit-5{ --pos: translate(-50%,-50%) rotate(240deg) translateY(-210px) rotate(-240deg); animation-delay: -3.2s; }
+.orbit-6{ --pos: translate(-50%,-50%) rotate(300deg) translateY(-210px) rotate(-300deg); animation-delay: -4.0s; }
+
+/* Vraie orbite 3D : derrière = plus petit + flou, devant = plus grand + net */
+@keyframes orbitFloat{
+  0%{
+    transform: var(--pos) translateZ(-220px) scale(0.78);
+    filter: blur(1.4px);
+    opacity: 0.82;
+  }
+  50%{
+    transform: var(--pos) translateZ(220px) scale(1.14);
+    filter: blur(0px);
+    opacity: 1;
+  }
+  100%{
+    transform: var(--pos) translateZ(-220px) scale(0.78);
+    filter: blur(1.4px);
+    opacity: 0.82;
+  }
+}
+
+@keyframes orbitSpin{
+  from{ transform: rotate(0deg); }
+  to{ transform: rotate(360deg); }
+}
 
 /* CTA */
 .gallery-orbit-cta{
@@ -502,7 +512,6 @@ border: none;
   margin-top:1rem;
   font-weight:700;
 }
-
 .gallery-orbit-cta span{
   display:inline-block;
   padding:0.6rem 1.1rem;
@@ -512,24 +521,12 @@ border: none;
   box-shadow:0 10px 22px rgba(174,105,139,0.22);
 }
 
-/* animations */
-@keyframes orbitSpin{
-  from{ transform: rotate(0deg); }
-  to{ transform: rotate(360deg); }
-}
-
-/* effet "avance puis recule" */
-@keyframes orbitDepth{
-  0%   { transform: translateZ(0px); }
-  50%  { transform: translateZ(90px); }
-  100% { transform: translateZ(0px); }
-}
-
 /* responsive */
 @media (max-width: 768px){
   .gallery-orbit{
     width:min(420px, 92vw);
     height:min(420px, 92vw);
+    perspective: 750px;
   }
 
   .orbit-item{
@@ -537,17 +534,16 @@ border: none;
     height:130px;
   }
 
-  /* rayon plus petit */
-  .orbit-1{ transform: translate(-50%,-50%) rotate(0deg)   translateY(-155px) rotate(0deg); }
-  .orbit-2{ transform: translate(-50%,-50%) rotate(60deg)  translateY(-155px) rotate(-60deg); }
-  .orbit-3{ transform: translate(-50%,-50%) rotate(120deg) translateY(-155px) rotate(-120deg); }
-  .orbit-4{ transform: translate(-50%,-50%) rotate(180deg) translateY(-155px) rotate(-180deg); }
-  .orbit-5{ transform: translate(-50%,-50%) rotate(240deg) translateY(-155px) rotate(-240deg); }
-  .orbit-6{ transform: translate(-50%,-50%) rotate(300deg) translateY(-155px) rotate(-300deg); }
+  .orbit-1{ --pos: translate(-50%,-50%) rotate(0deg)   translateY(-155px) rotate(0deg);    }
+  .orbit-2{ --pos: translate(-50%,-50%) rotate(60deg)  translateY(-155px) rotate(-60deg);  }
+  .orbit-3{ --pos: translate(-50%,-50%) rotate(120deg) translateY(-155px) rotate(-120deg); }
+  .orbit-4{ --pos: translate(-50%,-50%) rotate(180deg) translateY(-155px) rotate(-180deg); }
+  .orbit-5{ --pos: translate(-50%,-50%) rotate(240deg) translateY(-155px) rotate(-240deg); }
+  .orbit-6{ --pos: translate(-50%,-50%) rotate(300deg) translateY(-155px) rotate(-300deg); }
 }
 
 @media (prefers-reduced-motion: reduce){
-  .orbit-ring{ animation:none !important; }
+  .orbit-ring, .orbit-item{ animation:none !important; }
 }
 
 
