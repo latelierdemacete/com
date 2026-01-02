@@ -403,7 +403,7 @@ border: none;
             object-fit: cover;
             border-radius: 50%;
         }
-/* ===== GALERIE — Orbite 3D 6 photos (CSS only) ===== */
+/* ===== GALERIE — Orbite elliptique 3D (6 photos) ===== */
 
 .gallery-orbit-link{
   display:block;
@@ -414,10 +414,8 @@ border: none;
 .gallery-orbit{
   position:relative;
   width:min(560px, 92vw);
-  height:min(560px, 92vw);
-  margin: 2.5rem auto 1rem;
-
-  /* IMPORTANT : donne l'effet 3D */
+  height:min(420px, 70vw);
+  margin: 2.2rem auto 1rem;
   perspective: 900px;
 }
 
@@ -425,9 +423,6 @@ border: none;
   position:absolute;
   inset:0;
   transform-style: preserve-3d;
-
-  /* rotation de l'orbite */
-  animation: orbitSpin 22s linear infinite;
 }
 
 /* vignette */
@@ -435,7 +430,6 @@ border: none;
   position:absolute;
   top:50%;
   left:50%;
-
   width:160px;
   height:160px;
   border-radius:50%;
@@ -449,12 +443,8 @@ border: none;
   );
 
   box-shadow: 0 10px 26px rgba(0,0,0,0.18);
-
   transform-style: preserve-3d;
-  will-change: transform, filter, opacity;
-
-  /* mouvement 3D individuel (avance/recule) */
-  animation: orbitFloat 4.8s ease-in-out infinite;
+  will-change: transform;
 }
 
 .orbit-item span{
@@ -465,54 +455,13 @@ border: none;
   overflow:hidden;
   background:#fff;
 }
-/* Contre-rotation pour que les images restent droites */
-.orbit-item span{
-  animation: orbitCounterSpin 22s linear infinite;
-}
-
-@keyframes orbitCounterSpin{
-  from{ transform: rotate(0deg); }
-  to{ transform: rotate(-360deg); }
-}
 
 .orbit-item img{
   width:100%;
   height:100%;
   object-fit:cover;
   display:block;
-}
-
-/* Positions + delays (IMPORTANT : une seule définition par orbit-X) */
-/* Le rotate(-angle) à la fin garde les images DROITES (pas de rotation sur elles-mêmes) */
-.orbit-1{ --pos: translate(-50%,-50%) rotate(0deg)   translateY(-165px) rotate(0deg);    animation-delay: 0s; }
-.orbit-2{ --pos: translate(-50%,-50%) rotate(60deg)  translateY(-165px) rotate(-60deg);  animation-delay: -0.8s; }
-.orbit-3{ --pos: translate(-50%,-50%) rotate(120deg) translateY(-165px) rotate(-120deg); animation-delay: -1.6s; }
-.orbit-4{ --pos: translate(-50%,-50%) rotate(180deg) translateY(-165px) rotate(-180deg); animation-delay: -2.4s; }
-.orbit-5{ --pos: translate(-50%,-50%) rotate(240deg) translateY(-165px) rotate(-240deg); animation-delay: -3.2s; }
-.orbit-6{ --pos: translate(-50%,-50%) rotate(300deg) translateY(-165px) rotate(-300deg); animation-delay: -4.0s; }
-
-/* Vraie orbite 3D : derrière = plus petit + flou, devant = plus grand + net */
-@keyframes orbitFloat{
-  0%{
-    transform: var(--pos) translateZ(-220px) scale(0.78);
-    filter: blur(1.4px);
-    opacity: 0.82;
-  }
-  50%{
-    transform: var(--pos) translateZ(220px) scale(1.14);
-    filter: blur(0px);
-    opacity: 1;
-  }
-  100%{
-    transform: var(--pos) translateZ(-220px) scale(0.78);
-    filter: blur(1.4px);
-    opacity: 0.82;
-  }
-}
-
-@keyframes orbitSpin{
-  from{ transform: rotate(0deg); }
-  to{ transform: rotate(360deg); }
+  transform: translateZ(0);
 }
 
 /* CTA */
@@ -521,6 +470,7 @@ border: none;
   margin-top:1rem;
   font-weight:700;
 }
+
 .gallery-orbit-cta span{
   display:inline-block;
   padding:0.6rem 1.1rem;
@@ -534,25 +484,19 @@ border: none;
 @media (max-width: 768px){
   .gallery-orbit{
     width:min(420px, 92vw);
-    height:min(420px, 92vw);
-    perspective: 750px;
+    height:min(320px, 72vw);
+    perspective: 780px;
   }
 
   .orbit-item{
-    width:130px;
-    height:130px;
+    width:125px;
+    height:125px;
   }
-
-  .orbit-1{ --pos: translate(-50%,-50%) rotate(0deg)   translateY(-120px) rotate(0deg);    }
-  .orbit-2{ --pos: translate(-50%,-50%) rotate(60deg)  translateY(-120px) rotate(-60deg);  }
-  .orbit-3{ --pos: translate(-50%,-50%) rotate(120deg) translateY(-120px) rotate(-120deg); }
-  .orbit-4{ --pos: translate(-50%,-50%) rotate(180deg) translateY(-120px) rotate(-180deg); }
-  .orbit-5{ --pos: translate(-50%,-50%) rotate(240deg) translateY(-120px) rotate(-240deg); }
-  .orbit-6{ --pos: translate(-50%,-50%) rotate(300deg) translateY(-120px) rotate(-300deg); }
 }
 
 @media (prefers-reduced-motion: reduce){
-  .orbit-ring, .orbit-item{ animation:none !important; }
+  .orbit-ring{ transform:none !important; }
+  .orbit-item{ transform: translate(-50%,-50%) !important; }
 }
 
 
@@ -1305,6 +1249,49 @@ background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert
             }
         });
     });
+    /* ===== GALERIE — Orbite elliptique 3D (6 photos) ===== */
+(() => {
+  const ring = document.querySelector(".orbit-ring");
+  if (!ring) return;
+
+  const items = [...ring.querySelectorAll(".orbit-item")];
+  const count = items.length;
+
+  // Réglages (tu peux ajuster)
+  const speed = 0.00035; // plus petit = plus lent
+  const radiusX = 190;   // rayon horizontal (réduit = orbite moins large)
+  const radiusY = 70;    // rayon vertical (petit = ellipse écrasée)
+  const depth   = 170;   // volume (avance/recule)
+
+  function tick(t){
+    const base = t * speed;
+
+    items.forEach((el, i) => {
+      const a = base + (i * (Math.PI * 2 / count));
+
+      const x = Math.cos(a) * radiusX;
+      const y = Math.sin(a) * radiusY;
+
+      // avance/recule synchronisé (effet système solaire)
+      const z = Math.cos(a) * depth;
+
+      // plus proche = plus gros
+      const s = 0.80 + ((z + depth) / (2 * depth)) * 0.40;
+
+      // ceux devant passent au-dessus
+      el.style.zIndex = String(Math.round(1000 + z));
+
+      // PAS de rotation => l'image reste droite
+      el.style.transform =
+        `translate(-50%, -50%) translate3d(${x}px, ${y}px, ${z}px) scale(${s})`;
+    });
+
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+})();
+
 </script>
 </body>
 </html>
