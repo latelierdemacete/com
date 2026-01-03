@@ -463,6 +463,12 @@ border: none;
   display:block;
   transform: translateZ(0);
 }
+/* IMPORTANT : on coupe les animations CSS, le JS gère tout */
+.orbit-ring,
+.orbit-item,
+.orbit-item span{
+  animation: none !important;
+}
 
 /* CTA */
 .gallery-orbit-cta{
@@ -1263,31 +1269,43 @@ background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert
   const radiusY = 70;    // rayon vertical (petit = ellipse écrasée)
   const depth   = 170;   // volume (avance/recule)
 
-  function tick(t){
-    const base = t * speed;
+function tick(t){
+  const base = t * speed;
 
-    items.forEach((el, i) => {
-      const a = base + (i * (Math.PI * 2 / count));
+  // 1) on calcule positions + z
+  const computed = items.map((el, i) => {
+    const a = base + (i * (Math.PI * 2 / count));
 
-      const x = Math.cos(a) * radiusX;
-      const y = Math.sin(a) * radiusY;
+    const x = Math.cos(a) * radiusX;
+    const y = Math.sin(a) * radiusY;
 
-      // avance/recule synchronisé (effet système solaire)
-      const z = Math.cos(a) * depth;
+    // profondeur (avant/arrière)
+    const z = Math.cos(a) * depth;
 
-      // plus proche = plus gros
-      const s = 0.80 + ((z + depth) / (2 * depth)) * 0.40;
+    // échelle liée à la profondeur (plus proche = plus grand)
+    const p = (z + depth) / (2 * depth);  // 0..1
+    const s = 0.78 + p * 0.48;            // 0.78..1.26
 
-      // ceux devant passent au-dessus
-      el.style.zIndex = String(Math.round(1000 + z));
+    // optionnel mais améliore la lisibilité
+    const op = 0.72 + p * 0.28;           // 0.72..1
 
-      // PAS de rotation => l'image reste droite
-      el.style.transform =
-        `translate(-50%, -50%) translate3d(${x}px, ${y}px, ${z}px) scale(${s})`;
+    el.style.transform =
+      `translate(-50%, -50%) translate3d(${x}px, ${y}px, ${z}px) scale(${s})`;
+    el.style.opacity = op.toFixed(3);
+
+    return { el, z };
+  });
+
+  // 2) tri stable: derrière -> devant
+  computed
+    .sort((a, b) => a.z - b.z)
+    .forEach((obj, idx) => {
+      obj.el.style.zIndex = String(10 + idx);
     });
 
-    requestAnimationFrame(tick);
-  }
+  requestAnimationFrame(tick);
+}
+
 
   requestAnimationFrame(tick);
 })();
