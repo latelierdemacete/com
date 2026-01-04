@@ -403,66 +403,7 @@ border: none;
             object-fit: cover;
             border-radius: 50%;
         }
-/* ===== GALERIE — Orbite elliptique 3D (6 photos) ===== */
 
-.gallery-orbit-link{
-  display:block;
-  text-decoration:none;
-  color:inherit;
-}
-
-.gallery-orbit{
-  position:relative;
-  width:min(560px, 92vw);
-  height:min(420px, 70vw);
-  margin: 2.2rem auto 1rem;
-  perspective: 900px;
-}
-
-.orbit-ring{
-  position:absolute;
-  inset:0;
-  transform-style: preserve-3d;
-}
-
-/* vignette */
-.orbit-item{
-  position:absolute;
-  top:50%;
-  left:50%;
-  width:160px;
-  height:160px;
-  border-radius:50%;
-  padding:5px;
-
-  background: linear-gradient(135deg,
-    var(--rose-pastel),
-    var(--peche),
-    var(--vert-clair),
-    var(--bleu-clair)
-  );
-
-  box-shadow: 0 10px 26px rgba(0,0,0,0.18);
-  transform-style: preserve-3d;
-  will-change: transform;
-}
-
-.orbit-item span{
-  display:block;
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  overflow:hidden;
-  background:#fff;
-}
-
-.orbit-item img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  transform: translateZ(0);
-}
 /* IMPORTANT : on coupe les animations CSS, le JS gère tout */
 .orbit-ring,
 .orbit-item,
@@ -505,6 +446,125 @@ border: none;
   .orbit-item{ transform: translate(-50%,-50%) !important; }
 }
 
+/* ===== GALERIE — Mosaïque pro (6 vignettes), bloc cliquable ===== */
+
+.gallery-mosaic-link{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+}
+
+.gallery-mosaic{
+  max-width: 920px;
+  margin: 2rem auto 0;
+  padding: 1.2rem;
+  border-radius: 26px;
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(255,182,217,0.35);
+  box-shadow: 0 18px 50px rgba(90,74,94,0.14);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.gallery-mosaic:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 24px 70px rgba(90,74,94,0.18);
+}
+
+.gallery-mosaic-head{
+  text-align:center;
+  margin-bottom: 1rem;
+}
+
+.gallery-mosaic-head .title{
+  font-weight: 700;
+  color: var(--lavande);
+  font-size: 1.25rem;
+  margin-bottom: .35rem;
+}
+
+.gallery-mosaic-head .subtitle{
+  color: var(--texte-clair);
+  font-size: .98rem;
+}
+
+.gallery-mosaic-grid{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 70px;
+  gap: 14px;
+  align-items: center;
+  justify-items: center;
+  padding: .4rem;
+}
+
+.mosaic-item{
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  padding: 5px;
+  background: linear-gradient(135deg,
+    var(--rose-pastel),
+    var(--peche),
+    var(--vert-clair),
+    var(--bleu-clair)
+  );
+  box-shadow: 0 10px 26px rgba(0,0,0,0.16);
+}
+
+.mosaic-item > span{
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius: 999px;
+  overflow:hidden;
+  background: #fdf5fb;
+}
+
+.mosaic-item img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  border-radius: 999px;
+}
+
+/* placement */
+.m1{ grid-column: 1 / span 4;  grid-row: 1 / span 3; }
+.m2{ grid-column: 5 / span 3;  grid-row: 1 / span 2; }
+.m3{ grid-column: 8 / span 5;  grid-row: 1 / span 3; }
+.m4{ grid-column: 3 / span 4;  grid-row: 4 / span 3; }
+.m5{ grid-column: 7 / span 3;  grid-row: 4 / span 2; }
+.m6{ grid-column: 10 / span 3; grid-row: 4 / span 3; }
+
+.gallery-mosaic-cta{
+  text-align:center;
+  margin-top: 1.1rem;
+  font-weight: 700;
+}
+
+.gallery-mosaic-cta span{
+  display:inline-block;
+  padding: 0.65rem 1.15rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(255,182,217,0.55);
+  box-shadow: 0 10px 22px rgba(174,105,139,0.18);
+}
+
+@media (max-width: 768px){
+  .gallery-mosaic-grid{
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 62px;
+    gap: 12px;
+  }
+
+  .m1{ grid-column: 1 / span 3; grid-row: 1 / span 3; }
+  .m2{ grid-column: 4 / span 3; grid-row: 1 / span 2; }
+  .m3{ grid-column: 4 / span 3; grid-row: 3 / span 3; }
+  .m4{ grid-column: 1 / span 3; grid-row: 4 / span 3; }
+  .m5{ grid-column: 1 / span 3; grid-row: 3 / span 1; }
+  .m6{ grid-column: 1 / span 6; grid-row: 7 / span 2; }
+}
 
 /* TARIFS */
 .tarifs-grid {
@@ -1030,47 +1090,34 @@ background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert
 
 <!-- GALERIE -->
 <section id="galerie">
-    <h2>Galerie</h2>
-    <p style="text-align: center; margin-bottom: 2rem; color: var(--texte-clair);">
-        Découvrez quelques-unes de mes créations – cliquez pour voir toute la galerie.
-    </p>
+  <h2>Galerie</h2>
+  <p style="text-align: center; margin-bottom: 2rem; color: var(--texte-clair);">
+    Découvrez quelques-unes de mes créations – cliquez pour voir toute la galerie.
+  </p>
 
-      <a class="gallery-orbit-link" href="galerie.html" aria-label="Ouvrir la galerie complète">
-  <div class="gallery-orbit">
-    <div class="orbit-ring">
-
-      <div class="orbit-item orbit-1">
-        <span><img src="images/galerie-1.jpg" alt="Maquillage artistique"></span>
+  <a class="gallery-mosaic-link" href="galerie.html" aria-label="Ouvrir la galerie complète">
+    <div class="gallery-mosaic">
+      <div class="gallery-mosaic-head">
+        <div class="title">Voir la galerie photos</div>
+        <div class="subtitle">Cliquez n’importe où pour accéder à toutes les photos.</div>
       </div>
 
-      <div class="orbit-item orbit-2">
-        <span><img src="images/galerie-2.jpg" alt="Maquillage artistique"></span>
+      <div class="gallery-mosaic-grid" aria-hidden="true">
+        <div class="mosaic-item m1"><span><img src="images/galerie-1.jpg" alt=""></span></div>
+        <div class="mosaic-item m2"><span><img src="images/galerie-2.jpg" alt=""></span></div>
+        <div class="mosaic-item m3"><span><img src="images/galerie-3.jpg" alt=""></span></div>
+        <div class="mosaic-item m4"><span><img src="images/galerie-4.jpg" alt=""></span></div>
+        <div class="mosaic-item m5"><span><img src="images/galerie-5.jpg" alt=""></span></div>
+        <div class="mosaic-item m6"><span><img src="images/galerie-6.jpg" alt=""></span></div>
       </div>
 
-      <div class="orbit-item orbit-3">
-        <span><img src="images/galerie-3.jpg" alt="Maquillage artistique"></span>
+      <div class="gallery-mosaic-cta">
+        <span>Parcourez les maquillages enfants, adultes, bar à paillettes et tatouages éphémères.</span>
       </div>
-
-      <div class="orbit-item orbit-4">
-        <span><img src="images/galerie-4.jpg" alt="Maquillage artistique"></span>
-      </div>
-
-      <div class="orbit-item orbit-5">
-        <span><img src="images/galerie-5.jpg" alt="Maquillage artistique"></span>
-      </div>
-
-      <div class="orbit-item orbit-6">
-        <span><img src="images/galerie-6.jpg" alt="Maquillage artistique"></span>
-      </div>
-
     </div>
-  </div>
-
-  <div class="gallery-orbit-cta">
-    <span>Parcourez les maquillages enfants, adultes, bar à paillettes et tatouages éphémères.</span>
-  </div>
-</a>
+  </a>
 </section>
+
 
 <!-- TARIFS -->
 <section id="tarifs">
@@ -1255,60 +1302,7 @@ background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert
             }
         });
     });
-    /* ===== GALERIE — Orbite elliptique 3D (6 photos) ===== */
-(() => {
-  const ring = document.querySelector(".orbit-ring");
-  if (!ring) return;
 
-  const items = [...ring.querySelectorAll(".orbit-item")];
-  const count = items.length;
-
-  // Réglages (tu peux ajuster)
-  const speed = 0.00035; // plus petit = plus lent
-  const radiusX = 190;   // rayon horizontal (réduit = orbite moins large)
-  const radiusY = 70;    // rayon vertical (petit = ellipse écrasée)
-  const depth   = 170;   // volume (avance/recule)
-
-function tick(t){
-  const base = t * speed;
-
-  // 1) on calcule positions + z
-  const computed = items.map((el, i) => {
-    const a = base + (i * (Math.PI * 2 / count));
-
-    const x = Math.cos(a) * radiusX;
-    const y = Math.sin(a) * radiusY;
-
-    // profondeur (avant/arrière)
-    const z = Math.cos(a) * depth;
-
-    // échelle liée à la profondeur (plus proche = plus grand)
-    const p = (z + depth) / (2 * depth);  // 0..1
-    const s = 0.78 + p * 0.48;            // 0.78..1.26
-
-    // optionnel mais améliore la lisibilité
-    const op = 0.72 + p * 0.28;           // 0.72..1
-
-    el.style.transform =
-      `translate(-50%, -50%) translate3d(${x}px, ${y}px, ${z}px) scale(${s})`;
-    el.style.opacity = op.toFixed(3);
-
-    return { el, z };
-  });
-
-  // 2) tri stable: derrière -> devant
-  computed
-    .sort((a, b) => a.z - b.z)
-    .forEach((obj, idx) => {
-      obj.el.style.zIndex = String(10 + idx);
-    });
-
-  requestAnimationFrame(tick);
-}
-
-
-  requestAnimationFrame(tick);
-})();
 
 </script>
 </body>
