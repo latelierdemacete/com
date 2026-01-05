@@ -143,15 +143,14 @@
   margin-top: 2rem;
 }
 
-/* Chaque tuile occupe 3 colonnes => alignement net */
 .gallery-mosaic-item{
-  grid-column: span 3;
+  grid-column: span 3;          /* toutes identiques */
   position: relative;
 
   border-radius: 22px;
   overflow: hidden;
 
-  padding: 4px;
+  padding: 4px;                 /* épaisseur du cadre */
   background: linear-gradient(135deg,
     var(--rose-pastel),
     var(--peche),
@@ -163,33 +162,23 @@
   transition: transform .2s ease, box-shadow .2s ease;
 }
 
-/* Cadre interne : jamais “plat” (portrait/carré), variations faibles */
+/* Cadre = image directe, PAS de fond */
 .gallery-mosaic-inner{
   width: 100%;
-  aspect-ratio: 4 / 5;      /* base portrait */
+  aspect-ratio: 3 / 4;          /* portrait harmonieux */
   border-radius: 18px;
   overflow: hidden;
-
-  background: rgba(255,255,255,0.92);
-  display: grid;
-  place-items: center;
 }
 
-/* Image : montre le maximum sans “front only” */
 .gallery-mosaic-inner img{
   width: 100%;
   height: 100%;
   display: block;
 
-  /* recadrage minimal : image entière */
-  object-fit: cover;
-  object-position: center;
+  object-fit: cover;            /* rendu pro */
+  object-position: 50% 45%;     /* descend le cadre → moins de front */
 }
 
-/* Micro-variations (très légères), jamais paysage */
-.gallery-mosaic-item:nth-child(10n + 2) .gallery-mosaic-inner{ aspect-ratio: 1 / 1; }  /* carré */
-.gallery-mosaic-item:nth-child(10n + 5) .gallery-mosaic-inner{ aspect-ratio: 3 / 4; }  /* portrait un peu + haut */
-.gallery-mosaic-item:nth-child(10n + 8) .gallery-mosaic-inner{ aspect-ratio: 5 / 6; }  /* portrait léger */
 
 .gallery-mosaic-item:hover{
   transform: translateY(-2px);
@@ -215,6 +204,7 @@
     grid-column: span 1;
   }
 }
+
 
 
     footer{
