@@ -200,14 +200,26 @@
   transition: transform .25s ease, box-shadow .25s ease;
 }
 
-.gallery-mosaic-item > img{
+/* Contenu intérieur (surface réelle de l'image) */
+.gallery-mosaic-inner{
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.92); /* fond doux si "contain" laisse des marges */
+  display: grid;
+  place-items: center;
+}
+
+/* Image : s'adapte à la vignette sans recadrer */
+.gallery-mosaic-inner img{
   width: 100%;
   height: 100%;
   display: block;
-  border-radius: 22px;          /* arrondi intérieur */
-  object-fit: cover;
-  object-position: 50% 35%;     /* cadre un peu plus haut => visage/maquillage mieux visible */
+  object-fit: contain;     /* montre l’image entière */
+  object-position: center;
 }
+
 
 .gallery-mosaic-item:hover{
   transform: translateY(-2px);
@@ -233,6 +245,7 @@
 .gallery-mosaic-item:nth-child(12n + 11){ grid-column: span 3; grid-row: span 3; }
 .gallery-mosaic-item:nth-child(12n + 12){ grid-column: span 4; grid-row: span 3; }
 
+.gallery-mosaic-item{ height: 100%; }
 
 @media (max-width: 768px){
   .gallery-mosaic-grid{
@@ -459,9 +472,6 @@
 
   </div>
 </div>
-
-        </div>
-    </div>
 
     <p style="text-align: center; margin-top: 2.5rem;">
         <a href="index.html#galerie" class="btn-ghost">← Retour à la page principale</a>
