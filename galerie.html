@@ -127,15 +127,7 @@
       border-radius:3px;
     }
 
-    /* ===== GALERIE FULL — Mosaic pro (plus petit + peu de rognage) ===== */
-
-    .gallery-full{
-      max-width:1100px;
-      margin:0 auto;
-      padding:0 1.5rem;
-    }
-
-   /* ===== GALERIE FULL — Grille justifiée (pro, alignée) ===== */
+/* ===== GALERIE — Grille propre, alignée, pas aplatie ===== */
 
 .gallery-full{
   max-width: 1100px;
@@ -143,19 +135,22 @@
   padding: 0 1.5rem;
 }
 
-/* Grille régulière “justifiée” : tout s’aligne */
+/* Grille régulière (alignée), tailles stables */
 .gallery-mosaic-grid{
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* desktop: 4 colonnes */
+  grid-template-columns: repeat(12, 1fr);
   gap: 14px;
   margin-top: 2rem;
 }
 
-/* Tuile quasi identique (variations très légères) */
+/* Chaque tuile occupe 3 colonnes => alignement net */
 .gallery-mosaic-item{
+  grid-column: span 3;
   position: relative;
+
   border-radius: 22px;
   overflow: hidden;
+
   padding: 4px;
   background: linear-gradient(135deg,
     var(--rose-pastel),
@@ -163,37 +158,38 @@
     var(--vert-clair),
     var(--bleu-clair)
   );
+
   box-shadow: 0 10px 26px rgba(0,0,0,0.14);
   transition: transform .2s ease, box-shadow .2s ease;
 }
 
-/* Cadre interne avec ratio stable (pas aplati) */
+/* Cadre interne : jamais “plat” (portrait/carré), variations faibles */
 .gallery-mosaic-inner{
   width: 100%;
-  aspect-ratio: 4 / 5;      /* proche portrait, évite les tuiles écrasées */
+  aspect-ratio: 4 / 5;      /* base portrait */
   border-radius: 18px;
   overflow: hidden;
+
   background: rgba(255,255,255,0.92);
   display: grid;
   place-items: center;
 }
 
-/* Image entière, recadrage minimal */
+/* Image : montre le maximum sans “front only” */
 .gallery-mosaic-inner img{
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: contain;       /* montre la photo complète */
+
+  /* recadrage minimal : image entière */
+  object-fit: contain;
   object-position: center;
 }
 
-/* micro-variations (très légères, jamais “aplati”) */
-.gallery-mosaic-item:nth-child(6n+1) .gallery-mosaic-inner{ aspect-ratio: 1 / 1; }  /* carré */
-.gallery-mosaic-item:nth-child(6n+2) .gallery-mosaic-inner{ aspect-ratio: 5 / 6; }  /* portrait léger */
-.gallery-mosaic-item:nth-child(6n+3) .gallery-mosaic-inner{ aspect-ratio: 4 / 5; }  /* base */
-.gallery-mosaic-item:nth-child(6n+4) .gallery-mosaic-inner{ aspect-ratio: 3 / 4; }  /* portrait un peu plus haut */
-.gallery-mosaic-item:nth-child(6n+5) .gallery-mosaic-inner{ aspect-ratio: 4 / 5; }  /* base */
-.gallery-mosaic-item:nth-child(6n)   .gallery-mosaic-inner{ aspect-ratio: 1 / 1; }  /* carré */
+/* Micro-variations (très légères), jamais paysage */
+.gallery-mosaic-item:nth-child(10n + 2) .gallery-mosaic-inner{ aspect-ratio: 1 / 1; }  /* carré */
+.gallery-mosaic-item:nth-child(10n + 5) .gallery-mosaic-inner{ aspect-ratio: 3 / 4; }  /* portrait un peu + haut */
+.gallery-mosaic-item:nth-child(10n + 8) .gallery-mosaic-inner{ aspect-ratio: 5 / 6; }  /* portrait léger */
 
 .gallery-mosaic-item:hover{
   transform: translateY(-2px);
@@ -202,49 +198,24 @@
 
 /* Responsive */
 @media (max-width: 1024px){
-  .gallery-mosaic-grid{ grid-template-columns: repeat(3, 1fr); }
+  .gallery-mosaic-grid{
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .gallery-mosaic-item{
+    grid-column: span 3;
+  }
 }
+
 @media (max-width: 768px){
-  .gallery-mosaic-grid{ grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .gallery-mosaic-grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .gallery-mosaic-item{
+    grid-column: span 1;
+  }
 }
 
-
-      .nav-links.active{display:flex;}
-
-      h2{font-size:1.8rem;}
-
-      section{
-        margin:2rem 1rem;
-        padding:2rem 1rem;
-      }
-
-      .gallery-mosaic-grid{
-        grid-template-columns:repeat(6, 1fr);
-        grid-auto-rows:60px;
-        gap:10px;
-      }
-
-      /* compact sur mobile */
-      .gallery-mosaic-item{ grid-column: span 3 !important; grid-row: span 2 !important; }
-
-      /* une tuile “héro” parfois */
-      .gallery-mosaic-item:nth-child(7n + 1){
-        grid-column: span 6 !important;
-        grid-row: span 3 !important;
-      }
-    }
-
-    .btn-ghost{
-      display:inline-block;
-      border-radius:999px;
-      padding:0.6rem 1.2rem;
-      font-size:0.95rem;
-      border:1px solid rgba(90,74,94,0.2);
-      background:rgba(255,255,255,0.8);
-      cursor:pointer;
-      text-decoration:none;
-      color:var(--texte-fonce);
-    }
 
     footer{
       background:rgba(255,255,255,0.9);
