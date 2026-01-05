@@ -159,52 +159,84 @@
             border-radius: 3px;
         }
 
-        /* GALERIE – même style que la page principale */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+        /* ===== GALERIE FULL — Mosaic pro (scalable) ===== */
 
-        .gallery-item {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 4px solid var(--lavande);
-            background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert-clair));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1rem;
-            text-align: center;
-            margin: 0 auto;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s;
-        }
+.gallery-full {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
 
-        .gallery-item:hover {
-            transform: scale(1.05) rotate(5deg);
-        }
+.gallery-mosaic-grid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 14px;
+    grid-auto-rows: 90px;
+    grid-auto-flow: dense;
+    margin-top: 2rem;
+}
 
-        .gallery-inner {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #fdf5fb;
-        }
+/* item en forme de “capsule” (pro, doux) */
+.gallery-mosaic-item{
+    position: relative;
+    border-radius: 999px;
+    overflow: hidden;
+    padding: 4px;
+    background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert-clair), var(--bleu-clair));
+    box-shadow: 0 10px 26px rgba(0,0,0,0.16);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
 
-        .gallery-inner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
+/* ratio 1:1 pour garder un rendu harmonieux */
+.gallery-mosaic-item::before{
+    content:"";
+    display:block;
+    width: 100%;
+    padding-top: 100%;
+}
+
+.gallery-mosaic-inner{
+    position:absolute;
+    inset: 4px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.gallery-mosaic-inner img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    display:block;
+}
+
+.gallery-mosaic-item:hover{
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 16px 34px rgba(0,0,0,0.22);
+}
+
+/* Motif “mosaic” automatique (se répète sur toute la liste) */
+.gallery-mosaic-item{ grid-column: span 3; grid-row: span 2; }
+.gallery-mosaic-item:nth-child(7n + 1){ grid-column: span 6; grid-row: span 4; }
+.gallery-mosaic-item:nth-child(7n + 2){ grid-column: span 3; grid-row: span 3; }
+.gallery-mosaic-item:nth-child(7n + 3){ grid-column: span 3; grid-row: span 2; }
+.gallery-mosaic-item:nth-child(7n + 4){ grid-column: span 4; grid-row: span 3; }
+.gallery-mosaic-item:nth-child(7n + 5){ grid-column: span 4; grid-row: span 2; }
+.gallery-mosaic-item:nth-child(7n + 6){ grid-column: span 3; grid-row: span 3; }
+.gallery-mosaic-item:nth-child(7n + 7){ grid-column: span 5; grid-row: span 2; }
+
+@media (max-width: 768px) {
+    .gallery-mosaic-grid{
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: 70px;
+        gap: 12px;
+    }
+
+    .gallery-mosaic-item{ grid-column: span 3; grid-row: span 2; }
+    .gallery-mosaic-item:nth-child(7n + 1){ grid-column: span 6; grid-row: span 4; }
+    .gallery-mosaic-item:nth-child(7n + 4){ grid-column: span 6; grid-row: span 3; }
+}
+
 
         .btn-ghost {
             display: inline-block;
@@ -254,11 +286,6 @@
             section {
                 margin: 2rem 1rem;
                 padding: 2rem 1rem;
-            }
-
-            .gallery-item {
-                width: 150px;
-                height: 150px;
             }
         }
 
@@ -323,81 +350,102 @@
         Petit échantillonage des maquillages artistiques réalisés par l’Atelier de Macete.
     </p>
 
-    <div class="gallery-grid">
-        <div class="gallery-item">
-            <div class="gallery-inner">
-                <img src="images/galerie-1.jpg" alt="Maquillage artistique 1">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-inner">
-                <img src="images/galerie-2.jpg" alt="Maquillage artistique 2">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-inner">
-                <img src="images/galerie-3.jpg" alt="Maquillage artistique 3">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-inner">
-                <img src="images/galerie-4.jpg" alt="Maquillage artistique 4">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-inner">
-                <img src="images/galerie-5.jpg" alt="Maquillage artistique 5">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-inner">
-                <img src="images/galerie-6.jpg" alt="Maquillage artistique 6">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-inner">
-                <img src="images/galerie-7.jpg" alt="Maquillage artistique 7">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-inner">
-                <img src="images/galerie-8.jpg" alt="Maquillage artistique 8">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-inner">
-                <img src="images/galerie-9.jpg" alt="Maquillage artistique 9">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-inner">
-                <img src="images/galerie-10.jpg" alt="Maquillage artistique 10">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-inner">
-                <img src="images/galerie-11.jpg" alt="Maquillage artistique 11">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-inner">
-                <img src="images/galerie-12.jpg" alt="Maquillage artistique 12">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-inner">
-                <img src="images/galerie-13.jpg" alt="Maquillage artistique 13">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-inner">
-                <img src="images/galerie-14.jpg" alt="Maquillage artistique 14">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-inner">
-                <img src="images/galerie-15.jpg" alt="Maquillage artistique 15">
-            </div>
+   <div class="gallery-full">
+  <div class="gallery-mosaic-grid">
+
+    <div class="gallery-mosaic-item">
+      <div class="gallery-mosaic-inner">
+        <img src="images/galerie-1.jpg" alt="Maquillage artistique 1">
+      </div>
+    </div>
+
+    <div class="gallery-mosaic-item">
+      <div class="gallery-mosaic-inner">
+        <img src="images/galerie-2.jpg" alt="Maquillage artistique 2">
+      </div>
+    </div>
+
+    <div class="gallery-mosaic-item">
+      <div class="gallery-mosaic-inner">
+        <img src="images/galerie-3.jpg" alt="Maquillage artistique 3">
+      </div>
+    </div>
+
+    <div class="gallery-mosaic-item">
+      <div class="gallery-mosaic-inner">
+        <img src="images/galerie-4.jpg" alt="Maquillage artistique 4">
+      </div>
+    </div>
+
+    <div class="gallery-mosaic-item">
+      <div class="gallery-mosaic-inner">
+        <img src="images/galerie-5.jpg" alt="Maquillage artistique 5">
+      </div>
+    </div>
+
+    <div class="gallery-mosaic-item">
+      <div class="gallery-mosaic-inner">
+        <img src="images/galerie-6.jpg" alt="Maquillage artistique 6">
+      </div>
+    </div>
+
+    <div class="gallery-mosaic-item">
+      <div class="gallery-mosaic-inner">
+        <img src="images/galerie-7.jpg" alt="Maquillage artistique 7">
+      </div>
+    </div>
+
+    <div class="gallery-mosaic-item">
+      <div class="gallery-mosaic-inner">
+        <img src="images/galerie-8.jpg" alt="Maquillage artistique 8">
+      </div>
+    </div>
+
+    <div class="gallery-mosaic-item">
+      <div class="gallery-mosaic-inner">
+        <img src="images/galerie-9.jpg" alt="Maquillage artistique 9">
+      </div>
+    </div>
+
+    <div class="gallery-mosaic-item">
+      <div class="gallery-mosaic-inner">
+        <img src="images/galerie-10.jpg" alt="Maquillage artistique 10">
+      </div>
+    </div>
+
+    <div class="gallery-mosaic-item">
+      <div class="gallery-mosaic-inner">
+        <img src="images/galerie-11.jpg" alt="Maquillage artistique 11">
+      </div>
+    </div>
+
+    <div class="gallery-mosaic-item">
+      <div class="gallery-mosaic-inner">
+        <img src="images/galerie-12.jpg" alt="Maquillage artistique 12">
+      </div>
+    </div>
+
+    <div class="gallery-mosaic-item">
+      <div class="gallery-mosaic-inner">
+        <img src="images/galerie-13.jpg" alt="Maquillage artistique 13">
+      </div>
+    </div>
+
+    <div class="gallery-mosaic-item">
+      <div class="gallery-mosaic-inner">
+        <img src="images/galerie-14.jpg" alt="Maquillage artistique 14">
+      </div>
+    </div>
+
+    <div class="gallery-mosaic-item">
+      <div class="gallery-mosaic-inner">
+        <img src="images/galerie-15.jpg" alt="Maquillage artistique 15">
+      </div>
+    </div>
+
+  </div>
+</div>
+
         </div>
     </div>
 
