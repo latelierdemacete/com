@@ -1,525 +1,405 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galerie – L'Atelier de Macete</title>
-    <meta name="description" content="Galerie de maquillages artistiques – L'Atelier de Macete.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerie – L'Atelier de Macete</title>
+  <meta name="description" content="Galerie de maquillages artistiques – L'Atelier de Macete.">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
 
-        :root {
-            --rose-pastel: #FFB6D9;
-            --peche: #FFD4B8;
-            --lavande: #E5C5F1;
-            --vert-clair: #C8E6D5;
-            --bleu-clair: #D4E8F5;
-            --texte-fonce: #5A4A5E;
-            --texte-clair: #8B7B8E;
-        }
+    :root{
+      --rose-pastel:#FFB6D9;
+      --peche:#FFD4B8;
+      --lavande:#E5C5F1;
+      --vert-clair:#C8E6D5;
+      --bleu-clair:#D4E8F5;
+      --texte-fonce:#5A4A5E;
+      --texte-clair:#8B7B8E;
+    }
 
-        body {
-            font-family: 'Georgia', serif;
-            color: var(--texte-fonce);
-            line-height: 1.6;
-            background: linear-gradient(135deg, var(--rose-pastel) 0%, var(--peche) 25%, var(--vert-clair) 50%, var(--bleu-clair) 100%);
-            background-attachment: fixed;
-        }
+    body{
+      font-family:'Georgia', serif;
+      color:var(--texte-fonce);
+      line-height:1.6;
+      background:linear-gradient(135deg,var(--rose-pastel) 0%,var(--peche) 25%,var(--vert-clair) 50%,var(--bleu-clair) 100%);
+      background-attachment:fixed;
+    }
 
-        .cursive {
-            font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
-            font-style: italic;
-        }
+    .cursive{
+      font-family:'Brush Script MT','Lucida Handwriting',cursive;
+      font-style:italic;
+    }
 
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 1rem 0;
-        }
+    header{
+      background:rgba(255,255,255,0.95);
+      backdrop-filter:blur(10px);
+      box-shadow:0 2px 20px rgba(0,0,0,0.1);
+      position:sticky;
+      top:0;
+      z-index:1000;
+      padding:1rem 0;
+    }
 
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+    nav{
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 2rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+    }
 
-        /* HEADER LOGO + TEXTE */
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            color: var(--texte-fonce);
-        }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:0.75rem;
+      text-decoration:none;
+      color:var(--texte-fonce);
+    }
 
-        .logo-img {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            border: 2px solid var(--rose-pastel);
-            object-fit: cover;
-            background: radial-gradient(circle at 30% 20%, var(--rose-pastel), var(--peche));
-            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-        }
+    .logo-img{
+      width:48px;height:48px;border-radius:50%;
+      border:2px solid var(--rose-pastel);
+      object-fit:cover;
+      background:radial-gradient(circle at 30% 20%, var(--rose-pastel), var(--peche));
+      box-shadow:0 4px 10px rgba(0,0,0,0.12);
+    }
 
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.1;
-        }
+    .logo-text{display:flex;flex-direction:column;line-height:1.1;}
+    .logo-title{font-size:1.2rem;color:var(--lavande);font-weight:bold;}
+    .logo-tagline{font-size:0.85rem;color:var(--texte-clair);}
 
-        .logo-title {
-            font-size: 1.2rem;
-            color: var(--lavande);
-            font-weight: bold;
-        }
+    .nav-links{
+      display:flex;
+      list-style:none;
+      gap:2rem;
+      flex-wrap:wrap;
+    }
 
-        .logo-tagline {
-            font-size: 0.85rem;
-            color: var(--texte-clair);
-        }
+    .nav-links a{
+      color:var(--texte-fonce);
+      text-decoration:none;
+      transition:color 0.3s;
+      font-size:1rem;
+    }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
+    .nav-links a:hover{color:var(--lavande);}
 
-        .nav-links a {
-            color: var(--texte-fonce);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 1rem;
-        }
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:none;
+      font-size:1.5rem;
+      cursor:pointer;
+      color:var(--texte-fonce);
+    }
 
-        .nav-links a:hover {
-            color: var(--lavande);
-        }
+    section{
+      max-width:1200px;
+      margin:4rem auto;
+      padding:3rem 2rem;
+      background:rgba(255,255,255,0.9);
+      backdrop-filter:blur(10px);
+      border-radius:30px;
+      box-shadow:0 8px 32px rgba(0,0,0,0.1);
+    }
 
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--texte-fonce);
-        }
+    h1,h2{text-align:center;margin-bottom:2rem;}
+    h2{
+      font-size:2.5rem;
+      color:var(--texte-fonce);
+      position:relative;
+      padding-bottom:1rem;
+    }
 
-        section {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 3rem 2rem;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
+    h2::after{
+      content:'';
+      position:absolute;
+      bottom:0;
+      left:50%;
+      transform:translateX(-50%);
+      width:100px;
+      height:3px;
+      background:linear-gradient(90deg,var(--rose-pastel),var(--lavande));
+      border-radius:3px;
+    }
 
-        h1, h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+    /* ===== GALERIE FULL — Mosaic pro (plus petit + peu de rognage) ===== */
 
-        h1 {
-            font-size: 3rem;
-            color: var(--lavande);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
+    .gallery-full{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 1.5rem;
+    }
 
-        h2 {
-            font-size: 2.5rem;
-            color: var(--texte-fonce);
-            position: relative;
-            padding-bottom: 1rem;
-        }
+    .gallery-mosaic-grid{
+      display:grid;
+      grid-template-columns:repeat(12, 1fr);
+      gap:14px;
+      grid-auto-rows:68px;          /* taille globale (compact) */
+      grid-auto-flow:dense;
+      margin-top:2rem;
+    }
 
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--rose-pastel), var(--lavande));
-            border-radius: 3px;
-        }
+    .gallery-mosaic-item{
+      position:relative;
+      border-radius:26px;
+      overflow:hidden;
+      padding:4px;
+      background:linear-gradient(135deg,
+        var(--rose-pastel),
+        var(--peche),
+        var(--vert-clair),
+        var(--bleu-clair)
+      );
+      box-shadow:0 10px 26px rgba(0,0,0,0.14);
+      transition:transform .25s ease, box-shadow .25s ease;
+      height:100%;
+    }
 
-        /* ===== GALERIE FULL — Mosaic pro (scalable) ===== */
+    .gallery-mosaic-inner{
+      width:100%;
+      height:100%;
+      border-radius:22px;
+      overflow:hidden;
+      background:linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,255,255,0.88));
+      display:grid;
+      place-items:center;
+    }
 
-.gallery-full {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
+    /* IMPORTANT : pas (ou très peu) de rognage */
+    .gallery-mosaic-inner img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:contain;          /* montre l’image entière */
+      object-position:center;
+    }
 
-.gallery-mosaic-grid{
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 14px;
+    .gallery-mosaic-item:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 34px rgba(0,0,0,0.18);
+    }
 
-  /* PLUS HAUT => moins aplati, on voit mieux les maquillages */
-  grid-auto-rows: 68px;
+    /* base */
+    .gallery-mosaic-item{ grid-column:span 3; grid-row:span 3; }
 
-  grid-auto-flow: dense;
-  margin-top: 2rem;
-}
+    /* pattern plus doux (pas de grosses tuiles envahissantes) */
+    .gallery-mosaic-item:nth-child(12n + 1){  grid-column: span 4; grid-row: span 3; }
+    .gallery-mosaic-item:nth-child(12n + 2){  grid-column: span 3; grid-row: span 4; }
+    .gallery-mosaic-item:nth-child(12n + 3){  grid-column: span 4; grid-row: span 3; }
+    .gallery-mosaic-item:nth-child(12n + 4){  grid-column: span 3; grid-row: span 3; }
+    .gallery-mosaic-item:nth-child(12n + 5){  grid-column: span 4; grid-row: span 3; }
+    .gallery-mosaic-item:nth-child(12n + 6){  grid-column: span 3; grid-row: span 3; }
+    .gallery-mosaic-item:nth-child(12n + 7){  grid-column: span 3; grid-row: span 4; }
+    .gallery-mosaic-item:nth-child(12n + 8){  grid-column: span 4; grid-row: span 3; }
+    .gallery-mosaic-item:nth-child(12n + 9){  grid-column: span 3; grid-row: span 3; }
+    .gallery-mosaic-item:nth-child(12n + 10){ grid-column: span 4; grid-row: span 3; }
+    .gallery-mosaic-item:nth-child(12n + 11){ grid-column: span 3; grid-row: span 3; }
+    .gallery-mosaic-item:nth-child(12n + 12){ grid-column: span 4; grid-row: span 3; }
 
+    @media (max-width: 768px){
+      .menu-toggle{display:block;}
 
+      .nav-links{
+        display:none;
+        width:100%;
+        flex-direction:column;
+        text-align:center;
+        padding-top:1rem;
+      }
 
-/* item en forme de “capsule” (pro, doux) */
-.gallery-mosaic-item{
-  position: relative;
-  border-radius: 26px;          /* + arrondi */
-  overflow: hidden;
+      .nav-links.active{display:flex;}
 
-  /* même dégradé que ton site (cerclage) */
-  padding: 4px;
-  background: linear-gradient(135deg,
-    var(--rose-pastel),
-    var(--peche),
-    var(--vert-clair),
-    var(--bleu-clair)
-  );
+      h2{font-size:1.8rem;}
 
-  box-shadow: 0 10px 26px rgba(0,0,0,0.14);
-  transition: transform .25s ease, box-shadow .25s ease;
-}
+      section{
+        margin:2rem 1rem;
+        padding:2rem 1rem;
+      }
 
-/* Contenu intérieur (surface réelle de l'image) */
-.gallery-mosaic-inner{
-  width: 100%;
-  height: 100%;
-  border-radius: 22px;
-  overflow: hidden;
-  background: linear-gradient(
-    135deg,
-    rgba(255,255,255,0.96),
-    rgba(255,255,255,0.88)
-  );
-    display: grid;
-  place-items: center;
-}
+      .gallery-mosaic-grid{
+        grid-template-columns:repeat(6, 1fr);
+        grid-auto-rows:60px;
+        gap:10px;
+      }
 
-/* Image : s'adapte à la vignette sans recadrer */
-.gallery-mosaic-inner img{
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: contain;     /* montre l’image entière */
-  object-position: center;
-}
+      /* compact sur mobile */
+      .gallery-mosaic-item{ grid-column: span 3 !important; grid-row: span 2 !important; }
 
+      /* une tuile “héro” parfois */
+      .gallery-mosaic-item:nth-child(7n + 1){
+        grid-column: span 6 !important;
+        grid-row: span 3 !important;
+      }
+    }
 
-.gallery-mosaic-item:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 16px 34px rgba(0,0,0,0.18);
-}
+    .btn-ghost{
+      display:inline-block;
+      border-radius:999px;
+      padding:0.6rem 1.2rem;
+      font-size:0.95rem;
+      border:1px solid rgba(90,74,94,0.2);
+      background:rgba(255,255,255,0.8);
+      cursor:pointer;
+      text-decoration:none;
+      color:var(--texte-fonce);
+    }
 
+    footer{
+      background:rgba(255,255,255,0.9);
+      text-align:center;
+      padding:2rem;
+      margin-top:4rem;
+      color:var(--texte-clair);
+    }
 
-/* Motif “mosaic” automatique (se répète sur toute la liste) */
-/* base */
-.gallery-mosaic-item{ grid-column: span 3; grid-row: span 3; }
+    .scroll-top{
+      position:fixed;
+      bottom:2rem;
+      right:2rem;
+      background:linear-gradient(135deg, var(--rose-pastel), var(--lavande));
+      color:white;
+      width:50px;height:50px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      box-shadow:0 4px 15px rgba(0,0,0,0.3);
+      transition:all 0.3s;
+      opacity:0;
+      visibility:hidden;
+      border:none;
+      font-size:1.5rem;
+    }
 
-/* pattern sur 12 images (se répète), équilibré pour 41 images */
-.gallery-mosaic-item:nth-child(12n + 1){  grid-column: span 4; grid-row: span 3; }
-.gallery-mosaic-item:nth-child(12n + 2){  grid-column: span 3; grid-row: span 4; }
-.gallery-mosaic-item:nth-child(12n + 3){  grid-column: span 4; grid-row: span 3; }
-.gallery-mosaic-item:nth-child(12n + 4){  grid-column: span 3; grid-row: span 3; }
-.gallery-mosaic-item:nth-child(12n + 5){  grid-column: span 4; grid-row: span 3; }
-.gallery-mosaic-item:nth-child(12n + 6){  grid-column: span 3; grid-row: span 3; }
-.gallery-mosaic-item:nth-child(12n + 7){  grid-column: span 3; grid-row: span 4; }
-.gallery-mosaic-item:nth-child(12n + 8){  grid-column: span 4; grid-row: span 3; }
-.gallery-mosaic-item:nth-child(12n + 9){  grid-column: span 3; grid-row: span 3; }
-.gallery-mosaic-item:nth-child(12n + 10){ grid-column: span 4; grid-row: span 3; }
-.gallery-mosaic-item:nth-child(12n + 11){ grid-column: span 3; grid-row: span 3; }
-.gallery-mosaic-item:nth-child(12n + 12){ grid-column: span 4; grid-row: span 3; }
-
-.gallery-mosaic-item{ height: 100%; }
-
-@media (max-width: 768px){
-  .gallery-mosaic-grid{
-    grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: 60px;  /* plus haut sur mobile */
-    gap: 10px;
-  }
-
-  .gallery-mosaic-item{ grid-column: span 3 !important; grid-row: span 2 !important; }
-
-  /* 1 tuile “héro” de temps en temps pour le rythme */
-  .gallery-mosaic-item:nth-child(7n + 1){
-    grid-column: span 6 !important;
-    grid-row: span 3 !important;
-  }
-}
-
-
-
-        .btn-ghost {
-            display: inline-block;
-            border-radius: 999px;
-            padding: 0.6rem 1.2rem;
-            font-size: 0.95rem;
-            border: 1px solid rgba(90, 74, 94, 0.2);
-            background: rgba(255, 255, 255, 0.8);
-            cursor: pointer;
-            text-decoration: none;
-            color: var(--texte-fonce);
-        }
-
-        footer {
-            background: rgba(255, 255, 255, 0.9);
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-            color: var(--texte-clair);
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                text-align: center;
-                padding-top: 1rem;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.8rem;
-            }
-
-            section {
-                margin: 2rem 1rem;
-                padding: 2rem 1rem;
-            }
-        }
-
-        .scroll-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: linear-gradient(135deg, var(--rose-pastel), var(--lavande));
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s;
-            opacity: 0;
-            visibility: hidden;
-            border: none;
-            font-size: 1.5rem;
-        }
-
-        .scroll-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-top:hover {
-            transform: translateY(-5px);
-        }
-    </style>
+    .scroll-top.visible{opacity:1;visibility:visible;}
+    .scroll-top:hover{transform:translateY(-5px);}
+  </style>
 </head>
+
 <body>
 <header>
-    <nav>
-        <a href="index.html#accueil" class="logo">
-            <img src="images/mon-logo.png" alt="L'Atelier de Macete" class="logo-img">
-            <div class="logo-text">
-                <span class="logo-title">L'Atelier de Macete</span>
-                <span class="logo-tagline">Maquillage artistique &amp; paillettes</span>
-            </div>
-        </a>
+  <nav>
+    <a href="index.html#accueil" class="logo">
+      <img src="images/mon-logo.png" alt="L'Atelier de Macete" class="logo-img">
+      <div class="logo-text">
+        <span class="logo-title">L'Atelier de Macete</span>
+        <span class="logo-tagline">Maquillage artistique &amp; paillettes</span>
+      </div>
+    </a>
 
-        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html#accueil">Accueil</a></li>
-            <li><a href="index.html#prestations">Prestations</a></li>
-            <li><a href="index.html#evenements">Événements</a></li>
-            <li><a href="#galerie">Galerie</a></li>
-            <li><a href="index.html#tarifs">Tarifs</a></li>
-            <li><a href="index.html#apropos">À propos</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#accueil">Accueil</a></li>
+      <li><a href="index.html#prestations">Prestations</a></li>
+      <li><a href="index.html#evenements">Événements</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="index.html#tarifs">Tarifs</a></li>
+      <li><a href="index.html#apropos">À propos</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
 </header>
 
 <section id="galerie">
-    <h2>Galerie</h2>
-    <p style="text-align: center; margin-bottom: 2rem; color: var(--texte-clair);">
-        Petit échantillonage des maquillages artistiques réalisés par l’Atelier de Macete.
+  <h2>Galerie</h2>
+  <p style="text-align:center; margin-bottom:2rem; color:var(--texte-clair);">
+    Petit échantillonage des maquillages artistiques réalisés par l’Atelier de Macete.
+  </p>
+
+  <div class="gallery-full">
+    <div class="gallery-mosaic-grid">
+
+      <!-- Tes items (à compléter jusqu’à 41) -->
+      <div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-1.jpg" alt="Maquillage artistique 1"></div></div>
+      <div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-2.jpg" alt="Maquillage artistique 2"></div></div>
+      <div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-3.jpg" alt="Maquillage artistique 3"></div></div>
+      <div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-4.jpg" alt="Maquillage artistique 4"></div></div>
+      <div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-5.jpg" alt="Maquillage artistique 5"></div></div>
+      <div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-6.jpg" alt="Maquillage artistique 6"></div></div>
+      <div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-7.jpg" alt="Maquillage artistique 7"></div></div>
+      <div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-8.jpg" alt="Maquillage artistique 8"></div></div>
+      <div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-9.jpg" alt="Maquillage artistique 9"></div></div>
+      <div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-10.jpg" alt="Maquillage artistique 10"></div></div>
+      <div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-11.jpg" alt="Maquillage artistique 11"></div></div>
+      <div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-12.jpg" alt="Maquillage artistique 12"></div></div>
+      <div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-13.jpg" alt="Maquillage artistique 13"></div></div>
+      <div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-14.jpg" alt="Maquillage artistique 14"></div></div>
+      <div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-15.jpg" alt="Maquillage artistique 15"></div></div>
+        <!-- Ajoute ces vignettes dans <div class="gallery-mosaic-grid">, juste après galerie-15.jpg -->
+
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-16.jpg" alt="Maquillage artistique 16"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-17.jpg" alt="Maquillage artistique 17"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-18.jpg" alt="Maquillage artistique 18"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-19.jpg" alt="Maquillage artistique 19"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-20.jpg" alt="Maquillage artistique 20"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-21.jpg" alt="Maquillage artistique 21"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-22.jpg" alt="Maquillage artistique 22"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-23.jpg" alt="Maquillage artistique 23"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-24.jpg" alt="Maquillage artistique 24"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-25.jpg" alt="Maquillage artistique 25"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-26.jpg" alt="Maquillage artistique 26"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-27.jpg" alt="Maquillage artistique 27"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-28.jpg" alt="Maquillage artistique 28"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-29.jpg" alt="Maquillage artistique 29"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-30.jpg" alt="Maquillage artistique 30"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-31.jpg" alt="Maquillage artistique 31"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-32.jpg" alt="Maquillage artistique 32"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-33.jpg" alt="Maquillage artistique 33"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-34.jpg" alt="Maquillage artistique 34"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-35.jpg" alt="Maquillage artistique 35"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-36.jpg" alt="Maquillage artistique 36"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-37.jpg" alt="Maquillage artistique 37"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-38.jpg" alt="Maquillage artistique 38"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-39.jpg" alt="Maquillage artistique 39"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-40.jpg" alt="Maquillage artistique 40"></div></div>
+<div class="gallery-mosaic-item"><div class="gallery-mosaic-inner"><img src="images/galerie-41.jpg" alt="Maquillage artistique 41"></div></div>
+
+
+    </div>
+
+    <p style="text-align:center; margin-top:2.5rem;">
+      <a href="index.html#galerie" class="btn-ghost">← Retour à la page principale</a>
     </p>
-
-   <div class="gallery-full">
-  <div class="gallery-mosaic-grid">
-
-    <div class="gallery-mosaic-item">
-      <div class="gallery-mosaic-inner">
-        <img src="images/galerie-1.jpg" alt="Maquillage artistique 1">
-      </div>
-    </div>
-
-    <div class="gallery-mosaic-item">
-      <div class="gallery-mosaic-inner">
-        <img src="images/galerie-2.jpg" alt="Maquillage artistique 2">
-      </div>
-    </div>
-
-    <div class="gallery-mosaic-item">
-      <div class="gallery-mosaic-inner">
-        <img src="images/galerie-3.jpg" alt="Maquillage artistique 3">
-      </div>
-    </div>
-
-    <div class="gallery-mosaic-item">
-      <div class="gallery-mosaic-inner">
-        <img src="images/galerie-4.jpg" alt="Maquillage artistique 4">
-      </div>
-    </div>
-
-    <div class="gallery-mosaic-item">
-      <div class="gallery-mosaic-inner">
-        <img src="images/galerie-5.jpg" alt="Maquillage artistique 5">
-      </div>
-    </div>
-
-    <div class="gallery-mosaic-item">
-      <div class="gallery-mosaic-inner">
-        <img src="images/galerie-6.jpg" alt="Maquillage artistique 6">
-      </div>
-    </div>
-
-    <div class="gallery-mosaic-item">
-      <div class="gallery-mosaic-inner">
-        <img src="images/galerie-7.jpg" alt="Maquillage artistique 7">
-      </div>
-    </div>
-
-    <div class="gallery-mosaic-item">
-      <div class="gallery-mosaic-inner">
-        <img src="images/galerie-8.jpg" alt="Maquillage artistique 8">
-      </div>
-    </div>
-
-    <div class="gallery-mosaic-item">
-      <div class="gallery-mosaic-inner">
-        <img src="images/galerie-9.jpg" alt="Maquillage artistique 9">
-      </div>
-    </div>
-
-    <div class="gallery-mosaic-item">
-      <div class="gallery-mosaic-inner">
-        <img src="images/galerie-10.jpg" alt="Maquillage artistique 10">
-      </div>
-    </div>
-
-    <div class="gallery-mosaic-item">
-      <div class="gallery-mosaic-inner">
-        <img src="images/galerie-11.jpg" alt="Maquillage artistique 11">
-      </div>
-    </div>
-
-    <div class="gallery-mosaic-item">
-      <div class="gallery-mosaic-inner">
-        <img src="images/galerie-12.jpg" alt="Maquillage artistique 12">
-      </div>
-    </div>
-
-    <div class="gallery-mosaic-item">
-      <div class="gallery-mosaic-inner">
-        <img src="images/galerie-13.jpg" alt="Maquillage artistique 13">
-      </div>
-    </div>
-
-    <div class="gallery-mosaic-item">
-      <div class="gallery-mosaic-inner">
-        <img src="images/galerie-14.jpg" alt="Maquillage artistique 14">
-      </div>
-    </div>
-
-    <div class="gallery-mosaic-item">
-      <div class="gallery-mosaic-inner">
-        <img src="images/galerie-15.jpg" alt="Maquillage artistique 15">
-      </div>
-    </div>
-
   </div>
-
-
-    <p style="text-align: center; margin-top: 2.5rem;">
-        <a href="index.html#galerie" class="btn-ghost">← Retour à la page principale</a>
-    </p>
-</div>
 </section>
 
 <footer>
-    <p>&copy; 2024 L'Atelier de Macete - Tous droits réservés</p>
-    <p class="cursive" style="margin-top: 1rem;">Créativité, professionnalisme et magie au rendez-vous</p>
+  <p>&copy; 2024 L'Atelier de Macete - Tous droits réservés</p>
+  <p class="cursive" style="margin-top:1rem;">Créativité, professionnalisme et magie au rendez-vous</p>
 </footer>
 
 <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</button>
 
 <script>
-    function toggleMenu() {
-        const navLinks = document.getElementById('navLinks');
-        navLinks.classList.toggle('active');
-    }
+  function toggleMenu(){
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
+  }
 
-    const navLinksItems = document.querySelectorAll('.nav-links a');
-    navLinksItems.forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                document.getElementById('navLinks').classList.remove('active');
-            }
-        });
+  const navLinksItems = document.querySelectorAll('.nav-links a');
+  navLinksItems.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        document.getElementById('navLinks').classList.remove('active');
+      }
     });
+  });
 
-    const scrollTopBtn = document.getElementById('scrollTop');
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            scrollTopBtn.classList.add('visible');
-        } else {
-            scrollTopBtn.classList.remove('visible');
-        }
-    });
+  const scrollTopBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) scrollTopBtn.classList.add('visible');
+    else scrollTopBtn.classList.remove('visible');
+  });
 
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
+  function scrollToTop(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 </script>
 </body>
 </html>
