@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Atelier de Macete - Maquillage Artistique Professionnel</title>
+    <meta name="description" content="Animations inoubliables pour tous vos événements - Maquillage artistique enfants et adultes, ateliers, tatouages éphémères, bar à paillettes">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose-pastel: #FFB6D9;
+            --peche: #FFD4B8;
+            --lavande: #E5C5F1;
+            --vert-clair: #C8E6D5;
+            --bleu-clair: #D4E8F5;
+            --texte-fonce: #5A4A5E;
+            --texte-clair: #8B7B8E;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: var(--texte-fonce);
+            line-height: 1.6;
+            background: linear-gradient(135deg, var(--rose-pastel) 0%, var(--peche) 25%, var(--vert-clair) 50%, var(--bleu-clair) 100%);
+            background-attachment: fixed;
+        }
+
+        .cursive {
+            font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+            font-style: italic;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* HEADER LOGO + TEXTE */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--texte-fonce);
+        }
+
+        .logo-img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--rose-pastel);
+            object-fit: cover;
+            background: radial-gradient(circle at 30% 20%, var(--rose-pastel), var(--peche));
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-title {
+            font-size: 1.2rem;
+            color: var(--lavande);
+            font-weight: bold;
+        }
+
+        .logo-tagline {
+            font-size: 0.85rem;
+            color: var(--texte-clair);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--texte-fonce);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--lavande);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--texte-fonce);
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--lavande);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--texte-fonce);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--rose-pastel), var(--lavande));
+            border-radius: 3px;
+        }
+
+        /* HERO (premier bloc du .fr adapté) */
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            text-align: left;
+        }
+
+        .hero-title-with-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* LOGO DU PREMIER BLOC ×3 */
+        .hero-logo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--rose-pastel);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+        }
+
+        .hero-title-main {
+            font-size: 2.6rem;
+            color: var(--lavande);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-slogan {
+            font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+            font-size: 1.8rem;
+            color: var(--texte-clair);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text {
+            font-size: 1rem;
+            color: var(--texte-fonce);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pill {
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 182, 217, 0.7);
+            box-shadow: 0 4px 10px rgba(180, 120, 150, 0.2);
+            white-space: nowrap;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            border-radius: 999px;
+            padding: 0.65rem 1.4rem;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--rose-pastel), var(--peche));
+            color: var(--texte-fonce);
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(190, 120, 150, 0.3);
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            filter: brightness(1.05);
+        }
+
+        .btn-ghost {
+            display: inline-block;
+            border-radius: 999px;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.95rem;
+            border: 1px solid rgba(90, 74, 94, 0.2);
+            background: rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--texte-fonce);
+        }
+
+        .hero-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.2rem;
+            justify-items: center;
+        }
+
+        .hero-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            padding: 5px;
+            background: conic-gradient(from 200deg, var(--rose-pastel), var(--peche), var(--vert-clair), var(--bleu-clair), var(--rose-pastel));
+            box-shadow: 0 10px 24px rgba(150, 100, 140, 0.3);
+        }
+
+        .hero-circle-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #fdf5fb;
+        }
+
+        .hero-circle-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* PRESTATIONS */
+        .prestations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .prestation-card {
+            background: linear-gradient(135deg, rgba(255, 182, 217, 0.2), rgba(229, 197, 241, 0.2));
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid var(--lavande);
+            transition: transform 0.3s;
+        }
+
+        .prestation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .prestation-card h3 {
+            color: var(--lavande);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Bar à paillettes centrée */
+        .prestation-card.centered {
+            grid-column: 1 / -1;
+            max-width: 400px;
+            justify-self: center;
+        }
+
+        /* ÉVÉNEMENTS */
+        .evenements-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        .evenement-item {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--rose-pastel);
+            transition: all 0.3s;
+            flex: 1 1 260px;
+            max-width: 320px;
+        }
+
+        .evenement-item:hover {
+            background: rgba(255, 255, 255, 0.9);
+            border-left-color: var(--lavande);
+            transform: translateY(-3px);
+        }
+
+        .evenement-item h3 {
+            color: var(--texte-fonce);
+            margin-bottom: 0.5rem;
+        }
+
+        /* GALERIE */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert-clair), var(--bleu-clair));
+padding: 4px;
+border: none;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .gallery-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fdf5fb;
+        }
+
+        .gallery-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+/* IMPORTANT : on coupe les animations CSS, le JS gère tout */
+.orbit-ring,
+.orbit-item,
+.orbit-item span{
+  animation: none !important;
+}
+
+/* CTA */
+.gallery-orbit-cta{
+  text-align:center;
+  margin-top:1rem;
+  font-weight:700;
+}
+
+.gallery-orbit-cta span{
+  display:inline-block;
+  padding:0.6rem 1.1rem;
+  border-radius:999px;
+  background: rgba(255,255,255,0.75);
+  border:1px solid rgba(255,182,217,0.6);
+  box-shadow:0 10px 22px rgba(174,105,139,0.22);
+}
+
+/* responsive */
+@media (max-width: 768px){
+  .gallery-orbit{
+    width:min(420px, 92vw);
+    height:min(320px, 72vw);
+    perspective: 780px;
+  }
+
+  .orbit-item{
+    width:125px;
+    height:125px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .orbit-ring{ transform:none !important; }
+  .orbit-item{ transform: translate(-50%,-50%) !important; }
+}
+
+/* ===== GALERIE — Mosaïque pro (6 vignettes), bloc cliquable ===== */
+
+.gallery-mosaic-link{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+}
+
+.gallery-mosaic{
+  max-width: 920px;
+  margin: 2rem auto 0;
+  padding: 1.2rem;
+  border-radius: 26px;
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(255,182,217,0.35);
+  box-shadow: 0 18px 50px rgba(90,74,94,0.14);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.gallery-mosaic:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 24px 70px rgba(90,74,94,0.18);
+}
+
+.gallery-mosaic-head{
+  text-align:center;
+  margin-bottom: 1rem;
+}
+
+.gallery-mosaic-head .title{
+  font-weight: 700;
+  color: var(--lavande);
+  font-size: 1.25rem;
+  margin-bottom: .35rem;
+}
+
+.gallery-mosaic-head .subtitle{
+  color: var(--texte-clair);
+  font-size: .98rem;
+}
+
+.gallery-mosaic-grid{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 70px;
+  gap: 14px;
+  align-items: center;
+  justify-items: center;
+  padding: .4rem;
+}
+
+.mosaic-item{
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  padding: 5px;
+  background: linear-gradient(135deg,
+    var(--rose-pastel),
+    var(--peche),
+    var(--vert-clair),
+    var(--bleu-clair)
+  );
+  box-shadow: 0 10px 26px rgba(0,0,0,0.16);
+}
+
+.mosaic-item > span{
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius: 999px;
+  overflow:hidden;
+  background: #fdf5fb;
+}
+
+.mosaic-item img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  border-radius: 999px;
+}
+
+/* placement */
+.m1{ grid-column: 1 / span 4;  grid-row: 1 / span 3; }
+.m2{ grid-column: 5 / span 3;  grid-row: 1 / span 2; }
+.m3{ grid-column: 8 / span 5;  grid-row: 1 / span 3; }
+.m4{ grid-column: 3 / span 4;  grid-row: 4 / span 3; }
+.m5{ grid-column: 7 / span 3;  grid-row: 4 / span 2; }
+.m6{ grid-column: 10 / span 3; grid-row: 4 / span 3; }
+
+.gallery-mosaic-cta{
+  text-align:center;
+  margin-top: 1.1rem;
+  font-weight: 700;
+}
+
+.gallery-mosaic-cta span{
+  display:inline-block;
+  padding: 0.65rem 1.15rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(255,182,217,0.55);
+  box-shadow: 0 10px 22px rgba(174,105,139,0.18);
+}
+
+@media (max-width: 768px){
+  .gallery-mosaic-grid{
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 62px;
+    gap: 12px;
+  }
+
+  .m1{ grid-column: 1 / span 3; grid-row: 1 / span 3; }
+  .m2{ grid-column: 4 / span 3; grid-row: 1 / span 2; }
+  .m3{ grid-column: 4 / span 3; grid-row: 3 / span 3; }
+  .m4{ grid-column: 1 / span 3; grid-row: 4 / span 3; }
+  .m5{ grid-column: 4 / span 3; grid-row: 6 / span 1; }
+  .m6{ grid-column: 1 / span 6; grid-row: 7 / span 2; }
+}
+
+/* TARIFS */
+.tarifs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Empêche texte bleu et souligné */
+.tarif-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.tarif-card-link:visited {
+    color: inherit;
+}
+
+.tarif-card {
+    background: linear-gradient(135deg, rgba(255, 212, 184, 0.3), rgba(200, 230, 213, 0.3));
+    padding: 2rem;
+    border-radius: 20px;
+    border: 3px solid var(--peche);
+    text-align: center;
+
+    /* Nécessaire pour l’effet */
+    position: relative;
+    overflow: hidden;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- Effet Glow Pastel au survol --- */
+.tarif-card-link:hover .tarif-card {
+    transform: scale(1.04);
+    box-shadow: 
+        0 0 18px rgba(255, 182, 217, 0.6),
+        0 0 30px rgba(200, 230, 213, 0.5);
+}
+
+/* --- Glitter animé --- */
+.tarif-card::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    background-image: radial-gradient(
+        rgba(255,255,255,0.6) 0%,
+        rgba(255,255,255,0.15) 40%,
+        transparent 70%
+    );
+    background-size: 250% 250%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+
+    /* Animation du glitter */
+    animation: glitterMove 4s linear infinite;
+    pointer-events: none;
+}
+
+/* Visible au survol */
+.tarif-card-link:hover .tarif-card::before {
+    opacity: 1;
+}
+
+/* --- Animation glitter qui bouge doucement --- */
+@keyframes glitterMove {
+    0% { transform: translate(-20%, -20%) rotate(0deg); }
+    50% { transform: translate(20%, 20%) rotate(180deg); }
+    100% { transform: translate(-20%, -20%) rotate(360deg); }
+}
+
+@keyframes glitterMove {
+    0%   { background-position: 0% 0%; }
+    50%  { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+       .tarif-card h3 {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--lavande);
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.08); /* reste léger & élégant */
+}
+
+        .tarif-card .price {
+            font-size: 2rem;
+            color: var(--texte-fonce);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .tarif-card ul {
+            list-style: none;
+            text-align: left;
+            margin-top: 1rem;
+        }
+
+        .tarif-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(90, 74, 94, 0.1);
+        }
+
+        .tarif-card li:before {
+            content: "✓ ";
+            color: var(--vert-clair);
+            font-weight: bold;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .values {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .value-item {
+            background: linear-gradient(135deg, var(--rose-pastel), var(--lavande));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* CONTACT harmonisé */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            box-shadow: 0 16px 40px rgba(190, 139, 170, 0.18);
+            padding: 2.5rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+        }
+
+        .section-title {
+            font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+            font-size: 2.1rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #b35a87;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.05rem;
+            opacity: 0.85;
+            margin-bottom: 2rem;
+            color: var(--texte-clair);
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1rem;
+        }
+
+        .contact-list li {
+            margin-bottom: 0.6rem;
+        }
+
+        .contact-label {
+            font-weight: 500;
+        }
+
+        .contact-highlight {
+            font-size: 1.1rem;
+        }
+
+        .ig-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.3rem;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            background: radial-gradient(circle at 20% 20%, #f8b9cf, #f5c36f, #bda7ff);
+            box-shadow: 0 10px 22px rgba(174, 105, 139, 0.35);
+            color: #3c213a;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+            margin-top: 0.75rem;
+        }
+
+        .ig-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .ig-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .contact-note {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        /* Logo à la place du QR code */
+        .contact-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-logo img {
+            height: 230px;
+            width: 230px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 6px 22px rgba(0,0,0,0.15);
+            border: 3px solid var(--rose-pastel);
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            color: var(--texte-clair);
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                padding-top: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            section {
+                margin: 2rem 1rem;
+                padding: 2rem 1rem;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-gallery {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                margin-top: 1.5rem;
+            }
+
+            .hero-circle {
+                width: 130px;
+                height: 130px;
+            }
+
+            .gallery-item {
+                width: 150px;
+                height: 150px;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+.hero-title-with-logo {
+        flex-direction: column;
+        align-items: flex-start; /* ou center si tu préfères centrer */
+    }
+
+    .hero-title-main {
+        font-size: 2.1rem; /* plus petit pour éviter qu'il dépasse */
+    }
+            /* A PROPOS : photo sous le texte sur mobile */
+            .about-layout {
+                grid-template-columns: 1fr !important;
+                text-align: center;
+            }
+
+            .about-portrait {
+                margin-top: 1.5rem;
+            }
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, var(--rose-pastel), var(--lavande));
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            opacity: 0;
+            visibility: hidden;
+            border: none;
+            font-size: 1.5rem;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+        }
+
+        /* --- PHOTO RONDE À PROPOS (hauteur automatique matching texte) --- */
+        .about-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .about-portrait {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .about-portrait-inner {
+    aspect-ratio: 1 / 1;
+    height: 100%;
+    max-height: 350px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+
+    /* même style que les ronds de la galerie */
+    border: none;
+padding: 4px;
+background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert-clair), var(--bleu-clair));
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+       .about-portrait-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="#accueil" class="logo">
+            <img src="images/mon-logo.png" alt="L'Atelier de Macete" class="logo-img">
+            <div class="logo-text">
+                <span class="logo-title">L'Atelier de Macete</span>
+                <span class="logo-tagline">Maquillage artistique &amp; paillettes</span>
+            </div>
+        </a>
+
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#prestations">Prestations</a></li>
+            <li><a href="#evenements">Événements</a></li>
+            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="#tarifs">Tarifs</a></li>
+            <li><a href="#apropos">À propos</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section id="accueil" class="hero">
+    <div class="hero-content">
+        <div class="hero-title-with-logo">
+            <img src="images/mon-logo.png" alt="Logo Macete" class="hero-logo">
+            <h1 class="hero-title-main">L’Atelier de Macete</h1>
+        </div>
+
+        <p class="hero-slogan">« Animations inoubliables pour tous vos événements »</p>
+        <p class="hero-text">
+            Maquillage artistique pour enfants et adultes, tatouages éphémères pailletés et bar à paillettes,
+            pour apporter une touche de magie à vos fêtes, mariages, marchés de Noël, événements d’entreprise
+            et autres moments précieux.
+        </p>
+
+        <div class="hero-badges">
+            <span class="pill">Maquillage artistique enfants &amp; adultes</span>
+            <span class="pill">Ateliers créatifs pour enfants</span>
+            <span class="pill">Tatouages pailletés</span>
+            <span class="pill">Bar à paillettes</span>
+        </div>
+
+        <div class="hero-actions">
+            <a href="#contact" class="btn-primary">Réserver une animation</a>
+            <a href="#galerie" class="btn-ghost">Découvrir les réalisations</a>
+        </div>
+    </div>
+
+    <div class="hero-gallery" aria-label="Exemples de maquillages">
+        <div class="hero-circle">
+            <div class="hero-circle-inner">
+                <img src="images/maquillage-1.jpg" alt="Maquillage artistique – exemple 1">
+            </div>
+        </div>
+        <div class="hero-circle">
+            <div class="hero-circle-inner">
+                <img src="images/maquillage-2.jpg" alt="Maquillage artistique – exemple 2">
+            </div>
+        </div>
+        <div class="hero-circle">
+            <div class="hero-circle-inner">
+                <img src="images/maquillage-3.jpg" alt="Maquillage artistique – exemple 3">
+            </div>
+        </div>
+        <div class="hero-circle">
+            <div class="hero-circle-inner">
+                <img src="images/maquillage-4.jpg" alt="Maquillage artistique – exemple 4">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRESTATIONS -->
+<section id="prestations">
+    <h2>Prestations</h2>
+    <div class="prestations-grid">
+        <div class="prestation-card">
+            <h3>Maquillage Artistique</h3>
+            <p>Des créations uniques et personnalisées pour enfants et adultes. Du maquillage féerique aux créatures fantastiques, chaque visage devient une œuvre d'art.</p>
+        </div>
+        <div class="prestation-card">
+            <h3>Ateliers Enfants</h3>
+            <p>Ateliers créatifs avec pochoirs pour initier les enfants à l'art du maquillage dans une ambiance ludique et pédagogique.</p>
+        </div>
+        <div class="prestation-card">
+            <h3>Tatouages Éphémères</h3>
+            <p>Tatouages pailletés temporaires qui brillent et émerveillent. Parfaits pour les fêtes et événements spéciaux.</p>
+        </div>
+        <!-- Bar à paillettes centré -->
+        <div class="prestation-card centered">
+            <h3>Bar à Paillettes</h3>
+            <p>Une expérience scintillante et festive où petits et grands peuvent se parer de paillettes écologiques pour un effet magique garanti.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ÉVÉNEMENTS -->
+<section id="evenements">
+    <h2>Événements</h2>
+    <div class="evenements-list">
+        <div class="evenement-item">
+            <h3>Anniversaires</h3>
+            <p>Rendez les anniversaires inoubliables avec des animations maquillage personnalisées selon le thème de votre choix.</p>
+        </div>
+        <div class="evenement-item">
+            <h3>Mariages</h3>
+            <p>Animations pour divertir les enfants pendant votre réception et créer des souvenirs magiques, ou bien faire scintiller vos invités de mille paillettes sur la piste de danse.</p>
+        </div>
+        <div class="evenement-item">
+            <h3>Marchés de Noël</h3>
+            <p>Apportez la magie des fêtes avec des maquillages féeriques et scintillants adaptés à la saison.</p>
+        </div>
+        <div class="evenement-item">
+            <h3>Fêtes Communales</h3>
+            <p>Animations pour les événements municipaux et scolaires, kermesses et fêtes de quartier.</p>
+        </div>
+        <div class="evenement-item">
+            <h3>Entreprises</h3>
+            <p>Team building, arbres de Noël, journées portes ouvertes et événements d'entreprise.</p>
+        </div>
+        <div class="evenement-item">
+            <h3>Événements Privés</h3>
+            <p>Toute occasion spéciale mérite d'être célébrée avec créativité et professionnalisme.</p>
+        </div>
+    </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie">
+  <h2>Galerie</h2>
+  <p style="text-align: center; margin-bottom: 2rem; color: var(--texte-clair);">
+    Découvrez quelques-unes de mes créations – cliquez pour voir toute la galerie.
+  </p>
+
+  <a class="gallery-mosaic-link" href="galerie.html" aria-label="Ouvrir la galerie complète">
+    <div class="gallery-mosaic">
+      <div class="gallery-mosaic-head">
+        <div class="title">Voir la galerie photos</div>
+        <div class="subtitle">Cliquez n’importe où pour accéder à toutes les photos.</div>
+      </div>
+
+      <div class="gallery-mosaic-grid" aria-hidden="true">
+        <div class="mosaic-item m1"><span><img src="images/galerie-1.jpg" alt=""></span></div>
+        <div class="mosaic-item m2"><span><img src="images/galerie-2.jpg" alt=""></span></div>
+        <div class="mosaic-item m3"><span><img src="images/galerie-3.jpg" alt=""></span></div>
+        <div class="mosaic-item m4"><span><img src="images/galerie-4.jpg" alt=""></span></div>
+        <div class="mosaic-item m5"><span><img src="images/galerie-5.jpg" alt=""></span></div>
+        <div class="mosaic-item m6"><span><img src="images/galerie-6.jpg" alt=""></span></div>
+      </div>
+
+      <div class="gallery-mosaic-cta">
+        <span>Parcourez les maquillages enfants, adultes, bar à paillettes et tatouages éphémères.</span>
+      </div>
+    </div>
+  </a>
+</section>
+
+
+<!-- TARIFS -->
+<section id="tarifs">
+    <h2>Tarifs</h2>
+    <p style="text-align: center; margin-bottom: 2rem; color: var(--texte-clair);">Devis gratuit sur demande - Tarifs adaptés selon le type d'événement</p>
+    <div class="tarifs-grid">
+      <a href="tarifs-anniversaires.html" class="tarif-card-link">
+    <div class="tarif-card">
+                <h3 class="cursive">Anniversaire<br><span style="font-size:1.3rem;">Pack 10 enfants</span></h3>
+
+        <div class="price">130 €</div>
+        <ul>
+            <li>Maquillage artistique pour 10 enfants</li>
+            <li>Enfant supplémentaire : 12 €</li>
+            <li>Durée moyenne : 1h30 à 2h</li>
+            <li>Option stand &amp; déco : + 50 €</li>
+            <li>Déplacement offert dans un rayon de 15 km, puis 1 €/km</li>
+        </ul>
+    </div>
+</a>
+
+     <a href="tarifs-evenements.html" class="tarif-card-link">   
+    <div class="tarif-card">
+        <h3 class="cursive">Événements</h3>
+        <div class="price">À partir de 150 €</div>
+        <ul>
+            <li>Stand décoré inclus</li>
+            <li>Formules 2h, 4h ou journée</li>
+            <li>Option bar à paillettes : +30 €</li>
+            <li>Déplacement : 1 €/km</li>
+            <li>Majoration dates spéciales</li>
+        </ul>
+    </div>
+</a>
+
+     <a href="tarifs-ateliers.html" class="tarif-card-link">    
+        <div class="tarif-card">
+            <h3 class="cursive">Ateliers</h3>
+            <div class="price">Sur devis</div>
+            <ul>
+                <li>Ateliers créatifs pour groupes</li>
+                <li>Matériel fourni</li>
+                <li>Encadrement professionnel</li>
+                <li>Durée adaptable</li>
+            </ul>
+        </div>
+     </a>
+    </div>
+</section>
+
+<!-- À PROPOS -->
+<section id="apropos">
+    <h2>À propos</h2>
+
+    <div class="about-layout">
+        <!-- TEXTE À GAUCHE -->
+        <div class="about-content">
+            <p>Artiste plasticienne, passionnée par l'art et la créativité, je mets mon talent au service de vos événements pour créer des moments magiques et inoubliables.</p>
+            <p>Formée aux techniques professionnelles de maquillage artistique, je travaille avec du matériel de qualité supérieure, respectueux de toutes les peaux, y compris les plus sensibles.</p>
+            <p>Chaque prestation est unique et personnalisée selon vos envies et le thème de votre événement.</p>
+
+            <div class="values">
+                <div class="value-item">Prestations soignées</div>
+                <div class="value-item">Matériel professionnel</div>
+                <div class="value-item">Hygiène irréprochable</div>
+            </div>
+        </div>
+
+        <!-- PHOTO RONDE À DROITE -->
+        <div class="about-portrait">
+            <div class="about-portrait-inner">
+                <img src="images/portrait.jpg" alt="Portrait Macete">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="container">
+        <div class="section-card">
+            <h2 class="section-title">Contact</h2>
+            <p class="section-subtitle">
+                Pour toute demande d’animation ou de devis, contactez directement l’Atelier de Macete.
+            </p>
+
+            <div class="contact-layout">
+                <div>
+                    <ul class="contact-list">
+                        <li>
+                            <span class="contact-label">Téléphone :</span>
+                            <span class="contact-highlight"> 06&nbsp;80&nbsp;53&nbsp;32&nbsp;30</span>
+                        </li>
+                        <li>
+                            <span class="contact-label">Email :</span>
+                            <a href="mailto:latelierdemacete@gmail.com" class="contact-highlight">
+                                latelierdemacete@gmail.com
+                            </a>
+                        </li>
+                        <li>
+                            <span class="contact-label">Instagram :</span>
+                            <span class="contact-highlight">@latelier_de_macete</span>
+                        </li>
+                    </ul>
+
+                    <a href="https://www.instagram.com/latelier_de_macete" target="_blank" rel="noopener" class="ig-button">
+                        <span class="ig-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <linearGradient id="ig-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#f58529" />
+                                    <stop offset="50%" stop-color="#dd2a7b" />
+                                    <stop offset="100%" stop-color="#8134af" />
+                                </linearGradient>
+                                <rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="url(#ig-grad)"/>
+                                <circle cx="12" cy="12" r="4.2" fill="none" stroke="#fff" stroke-width="1.6"/>
+                                <circle cx="17" cy="7" r="1.1" fill="#fff"/>
+                            </svg>
+                        </span>
+                        <span>Suivre l’Atelier de Macete sur Instagram</span>
+                    </a>
+                    <p class="contact-note">
+                        Les réservations et devis se font par téléphone, email ou message Instagram.
+                    </p>
+                </div>
+
+                <!-- Logo à la place du QR code -->
+                <div class="contact-logo">
+                    <img src="images/mon-logo.png" alt="Logo Macete">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 L'Atelier de Macete - Tous droits réservés</p>
+    <p class="cursive" style="margin-top: 1rem;">Créativité, professionnalisme et magie au rendez-vous</p>
+</footer>
+
+<button class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</button>
+
+<script>
+    function toggleMenu() {
+        const navLinks = document.getElementById('navLinks');
+        navLinks.classList.toggle('active');
+    }
+
+    const navLinksItems = document.querySelectorAll('.nav-links a');
+    navLinksItems.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                document.getElementById('navLinks').classList.remove('active');
+            }
+        });
+    });
+
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+
+</script>
+</body>
+</html>
