@@ -1,6 +1,6 @@
 <!-- Fichier : maquillage-enfant-colmar.html
-     Style = identique à ton fichier principal (CSS intégré).
-     Liens du menu renvoient vers index.html#... (page principale).
+     + encart Galerie (version légère)
+     + liens "Contact" / liens internes stylés (pas bleus/soulignés)
 -->
 <!DOCTYPE html>
 <html lang="fr">
@@ -306,8 +306,8 @@
     }
 
     .content ul{
-      margin: .7rem 0 1.2rem;
-      padding-left: 1.2rem;
+      margin:.7rem 0 1.2rem;
+      padding-left:1.2rem;
     }
 
     .content li{ margin-bottom:.4rem; }
@@ -319,12 +319,123 @@
       text-align:center;
     }
 
-    footer{
-      background:rgba(255,255,255,0.9);
+    /* ---- Liens jolis mais compréhensibles ---- */
+    a.pretty-link{
+      color: var(--texte-fonce);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px dotted rgba(229,197,241,0.9);
+      padding-bottom: 1px;
+      transition: all .2s ease;
+      white-space: nowrap;
+    }
+    a.pretty-link:hover{
+      color: var(--lavande);
+      border-bottom-color: rgba(255,182,217,0.95);
+    }
+    a.pretty-link:focus{
+      outline: 2px solid rgba(229,197,241,0.6);
+      outline-offset: 3px;
+      border-bottom-color: transparent;
+      border-radius: 6px;
+    }
+
+    /* ---- Galerie mosaïque (version allégée : 4 vignettes) ---- */
+    .gallery-mosaic-link{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .gallery-mosaic{
+      max-width: 860px;
+      margin: 1.6rem auto 0;
+      padding: 1.1rem;
+      border-radius: 26px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(255,182,217,0.35);
+      box-shadow: 0 18px 50px rgba(90,74,94,0.14);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .gallery-mosaic:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 24px 70px rgba(90,74,94,0.18);
+    }
+
+    .gallery-mosaic-head{
       text-align:center;
-      padding:2rem;
-      margin-top:4rem;
-      color:var(--texte-clair);
+      margin-bottom: .9rem;
+    }
+
+    .gallery-mosaic-head .title{
+      font-weight: 700;
+      color: var(--lavande);
+      font-size: 1.15rem;
+      margin-bottom: .25rem;
+    }
+
+    .gallery-mosaic-head .subtitle{
+      color: var(--texte-clair);
+      font-size: .95rem;
+    }
+
+    .gallery-mosaic-grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 66px;
+      gap: 12px;
+      align-items: center;
+      justify-items: center;
+      padding: .3rem;
+    }
+
+    .mosaic-item{
+      width: 100%;
+      height: 100%;
+      border-radius: 999px;
+      padding: 5px;
+      background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert-clair), var(--bleu-clair));
+      box-shadow: 0 10px 26px rgba(0,0,0,0.14);
+    }
+
+    .mosaic-item > span{
+      display:block;
+      width:100%;
+      height:100%;
+      border-radius:999px;
+      overflow:hidden;
+      background:#fdf5fb;
+    }
+
+    .mosaic-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      border-radius:999px;
+    }
+
+    /* 4 items : plus léger visuellement */
+    .m1{ grid-column: 1 / span 5;  grid-row: 1 / span 3; }
+    .m2{ grid-column: 6 / span 3;  grid-row: 1 / span 2; }
+    .m3{ grid-column: 9 / span 4;  grid-row: 1 / span 3; }
+    .m4{ grid-column: 4 / span 5;  grid-row: 4 / span 3; }
+
+    .gallery-mosaic-cta{
+      text-align:center;
+      margin-top: 1rem;
+      font-weight: 700;
+    }
+
+    .gallery-mosaic-cta span{
+      display:inline-block;
+      padding: 0.6rem 1.05rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,182,217,0.55);
+      box-shadow: 0 10px 22px rgba(174,105,139,0.16);
+      color: var(--texte-fonce);
     }
 
     @media (max-width:768px){
@@ -363,6 +474,25 @@
       }
 
       .hero-title-main{ font-size:2.1rem; }
+
+      .gallery-mosaic-grid{
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: 62px;
+        gap: 12px;
+      }
+
+      .m1{ grid-column: 1 / span 3; grid-row: 1 / span 3; }
+      .m2{ grid-column: 4 / span 3; grid-row: 1 / span 2; }
+      .m3{ grid-column: 4 / span 3; grid-row: 3 / span 3; }
+      .m4{ grid-column: 1 / span 6; grid-row: 6 / span 2; }
+    }
+
+    footer{
+      background:rgba(255,255,255,0.9);
+      text-align:center;
+      padding:2rem;
+      margin-top:4rem;
+      color:var(--texte-clair);
     }
 
     .scroll-top{
@@ -387,11 +517,7 @@
       z-index:1200;
     }
 
-    .scroll-top.visible{
-      opacity:1;
-      visibility:visible;
-    }
-
+    .scroll-top.visible{ opacity:1; visibility:visible; }
     .scroll-top:hover{ transform:translateY(-5px); }
   </style>
 </head>
@@ -449,9 +575,7 @@
       <a href="index.html#galerie" class="btn-ghost">Découvrir les réalisations</a>
     </div>
 
-    <p class="note">
-      Vous êtes ailleurs dans le Haut-Rhin ? Je me déplace aussi autour de Colmar (sur demande).
-    </p>
+    <p class="note">Je me déplace aussi autour de Colmar (Haut-Rhin) sur demande.</p>
   </div>
 
   <div class="hero-gallery" aria-label="Exemples de maquillages">
@@ -470,14 +594,13 @@
     <p>
       Le <strong>maquillage enfant à Colmar</strong> est une animation très appréciée pour les anniversaires,
       fêtes privées et événements. Chaque enfant choisit son modèle (animaux, princesses, super-héros,
-      licornes ou créations artistiques), et repart avec un maquillage soigné qui tient bien.
+      licornes ou créations artistiques), et repart avec un maquillage soigné.
     </p>
 
     <h3>Anniversaires à Colmar</h3>
     <p>
       Pour un <strong>anniversaire enfant à Colmar</strong>, j’installe un petit espace maquillage et j’organise
-      le passage des enfants de manière fluide, afin d’éviter l’attente et de garder une ambiance détendue.
-      Les modèles sont adaptés à l’âge, aux envies et au temps disponible.
+      le passage des enfants de manière fluide. Les modèles sont adaptés à l’âge et au temps disponible.
     </p>
 
     <h3>Événements, écoles et animations publiques</h3>
@@ -499,16 +622,48 @@
     <h3>Options : tatouages pailletés et bar à paillettes</h3>
     <p>
       En complément du maquillage enfant, il est possible d’ajouter des <strong>tatouages pailletés</strong>
-      ou un <strong>bar à paillettes</strong> pour encore plus d’effet “waouh” sur les photos et sur la piste de danse.
+      ou un <strong>bar à paillettes</strong> pour encore plus d’effet sur les photos.
     </p>
 
     <h3>Réserver une maquilleuse enfant à Colmar</h3>
     <p>
       Pour réserver une prestation de <strong>maquillage enfant à Colmar</strong>, contactez-moi via la page
-      <a href="index.html#contact">Contact</a>. Indiquez la date, le lieu, le type d’événement et le nombre d’enfants
-      pour recevoir un devis rapide.
+      <a class="pretty-link" href="index.html#contact">Contact</a>.
+      Indiquez la date, le lieu et le nombre d’enfants pour recevoir un devis rapide.
     </p>
   </div>
+</section>
+
+<!-- GALERIE (encart léger) -->
+<section id="galerie">
+  <h2>Galerie</h2>
+  <p style="text-align:center; margin-bottom: 1.2rem; color: var(--texte-clair);">
+    Un aperçu de mes créations. Cliquez pour voir la galerie complète.
+  </p>
+
+  <a class="gallery-mosaic-link" href="galerie.html" aria-label="Ouvrir la galerie complète">
+    <div class="gallery-mosaic">
+      <div class="gallery-mosaic-head">
+        <div class="title">Voir la galerie photos</div>
+        <div class="subtitle">Maquillages enfants, adultes, paillettes et tatouages éphémères.</div>
+      </div>
+
+      <div class="gallery-mosaic-grid" aria-hidden="true">
+        <div class="mosaic-item m1"><span><img src="images/galerie-1.jpg" alt=""></span></div>
+        <div class="mosaic-item m2"><span><img src="images/galerie-2.jpg" alt=""></span></div>
+        <div class="mosaic-item m3"><span><img src="images/galerie-3.jpg" alt=""></span></div>
+        <div class="mosaic-item m4"><span><img src="images/galerie-4.jpg" alt=""></span></div>
+      </div>
+
+      <div class="gallery-mosaic-cta">
+        <span>Ouvrir la galerie complète</span>
+      </div>
+    </div>
+  </a>
+
+  <p class="note">
+    Besoin d’un devis ? Rendez-vous sur <a class="pretty-link" href="index.html#contact">Contact</a>.
+  </p>
 </section>
 
 <footer>
