@@ -585,6 +585,15 @@ border: none;
     gap: 2rem;
     margin-top: 2rem;
 }
+/* Centre le dernier encart si la dernière ligne n’en contient qu’un (ex: 4 cartes => 3 + 1) */
+@media (min-width: 1024px){
+  .tarifs-grid .tarif-card-link:last-child{
+    grid-column: 2 / span 1;
+    justify-self: center;
+    width: 100%;
+    max-width: 420px; /* ajuste si tu veux */
+  }
+}
 
 /* Empêche texte bleu et souligné */
 .tarif-card-link {
