@@ -7,7 +7,6 @@
     <meta name="description" content="Maquillage enfant en Alsace pour anniversaires, mariages, fêtes de village, marchés, écoles et événements. L’Atelier de Macete intervient dans le Bas-Rhin et le Haut-Rhin." />
     <link rel="canonical" href="https://latelierdemacete.fr/">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Maquillage enfant en Alsace | L’Atelier de Macete">
     <meta property="og:description" content="Maquillage artistique enfants et adultes, tatouages pailletés et bar à paillettes en Alsace. Interventions dans le Bas-Rhin et le Haut-Rhin.">
     <meta property="og:url" content="https://latelierdemacete.fr/">
@@ -110,11 +109,7 @@
     </script>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --rose-pastel: #FFB6D9;
@@ -208,9 +203,7 @@
             font-size: 1rem;
         }
 
-        .nav-links a:hover {
-            color: var(--lavande);
-        }
+        .nav-links a:hover { color: var(--lavande); }
 
         .menu-toggle {
             display: none;
@@ -231,10 +224,7 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
-        h1, h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+        h1, h2 { text-align: center; margin-bottom: 2rem; }
 
         h1 {
             font-size: 3rem;
@@ -268,9 +258,7 @@
             align-items: center;
         }
 
-        .hero-content {
-            text-align: left;
-        }
+        .hero-content { text-align: left; }
 
         .hero-title-with-logo {
             display: flex;
@@ -352,9 +340,7 @@
             text-decoration: none;
         }
 
-        .btn-primary:hover {
-            filter: brightness(1.05);
-        }
+        .btn-primary:hover { filter: brightness(1.05); }
 
         .btn-ghost {
             display: inline-block;
@@ -409,15 +395,6 @@
             margin-bottom: 0.6rem;
             color: var(--lavande);
             font-size: 1.35rem;
-        }
-
-        .content ul {
-            margin: 0.7rem 0 1.2rem;
-            padding-left: 1.2rem;
-        }
-
-        .content li {
-            margin-bottom: 0.4rem;
         }
 
         .pretty-link {
@@ -520,11 +497,7 @@
             margin-bottom: 0.5rem;
         }
 
-        .gallery-mosaic-link {
-            display:block;
-            text-decoration:none;
-            color:inherit;
-        }
+        .gallery-mosaic-link { display:block; text-decoration:none; color:inherit; }
 
         .gallery-mosaic {
             max-width: 920px;
@@ -574,12 +547,7 @@
             height: 100%;
             border-radius: 999px;
             padding: 5px;
-            background: linear-gradient(135deg,
-                var(--rose-pastel),
-                var(--peche),
-                var(--vert-clair),
-                var(--bleu-clair)
-            );
+            background: linear-gradient(135deg, var(--rose-pastel), var(--peche), var(--vert-clair), var(--bleu-clair));
             box-shadow: 0 10px 26px rgba(0,0,0,0.16);
         }
 
@@ -638,15 +606,8 @@
           }
         }
 
-        .tarif-card-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .tarif-card-link:visited {
-            color: inherit;
-        }
+        .tarif-card-link { text-decoration: none; color: inherit; display: block; }
+        .tarif-card-link:visited { color: inherit; }
 
         .tarif-card {
             background: linear-gradient(135deg, rgba(255, 212, 184, 0.3), rgba(200, 230, 213, 0.3));
@@ -661,20 +622,14 @@
 
         .tarif-card-link:hover .tarif-card {
             transform: scale(1.04);
-            box-shadow:
-                0 0 18px rgba(255, 182, 217, 0.6),
-                0 0 30px rgba(200, 230, 213, 0.5);
+            box-shadow: 0 0 18px rgba(255, 182, 217, 0.6), 0 0 30px rgba(200, 230, 213, 0.5);
         }
 
         .tarif-card::before {
             content: "";
             position: absolute;
             inset: -50%;
-            background-image: radial-gradient(
-                rgba(255,255,255,0.6) 0%,
-                rgba(255,255,255,0.15) 40%,
-                transparent 70%
-            );
+            background-image: radial-gradient(rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.15) 40%, transparent 70%);
             background-size: 250% 250%;
             opacity: 0;
             transition: opacity 0.4s ease;
@@ -682,9 +637,7 @@
             pointer-events: none;
         }
 
-        .tarif-card-link:hover .tarif-card::before {
-            opacity: 1;
-        }
+        .tarif-card-link:hover .tarif-card::before { opacity: 1; }
 
         @keyframes glitterMove {
             0%   { background-position: 0% 0%; }
@@ -725,6 +678,22 @@
             font-weight: bold;
         }
 
+        .faq-item {
+            margin-bottom: 1.5rem;
+            padding: 1rem 1.2rem;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.78);
+            border: 1px solid rgba(229,197,241,0.5);
+            box-shadow: 0 8px 20px rgba(90,74,94,0.08);
+        }
+
+        .faq-item h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: var(--lavande);
+            font-size: 1.25rem;
+        }
+
         .about-content {
             max-width: 800px;
             margin: 0 auto;
@@ -748,22 +717,6 @@
             border-radius: 25px;
             font-weight: bold;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .faq-item {
-            margin-bottom: 1.5rem;
-            padding: 1rem 1.2rem;
-            border-radius: 18px;
-            background: rgba(255,255,255,0.78);
-            border: 1px solid rgba(229,197,241,0.5);
-            box-shadow: 0 8px 20px rgba(90,74,94,0.08);
-        }
-
-        .faq-item h3 {
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-            color: var(--lavande);
-            font-size: 1.25rem;
         }
 
         .container {
@@ -809,17 +762,10 @@
             margin: 0 0 1rem;
         }
 
-        .contact-list li {
-            margin-bottom: 0.6rem;
-        }
+        .contact-list li { margin-bottom: 0.6rem; }
 
-        .contact-label {
-            font-weight: 500;
-        }
-
-        .contact-highlight {
-            font-size: 1.1rem;
-        }
+        .contact-label { font-weight: 500; }
+        .contact-highlight { font-size: 1.1rem; }
 
         .ig-button {
             display: inline-flex;
@@ -838,15 +784,8 @@
             margin-top: 0.75rem;
         }
 
-        .ig-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        .ig-icon svg {
-            width: 100%;
-            height: 100%;
-        }
+        .ig-icon { width: 20px; height: 20px; }
+        .ig-icon svg { width: 100%; height: 100%; }
 
         .contact-note {
             font-size: 0.85rem;
@@ -898,14 +837,8 @@
             font-size: 1.5rem;
         }
 
-        .scroll-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-top:hover {
-            transform: translateY(-5px);
-        }
+        .scroll-top.visible { opacity: 1; visibility: visible; }
+        .scroll-top:hover { transform: translateY(-5px); }
 
         .about-layout {
             display: grid;
@@ -942,9 +875,7 @@
         }
 
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
+            .menu-toggle { display: block; }
 
             .nav-links {
                 display: none;
@@ -954,26 +885,17 @@
                 padding-top: 1rem;
             }
 
-            .nav-links.active {
-                display: flex;
-            }
+            .nav-links.active { display: flex; }
 
-            h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.8rem;
-            }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.8rem; }
 
             section {
                 margin: 2rem 1rem;
                 padding: 2rem 1rem;
             }
 
-            .hero {
-                grid-template-columns: 1fr;
-            }
+            .hero { grid-template-columns: 1fr; }
 
             .hero-gallery {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -985,27 +907,21 @@
                 height: 130px;
             }
 
-            .contact-layout {
-                grid-template-columns: 1fr;
-            }
+            .contact-layout { grid-template-columns: 1fr; }
 
             .hero-title-with-logo {
                 flex-direction: column;
                 align-items: flex-start;
             }
 
-            .hero-title-main {
-                font-size: 2.1rem;
-            }
+            .hero-title-main { font-size: 2.1rem; }
 
             .about-layout {
                 grid-template-columns: 1fr !important;
                 text-align: center;
             }
 
-            .about-portrait {
-                margin-top: 1.5rem;
-            }
+            .about-portrait { margin-top: 1.5rem; }
 
             .gallery-mosaic-grid {
                 grid-template-columns: repeat(6, 1fr);
@@ -1055,7 +971,6 @@
     </nav>
 </header>
 
-<!-- HERO -->
 <section id="accueil" class="hero">
     <div class="hero-content">
         <div class="hero-title-with-logo">
@@ -1088,33 +1003,15 @@
     </div>
 
     <div class="hero-gallery" aria-label="Exemples de maquillages artistiques en Alsace">
-        <div class="hero-circle">
-            <div class="hero-circle-inner">
-                <img src="images/maquillage-1.jpg" alt="Maquillage enfant en Alsace - modèle papillon">
-            </div>
-        </div>
-        <div class="hero-circle">
-            <div class="hero-circle-inner">
-                <img src="images/maquillage-2.jpg" alt="Maquillage artistique pour anniversaire enfant en Alsace">
-            </div>
-        </div>
-        <div class="hero-circle">
-            <div class="hero-circle-inner">
-                <img src="images/maquillage-3.jpg" alt="Animation maquillage enfant lors d'un événement en Alsace">
-            </div>
-        </div>
-        <div class="hero-circle">
-            <div class="hero-circle-inner">
-                <img src="images/maquillage-4.jpg" alt="Maquillage artistique enfant pour fête en Alsace">
-            </div>
-        </div>
+        <div class="hero-circle"><div class="hero-circle-inner"><img src="images/maquillage-1.jpg" alt="Maquillage enfant en Alsace - modèle papillon"></div></div>
+        <div class="hero-circle"><div class="hero-circle-inner"><img src="images/maquillage-2.jpg" alt="Maquillage artistique pour anniversaire enfant en Alsace"></div></div>
+        <div class="hero-circle"><div class="hero-circle-inner"><img src="images/maquillage-3.jpg" alt="Animation maquillage enfant lors d'un événement en Alsace"></div></div>
+        <div class="hero-circle"><div class="hero-circle-inner"><img src="images/maquillage-4.jpg" alt="Maquillage artistique enfant pour fête en Alsace"></div></div>
     </div>
 </section>
 
-<!-- BLOC SEO -->
 <section id="zone-alsace">
     <h2>Animation maquillage enfant dans toute l’Alsace</h2>
-
     <div class="content">
         <p>
             J’interviens dans toute l’Alsace pour proposer des animations de <strong>maquillage enfant</strong>
@@ -1123,7 +1020,6 @@
             dans le <strong>Bas-Rhin</strong> que dans le <strong>Haut-Rhin</strong>, avec déplacement
             selon la localisation et le format de l’événement.
         </p>
-
         <p>
             Les interventions peuvent être organisées à <strong>Strasbourg</strong>, <strong>Haguenau</strong>,
             <strong>Bischwiller</strong>, <strong>Colmar</strong>, <strong>Mulhouse</strong> et dans les
@@ -1131,7 +1027,6 @@
             l’événement et à l’ambiance recherchée. Le maquillage enfant peut également être complété par des
             <strong>tatouages pailletés</strong> ou un <strong>bar à paillettes</strong>.
         </p>
-
         <h3>Pages locales et liens utiles</h3>
         <p>
             Vous pouvez consulter les pages dédiées à certaines villes :
@@ -1149,15 +1044,10 @@
     </div>
 </section>
 
-<!-- VILLES -->
 <section id="villes">
     <h2>Villes desservies en Alsace</h2>
     <div class="content">
-        <p>
-            Les prestations peuvent être organisées dans de nombreuses villes et communes d’Alsace,
-            selon le type d’événement, la durée et la localisation.
-        </p>
-
+        <p>Les prestations peuvent être organisées dans de nombreuses villes et communes d’Alsace, selon le type d’événement, la durée et la localisation.</p>
         <div class="city-links">
             <a href="maquillage-enfant-strasbourg.html" class="city-pill">Strasbourg</a>
             <a href="maquillage-enfant-haguenau.html" class="city-pill">Haguenau</a>
@@ -1169,7 +1059,6 @@
     </div>
 </section>
 
-<!-- PRESTATIONS -->
 <section id="prestations">
     <h2>Prestations</h2>
     <div class="prestations-grid">
@@ -1192,7 +1081,6 @@
     </div>
 </section>
 
-<!-- ÉVÉNEMENTS -->
 <section id="evenements">
     <h2>Événements</h2>
     <div class="evenements-list">
@@ -1223,7 +1111,6 @@
     </div>
 </section>
 
-<!-- GALERIE -->
 <section id="galerie">
   <h2>Galerie</h2>
   <p style="text-align: center; margin-bottom: 2rem; color: var(--texte-clair);">
@@ -1253,7 +1140,6 @@
   </a>
 </section>
 
-<!-- TARIFS -->
 <section id="tarifs">
     <h2>Tarifs</h2>
     <p style="text-align: center; margin-bottom: 2rem; color: var(--texte-clair);">Devis gratuit sur demande - Tarifs adaptés selon le type d'événement</p>
@@ -1317,7 +1203,6 @@
     </div>
 </section>
 
-<!-- FAQ -->
 <section id="faq">
   <h2>Questions fréquentes</h2>
   <div class="content">
@@ -1343,7 +1228,6 @@
   </div>
 </section>
 
-<!-- À PROPOS -->
 <section id="apropos">
     <h2>À propos</h2>
 
@@ -1368,7 +1252,6 @@
     </div>
 </section>
 
-<!-- AVIS -->
 <section id="avis">
   <h2>Ils nous ont fait confiance</h2>
 
@@ -1388,7 +1271,6 @@
   </p>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
     <div class="container">
         <div class="section-card">
@@ -1477,10 +1359,7 @@
     });
 
     function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1488,10 +1367,7 @@
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });
