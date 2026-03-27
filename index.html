@@ -873,7 +873,46 @@
             object-fit: cover;
             border-radius: 50%;
         }
+        .offer-box {
+            margin-top: 1.25rem;
+            padding: 1rem 1.2rem;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 212, 184, 0.55));
+            border: 2px dashed var(--rose-pastel);
+            box-shadow: 0 8px 22px rgba(190, 120, 150, 0.18);
+            max-width: 520px;
+        }
 
+        .offer-box-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--lavande);
+            margin-bottom: 0.35rem;
+        }
+
+        .offer-box p {
+            margin: 0;
+            font-size: 0.96rem;
+            color: var(--texte-fonce);
+        }
+
+        .offer-code {
+            display: inline-block;
+            margin: 0 0.2rem;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            background: rgba(255, 182, 217, 0.22);
+            border: 1px solid rgba(255, 182, 217, 0.7);
+            font-weight: 700;
+            letter-spacing: 0.4px;
+        }
+
+        .offer-note {
+            display: block;
+            margin-top: 0.45rem;
+            font-size: 0.84rem;
+            color: var(--texte-clair);
+        }
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
 
@@ -1000,6 +1039,14 @@
             <a href="#contact" class="btn-primary">Réserver une animation</a>
             <a href="#galerie" class="btn-ghost">Découvrir les réalisations</a>
         </div>
+              <div class="offer-box" aria-label="Offre internet">
+            <div class="offer-box-title">Offre Internet exceptionnelle</div>
+            <p>
+                Indiquez le code <span class="offer-code">PAILLETTES</span> dans votre demande par email
+                pour bénéficier des <strong>15 premiers kilomètres offerts</strong>.
+                <span class="offer-note">Offre valable pour toute demande envoyée après consultation du site internet. Non cumulable avec d’autres offres.</span>
+            </p>
+        </div>  
     </div>
 
     <div class="hero-gallery" aria-label="Exemples de maquillages artistiques en Alsace">
