@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Partenaires & coups de cœur | L'Atelier de Macete</title>
     <meta name="description" content="Découvrez les partenaires, artistes, photographes et coups de cœur recommandés par L’Atelier de Macete en Alsace." />
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://latelierdemacete.fr/liens.html">
 
     <meta property="og:title" content="Partenaires & coups de cœur | L'Atelier de Macete">
@@ -13,6 +14,12 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://latelierdemacete.fr/images/mon-logo.png">
     <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="L'Atelier de Macete">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Partenaires & coups de cœur | L'Atelier de Macete">
+    <meta name="twitter:description" content="Une sélection de partenaires, photographes, artistes et coups de cœur recommandés par L’Atelier de Macete.">
+    <meta name="twitter:image" content="https://latelierdemacete.fr/images/mon-logo.png">
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -28,15 +35,49 @@
       "@graph": [
         {
           "@type": "WebPage",
-          "name": "Partenaires & coups de cœur",
+          "@id": "https://latelierdemacete.fr/liens.html#webpage",
           "url": "https://latelierdemacete.fr/liens.html",
+          "name": "Partenaires & coups de cœur | L'Atelier de Macete",
           "description": "Une sélection de partenaires, photographes, artistes et coups de cœur recommandés par L’Atelier de Macete."
         },
         {
           "@type": "CollectionPage",
-          "name": "Partenaires & coups de cœur | L'Atelier de Macete",
+          "@id": "https://latelierdemacete.fr/liens.html#collectionpage",
           "url": "https://latelierdemacete.fr/liens.html",
-          "description": "Page de liens recommandés et partenaires de L’Atelier de Macete."
+          "name": "Partenaires & coups de cœur",
+          "description": "Page de liens recommandés, partenaires et coups de cœur de L’Atelier de Macete.",
+          "isPartOf": {
+            "@id": "https://latelierdemacete.fr/liens.html#webpage"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://latelierdemacete.fr/liens.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Accueil",
+              "item": "https://latelierdemacete.fr/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Partenaires & coups de cœur",
+              "item": "https://latelierdemacete.fr/liens.html"
+            }
+          ]
+        },
+        {
+          "@type": "ItemList",
+          "name": "Sélection de partenaires et coups de cœur",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "url": "https://jbmagic.fr/"
+            }
+          ]
         }
       ]
     }
@@ -173,7 +214,7 @@
         }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: 2.4rem;
             color: var(--texte-fonce);
             position: relative;
             padding-bottom: 1rem;
@@ -295,31 +336,31 @@
             font-size: 1.05rem;
         }
 
-        .content h3 {
-            margin-top: 1.6rem;
-            margin-bottom: 0.6rem;
-            color: var(--lavande);
-            font-size: 1.35rem;
+        .category-block + .category-block {
+            margin-top: 2.5rem;
         }
 
-        .pretty-link {
-            color: var(--lavande);
-            text-decoration: none;
+        .category-label {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .category-label span {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.95);
+            border: 1px solid rgba(255, 182, 217, 0.7);
+            box-shadow: 0 4px 10px rgba(180, 120, 150, 0.2);
             font-weight: 700;
-            border-bottom: 1px dashed rgba(179,90,135,0.55);
-            padding-bottom: 2px;
-        }
-
-        .pretty-link:hover {
-            color: #b35a87;
-            border-bottom-style: solid;
+            color: var(--texte-fonce);
         }
 
         .partners-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 1.2rem;
         }
 
         .partner-card {
@@ -387,9 +428,6 @@
 
         .partner-actions {
             margin-top: auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
         }
 
         .btn-primary {
@@ -410,16 +448,17 @@
             filter: brightness(1.05);
         }
 
-        .btn-ghost {
-            display: inline-block;
-            border-radius: 999px;
-            padding: 0.6rem 1.2rem;
-            font-size: 0.95rem;
-            border: 1px solid rgba(90, 74, 94, 0.2);
-            background: rgba(255, 255, 255, 0.8);
-            cursor: pointer;
+        .pretty-link {
+            color: var(--lavande);
             text-decoration: none;
-            color: var(--texte-fonce);
+            font-weight: 700;
+            border-bottom: 1px dashed rgba(179,90,135,0.55);
+            padding-bottom: 2px;
+        }
+
+        .pretty-link:hover {
+            color: #b35a87;
+            border-bottom-style: solid;
         }
 
         .note-box {
@@ -560,8 +599,8 @@
 
         <p class="hero-text">
             Cette page met en lumière des artistes, photographes, prestataires et professionnels
-            dont j’apprécie le travail, l’univers ou l’approche humaine.
-            Des recommandations partagées avec plaisir, pour vous faire découvrir de beaux talents.
+            dont j’apprécie le travail, l’univers ou l’approche. Une sélection évolutive, pensée
+            comme un espace de recommandation et de mise en avant.
         </p>
 
         <div class="hero-badges">
@@ -582,84 +621,140 @@
 </section>
 
 <section>
-    <h2>Des univers que j’aime recommander</h2>
+    <h2>Une sélection de belles adresses</h2>
 
     <div class="content">
         <p>
-            Vous trouverez ici une sélection de professionnels que je souhaite mettre en avant.
-            Certains exercent dans l’événementiel, d’autres dans l’image, le spectacle, la création
-            ou des domaines complémentaires. Cette page a vocation à évoluer au fil des rencontres.
+            Certains partenaires exercent dans le spectacle, d’autres dans la photographie ou dans des
+            activités complémentaires à l’événementiel. Cette page permet de partager des recommandations
+            simples, lisibles et sincères.
         </p>
     </div>
 
-    <div class="partners-grid">
-        <article class="partner-card">
-            <div class="partner-image-wrap">
-                <img src="images/partenaires/julien-boissier.jpg" alt="Julien Boissier, magicien en Alsace" class="partner-image">
-            </div>
-            <div class="partner-content">
-                <span class="partner-tag">Magicien</span>
-                <h3>Julien Boissier</h3>
-                <p>
-                    Magicien en Alsace, Julien Boissier propose des prestations élégantes et conviviales
-                    pour les anniversaires, événements familiaux et moments festifs.
-                </p>
-                <div class="partner-actions">
-                    <a href="https://jbmagic.fr/" target="_blank" rel="noopener noreferrer" class="btn-primary">Découvrir son site</a>
-                </div>
-            </div>
-        </article>
+    <div class="category-block">
+        <div class="category-label">
+            <span>Magiciens & spectacle</span>
+        </div>
 
-        <article class="partner-card">
-            <div class="partner-image-wrap">
-                <img src="images/partenaires/photographe-1.jpg" alt="Photographe partenaire" class="partner-image">
-            </div>
-            <div class="partner-content">
-                <span class="partner-tag">Photographe</span>
-                <h3>Nom du photographe</h3>
-                <p>
-                    Un univers sensible et authentique, avec un regard personnel sur le portrait,
-                    l’instant et l’émotion. Une belle référence à découvrir.
-                </p>
-                <div class="partner-actions">
-                    <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="btn-primary">Voir le portfolio</a>
+        <div class="partners-grid">
+            <article class="partner-card">
+                <div class="partner-image-wrap">
+                    <img src="images/partenaires/julien-boissier.jpg" alt="Julien Boissier, magicien en Alsace" class="partner-image">
                 </div>
-            </div>
-        </article>
+                <div class="partner-content">
+                    <span class="partner-tag">Magicien</span>
+                    <h3>Julien Boissier</h3>
+                    <p>
+                        Magicien en Alsace, Julien Boissier propose des prestations élégantes et conviviales
+                        pour les anniversaires, événements familiaux et moments festifs.
+                    </p>
+                    <div class="partner-actions">
+                        <a href="https://jbmagic.fr/" target="_blank" rel="noopener noreferrer" class="btn-primary">Découvrir son site</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
 
-        <article class="partner-card">
-            <div class="partner-image-wrap">
-                <img src="images/partenaires/partenaire-2.jpg" alt="Partenaire créatif" class="partner-image">
-            </div>
-            <div class="partner-content">
-                <span class="partner-tag">Coup de cœur</span>
-                <h3>Nom du partenaire</h3>
-                <p>
-                    Une activité complémentaire, un univers singulier ou une prestation de qualité
-                    que j’ai envie de partager ici.
-                </p>
-                <div class="partner-actions">
-                    <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="btn-primary">En savoir plus</a>
+    <div class="category-block">
+        <div class="category-label">
+            <span>Photographes</span>
+        </div>
+
+        <div class="partners-grid">
+            <article class="partner-card">
+                <div class="partner-image-wrap">
+                    <img src="images/partenaires/photographe-1.jpg" alt="Photographe partenaire" class="partner-image">
                 </div>
-            </div>
-        </article>
+                <div class="partner-content">
+                    <span class="partner-tag">Photographe</span>
+                    <h3>Nom du photographe</h3>
+                    <p>
+                        Un univers sensible et authentique, avec un regard personnel sur le portrait,
+                        l’instant et l’émotion.
+                    </p>
+                    <div class="partner-actions">
+                        <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="btn-primary">Voir le portfolio</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="partner-card">
+                <div class="partner-image-wrap">
+                    <img src="images/partenaires/photographe-2.jpg" alt="Photographe coup de cœur" class="partner-image">
+                </div>
+                <div class="partner-content">
+                    <span class="partner-tag">Photographe</span>
+                    <h3>Nom du photographe</h3>
+                    <p>
+                        Une approche esthétique et humaine, idéale pour les portraits, les événements
+                        ou les univers artistiques.
+                    </p>
+                    <div class="partner-actions">
+                        <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="btn-primary">Découvrir</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div class="category-block">
+        <div class="category-label">
+            <span>Autres coups de cœur</span>
+        </div>
+
+        <div class="partners-grid">
+            <article class="partner-card">
+                <div class="partner-image-wrap">
+                    <img src="images/partenaires/partenaire-1.jpg" alt="Partenaire créatif" class="partner-image">
+                </div>
+                <div class="partner-content">
+                    <span class="partner-tag">Coup de cœur</span>
+                    <h3>Nom du partenaire</h3>
+                    <p>
+                        Une activité complémentaire, un univers singulier ou une belle prestation
+                        que j’ai envie de recommander ici.
+                    </p>
+                    <div class="partner-actions">
+                        <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="btn-primary">En savoir plus</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="partner-card">
+                <div class="partner-image-wrap">
+                    <img src="images/partenaires/partenaire-2.jpg" alt="Prestataire recommandé" class="partner-image">
+                </div>
+                <div class="partner-content">
+                    <span class="partner-tag">Partenaire</span>
+                    <h3>Nom du partenaire</h3>
+                    <p>
+                        Un professionnel apprécié pour son sérieux, sa qualité de service ou la cohérence
+                        de son univers avec celui de L’Atelier de Macete.
+                    </p>
+                    <div class="partner-actions">
+                        <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="btn-primary">Découvrir</a>
+                    </div>
+                </div>
+            </article>
+        </div>
     </div>
 
     <div class="note-box">
         <h3>Une page évolutive</h3>
         <p>
-            Cette sélection est amenée à s’enrichir avec le temps, au fil de mes découvertes,
-            collaborations et rencontres professionnelles.
+            Cette sélection a vocation à s’enrichir au fil des découvertes, collaborations et rencontres
+            professionnelles.
         </p>
     </div>
 </section>
 
 <section>
-    <h2>Vous cherchez un contact de confiance ?</h2>
+    <h2>Besoin d’un contact de confiance ?</h2>
     <div class="content" style="text-align:center;">
         <p>
             Si vous cherchez un professionnel complémentaire pour un événement ou un projet,
-            cette page peut déjà vous donner quelques pistes.
+            cette page peut vous orienter vers quelques belles références.
         </p>
         <p style="margin-top: 1rem;">
             <a href="index.html#contact" class="pretty-link">Me contacter</a>
