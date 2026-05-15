@@ -393,6 +393,51 @@
                 gap: 0.25rem;
             }
         }
+        .timeline-simple {
+    max-width: 900px;
+    margin: 2.2rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.timeline-step {
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    gap: 1rem;
+    background: rgba(255,255,255,0.75);
+    border: 2px solid rgba(255,212,184,0.8);
+    border-radius: 18px;
+    padding: 1.2rem;
+}
+
+.timeline-number {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--rose-pastel), var(--lavande));
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-step h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.35rem;
+}
+
+.timeline-step p {
+    color: var(--texte-clair);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .timeline-step {
+        grid-template-columns: 1fr;
+    }
+}
     </style>
 </head>
 
@@ -573,57 +618,88 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <h2 style="margin-top:4rem;">Déroulement de l’atelier</h2>
 
-    <div class="options-grid">
+<p class="intro">
+    L’atelier suit un déroulé simple : découverte des inspirations, participation des invitées,
+    puis finitions artistiques pour obtenir un rendu harmonieux et photographiable.
+</p>
 
-        <div class="option-card">
-            <h3>1. Installation</h3>
-            <p class="note">
-                Prévoir environ 20 à 30 minutes avant le début. Le matériel artistique, les palettes, pinceaux,
-                paillettes, strass, gems, accessoires d’application et matériel d’hygiène sont fournis.
+<div class="timeline-simple">
+
+    <div class="timeline-step">
+        <div class="timeline-number">1</div>
+        <div>
+            <h3>Installation</h3>
+            <p>
+                Installation du matériel environ 20 à 30 minutes avant le début :
+                maquillage artistique, palettes, pinceaux, paillettes, strass, gems,
+                accessoires d’application et matériel d’hygiène.
             </p>
         </div>
+    </div>
 
-        <div class="option-card">
-            <h3>2. Choix des inspirations</h3>
-            <p class="note">
-                Présentation des couleurs, styles, motifs, placements de strass et niveau d’intensité souhaité :
-                discret, élégant, bohème ou plus festival.
+    <div class="timeline-step">
+        <div class="timeline-number">2</div>
+        <div>
+            <h3>Choix des inspirations</h3>
+            <p>
+                Chaque participante choisit son univers : couleurs, motifs, placement des strass,
+                rendu discret, élégant, bohème ou plus festival.
             </p>
         </div>
+    </div>
 
-        <div class="option-card">
-            <h3>3. Démonstration guidée</h3>
-            <p class="note">
-                Démonstration simple pour apprendre à placer les strass, créer un effet pailleté propre,
-                associer les couleurs et composer un rendu harmonieux.
+    <div class="timeline-step">
+        <div class="timeline-number">3</div>
+        <div>
+            <h3>Démonstration guidée</h3>
+            <p>
+                Présentation de gestes simples pour placer les strass, créer un effet pailleté propre,
+                associer les couleurs et composer un rendu équilibré.
             </p>
         </div>
+    </div>
 
-        <div class="option-card">
-            <h3>4. Atelier participatif</h3>
-            <p class="note">
-                Les participantes réalisent elles-mêmes une partie du look : pose de strass, paillettes,
+    <div class="timeline-step">
+        <div class="timeline-number">4</div>
+        <div>
+            <h3>Atelier participatif</h3>
+            <p>
+                Les participantes réalisent une partie du look : pose de strass, paillettes,
                 petits détails simples, choix des couleurs et composition.
             </p>
         </div>
+    </div>
 
-        <div class="option-card">
-            <h3>5. Finitions artistiques</h3>
-            <p class="note">
-                Ajout des détails fins, correction du placement, travail de la symétrie et touches finales
-                pour un rendu plus propre et photographiable.
+    <div class="timeline-step">
+        <div class="timeline-number">5</div>
+        <div>
+            <h3>Finitions artistiques</h3>
+            <p>
+                Ajout des détails fins, correction du placement, travail de la symétrie
+                et touches finales par l’artiste.
             </p>
         </div>
+    </div>
 
-        <div class="option-card">
-            <h3>6. Photos souvenir</h3>
-            <p class="note">
-                Un petit moment photo peut être prévu en fin d’atelier, notamment pour les EVJF / EVG,
+    <div class="timeline-step">
+        <div class="timeline-number">6</div>
+        <div>
+            <h3>Photos souvenir</h3>
+            <p>
+                Un petit moment photo peut être prévu en fin d’atelier, notamment pour les EVJF,
                 anniversaires adultes ou soirées entre amies.
             </p>
         </div>
-
     </div>
+
+</div>
+
+<h2 style="margin-top:4rem;">Inclus, options & organisation pratique</h2>
+
+<p class="intro">
+    Voici les éléments compris dans la prestation, les options possibles et les petites choses à prévoir
+    pour que l’atelier se déroule dans de bonnes conditions.
+</p>
 
     <div class="options-grid">
 
