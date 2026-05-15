@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maquillage enfant en Alsace | Anniversaires, événements et mariages</title>
-    <meta name="description" content="Maquillage enfant en Alsace pour anniversaires, mariages, fêtes de village, marchés, écoles et événements. Intervention dans le Bas-Rhin et le Haut-Rhin." />
-    <link rel="canonical" href="https://latelierdemacete.fr/maquillage-enfant-alsace.html">
+<meta name="description" content="Maquillage enfant en Alsace pour anniversaires, mariages, fêtes, marchés, écoles et événements. Maquillage artistique, tatouages pailletés, bar à paillettes et atelier glitter pour ados/adultes.">    <link rel="canonical" href="https://latelierdemacete.fr/maquillage-enfant-alsace.html">
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -44,6 +43,11 @@
             "bar à paillettes",
             "animation mariage enfants",
             "événementiel familial"
+        "atelier maquillage artistique glitter",
+"animation EVJF Alsace",
+"anniversaire ado maquillage",
+"maquillage festival",
+"face gems"
           ]
         },
         {
@@ -87,6 +91,14 @@
                 "text": "Oui, selon le format de l’événement, la prestation peut être complétée par des tatouages pailletés ou un bar à paillettes."
               }
             },
+        {
+  "@type": "Question",
+  "name": "Proposez-vous aussi une animation pour les ados ou adultes ?",
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Oui. En complément du maquillage enfant, L’Atelier de Macete propose un atelier maquillage artistique et glitter pour anniversaires ados, anniversaires adultes, EVJF, soirées privées et événements entre amies."
+  }
+}
             {
               "@type": "Question",
               "name": "Comment obtenir un devis pour une animation en Alsace ?",
@@ -501,34 +513,100 @@
             justify-self: center;
         }
 
-        .evenements-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            justify-content: center;
-        }
+       .evenements-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
 
-        .evenement-item {
-            background: rgba(255, 255, 255, 0.6);
-            padding: 1.5rem;
-            border-radius: 15px;
-            border-left: 4px solid var(--rose-pastel);
-            transition: all 0.3s;
-            flex: 1 1 260px;
-            max-width: 320px;
-        }
+.evenement-item {
+    background: rgba(255, 255, 255, 0.68);
+    padding: 1.5rem;
+    border-radius: 18px;
+    border-left: 4px solid var(--rose-pastel);
+    transition: all 0.3s;
+}
 
-        .evenement-item:hover {
-            background: rgba(255, 255, 255, 0.9);
-            border-left-color: var(--lavande);
-            transform: translateY(-3px);
-        }
+.evenement-item:hover {
+    background: rgba(255, 255, 255, 0.92);
+    border-left-color: var(--lavande);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
 
-        .evenement-item h3 {
-            color: var(--texte-fonce);
-            margin-bottom: 0.5rem;
-        }
+.evenement-item h3 {
+    color: var(--texte-fonce);
+    margin-bottom: 0.5rem;
+}
+
+.evenement-featured {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(255, 182, 217, 0.28), rgba(229, 197, 241, 0.30), rgba(255, 212, 184, 0.25));
+    border: 2px solid var(--lavande);
+    border-left: 6px solid var(--rose-pastel);
+    padding: 2rem;
+}
+
+.evenement-featured h3 {
+    font-size: 1.7rem;
+    color: var(--lavande);
+}
+
+.event-badge {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--texte-fonce);
+    font-size: 0.85rem;
+    font-weight: bold;
+    border: 1px solid rgba(255, 182, 217, 0.7);
+}
+
+.event-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--texte-fonce);
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(90, 74, 94, 0.45);
+}
+
+.event-link:hover {
+    color: #b35a87;
+    border-bottom-style: solid;
+}
+
+.featured-prestation {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(255, 182, 217, 0.28), rgba(229, 197, 241, 0.30), rgba(255, 212, 184, 0.25));
+    border: 2px solid var(--lavande);
+}
+
+.featured-prestation h3 {
+    font-size: 1.7rem;
+}
+
+@media (min-width: 900px) {
+    .featured-prestation {
+        max-width: 760px;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 900px) {
+    .evenements-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .evenements-list {
+        grid-template-columns: 1fr;
+    }
+}
 
         .gallery-mosaic-link {
             display:block;
@@ -1096,11 +1174,11 @@
         </p>
 
         <div class="hero-badges">
-            <span class="pill">Maquillage artistique enfants &amp; adultes</span>
-            <span class="pill">Ateliers créatifs pour enfants</span>
-            <span class="pill">Tatouages pailletés</span>
-            <span class="pill">Bar à paillettes</span>
-        </div>
+    <span class="pill">Maquillage artistique enfants &amp; adultes</span>
+    <span class="pill">Tatouages pailletés</span>
+    <span class="pill">Bar à paillettes</span>
+    <span class="pill">Atelier glitter ados &amp; adultes</span>
+</div>
 
         <div class="hero-actions">
             <a href="#contact" class="btn-primary">Réserver une animation en Alsace</a>
@@ -1207,26 +1285,50 @@
 <!-- PRESTATIONS -->
 <section id="prestations">
     <h2>Prestations en Alsace</h2>
-    <p style="text-align: center; margin-bottom: 2rem; color: var(--texte-clair);">
-        Maquilleuse artistique en Alsace, j’interviens lors de nombreux événements dans le Bas-Rhin et le Haut-Rhin.
+
+    <p style="text-align:center; max-width:820px; margin:0 auto 2rem; color:var(--texte-clair);">
+        Maquilleuse artistique en Alsace, je propose des animations adaptées aux enfants, aux familles,
+        aux ados et aux adultes : maquillage artistique, tatouages pailletés, bar à paillettes et atelier glitter.
     </p>
 
     <div class="prestations-grid">
         <div class="prestation-card">
-            <h3>Maquillage Artistique</h3>
-            <p>Des créations uniques et personnalisées pour enfants et adultes. Du maquillage féerique aux créatures fantastiques, chaque visage devient une œuvre d'art.</p>
+            <h3>Maquillage artistique</h3>
+            <p>
+                Des créations personnalisées pour enfants et adultes : papillons, animaux, fleurs,
+                super-héros, motifs féeriques, maquillages colorés ou plus artistiques selon l’événement.
+            </p>
         </div>
+
         <div class="prestation-card">
-            <h3>Ateliers Enfants</h3>
-            <p>Ateliers créatifs avec pochoirs pour initier les enfants à l'art du maquillage dans une ambiance ludique et pédagogique.</p>
+            <h3>Tatouages éphémères pailletés</h3>
+            <p>
+                Des tatouages temporaires brillants, rapides à réaliser et adaptés aux événements avec du passage :
+                kermesses, marchés, fêtes communales, mariages et animations familiales.
+            </p>
         </div>
+
         <div class="prestation-card">
-            <h3>Tatouages Éphémères</h3>
-            <p>Tatouages pailletés temporaires qui brillent et émerveillent. Parfaits pour les fêtes et événements spéciaux.</p>
+            <h3>Bar à paillettes</h3>
+            <p>
+                Une animation scintillante pour enfants, ados et adultes :
+                paillettes visage, touches lumineuses et effet festif pour mariages, soirées, festivals et événements privés.
+            </p>
         </div>
-        <div class="prestation-card centered">
-            <h3>Bar à Paillettes</h3>
-            <p>Une expérience scintillante et festive où petits et grands peuvent se parer de paillettes écologiques pour un effet magique garanti.</p>
+
+        <div class="prestation-card featured-prestation">
+            <span class="event-badge">Nouveau</span>
+
+            <h3>Atelier maquillage artistique & glitter</h3>
+
+            <p>
+                Un atelier créatif et participatif pour anniversaires ados et adultes, EVJF, soirées privées
+                et événements entre amies : paillettes, strass, face gems, maquillage festival et finitions artistiques.
+            </p>
+
+            <a href="atelier-maquillage-artistique-glitter.html" class="event-link">
+                Découvrir l’atelier →
+            </a>
         </div>
     </div>
 </section>
@@ -1234,35 +1336,78 @@
 <!-- ÉVÉNEMENTS -->
 <section id="evenements">
     <h2>Événements dans le Bas-Rhin et le Haut-Rhin</h2>
-    <p style="text-align: center; margin-bottom: 2rem; color: var(--texte-clair);">
-        Je me déplace dans toute l’Alsace, aussi bien dans le Bas-Rhin que dans le Haut-Rhin, en ville comme en milieu rural.
+
+    <p style="text-align:center; max-width:820px; margin:0 auto 2rem; color:var(--texte-clair);">
+        Je me déplace dans toute l’Alsace pour les anniversaires, mariages, fêtes communales,
+        marchés, arbres de Noël, événements d’entreprise et événements privés.
     </p>
 
     <div class="evenements-list">
-        <div class="evenement-item">
-            <h3>Anniversaires</h3>
-            <p>Rendez les anniversaires inoubliables avec des animations maquillage personnalisées selon le thème de votre choix.</p>
+
+        <div class="evenement-item evenement-featured">
+            <span class="event-badge">À découvrir</span>
+
+            <h3>Atelier maquillage artistique & glitter</h3>
+
+            <p>
+                Une animation créative pour <strong>anniversaires ados et adultes</strong>,
+                <strong>EVJF</strong>, soirées privées, garden-parties et événements entre amies.
+                Au programme : paillettes visage, strass, face gems, maquillage festival et finitions personnalisées.
+            </p>
+
+            <a href="atelier-maquillage-artistique-glitter.html" class="event-link">
+                Voir l’offre atelier glitter →
+            </a>
         </div>
+
+        <div class="evenement-item">
+            <h3>Anniversaires enfants</h3>
+            <p>
+                Des maquillages artistiques personnalisés selon le thème de l’anniversaire :
+                féerique, animaux, super-héros, papillons, princesses ou motifs colorés.
+            </p>
+        </div>
+
         <div class="evenement-item">
             <h3>Mariages</h3>
-            <p>Animations pour divertir les enfants pendant votre réception et créer des souvenirs magiques, ou bien faire scintiller vos invités sur la piste de danse.</p>
+            <p>
+                Une animation douce et festive pour occuper les enfants pendant la réception
+                ou faire scintiller les invités avec des paillettes et tatouages éphémères.
+            </p>
         </div>
+
         <div class="evenement-item">
             <h3>Marchés de Noël</h3>
-            <p>Apportez la magie des fêtes avec des maquillages féeriques et scintillants adaptés à la saison.</p>
+            <p>
+                Des maquillages féeriques, hivernaux et scintillants pour marchés de Noël,
+                arbres de Noël et animations de fin d’année.
+            </p>
         </div>
+
         <div class="evenement-item">
-            <h3>Fêtes Communales</h3>
-            <p>Animations pour les événements municipaux et scolaires, kermesses et fêtes de quartier.</p>
+            <h3>Fêtes communales</h3>
+            <p>
+                Animations pour événements municipaux, fêtes de village, kermesses,
+                fêtes d’école, associations et événements de quartier.
+            </p>
         </div>
+
         <div class="evenement-item">
-            <h3>Entreprises</h3>
-            <p>Arbres de Noël, journées portes ouvertes et événements d'entreprise accueillant des familles.</p>
+            <h3>Entreprises & CSE</h3>
+            <p>
+                Maquillage artistique, tatouages pailletés et bar à paillettes pour arbres de Noël,
+                journées portes ouvertes et événements d’entreprise.
+            </p>
         </div>
+
         <div class="evenement-item">
-            <h3>Événements Privés</h3>
-            <p>Toute occasion spéciale mérite d'être célébrée avec créativité et professionnalisme.</p>
+            <h3>Événements privés</h3>
+            <p>
+                EVJF, EVG, anniversaires adultes, soirées à thème, garden-parties et fêtes entre amis :
+                une animation artistique adaptée à votre ambiance.
+            </p>
         </div>
+
     </div>
 </section>
 
@@ -1345,18 +1490,21 @@
         </div>
       </a>
 
-      <a href="tarifs-ateliers.html" class="tarif-card-link">    
-        <div class="tarif-card">
-            <h3 class="cursive">Ateliers</h3>
-            <div class="price">Sur devis</div>
-            <ul>
-                <li>Ateliers créatifs pour groupes</li>
-                <li>Matériel fourni</li>
-                <li>Encadrement professionnel</li>
-                <li>Durée adaptable</li>
-            </ul>
-        </div>
-      </a>
+      <a href="atelier-maquillage-artistique-glitter.html" class="tarif-card-link">    
+    <div class="tarif-card">
+        <h3 class="cursive">Atelier Glitter & Maquillage Artistique</h3>
+
+        <div class="price">À partir de 125 €</div>
+
+        <ul>
+            <li>Atelier créatif pour anniversaires ados et adultes</li>
+            <li>Animation EVJF, EVG, soirée privée ou événement entre ami(e)s</li>
+            <li>Maquillage festival, paillettes visage, strass et face gems</li>
+            <li>Formules de 1h30 à 2h30 selon le nombre de participantes</li>
+            <li>Mini kit glitter possible selon la formule choisie</li>
+        </ul>
+    </div>
+</a>
     </div>
 </section>
 
@@ -1388,7 +1536,13 @@
                 pailletés ou un bar à paillettes.
             </p>
         </div>
-
+<div class="faq-item">
+    <h3>Proposez-vous aussi une animation pour les ados ou adultes ?</h3>
+    <p>
+        Oui. En complément du maquillage enfant, L’Atelier de Macete propose un atelier maquillage artistique & glitter
+        pour anniversaires ados, anniversaires adultes, EVJF, soirées privées et événements entre amies.
+    </p>
+</div>
         <div class="faq-item">
             <h3>Comment obtenir un devis pour une animation en Alsace ?</h3>
             <p>
