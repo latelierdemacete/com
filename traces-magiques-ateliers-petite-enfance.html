@@ -303,7 +303,15 @@
             gap: 2.5rem;
             align-items: center;
         }
+.hero-single {
+    grid-template-columns: 1fr;
+}
 
+.hero-single .hero-content {
+    max-width: 920px;
+    width: 100%;
+    margin: 0 auto;
+}
         .hero-content { text-align: left; }
 
         .hero-title-with-logo {
@@ -1068,14 +1076,7 @@
             }
 
             .hero-title-main { font-size: 2.1rem; }
-.hero-single {
-    grid-template-columns: 1fr;
-}
 
-.hero-single .hero-content {
-    max-width: 920px;
-    margin: 0 auto;
-}
             .about-layout {
                 grid-template-columns: 1fr !important;
                 text-align: center;
