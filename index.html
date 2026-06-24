@@ -489,7 +489,20 @@ grid-template-columns: repeat(3, 1fr);
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
 }
+.evenement-premium {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 182, 217, 0.20),
+        rgba(229, 197, 241, 0.18),
+        rgba(255, 212, 184, 0.18)
+    );
+    border: 2px solid rgba(229, 197, 241, 0.8);
+    box-shadow: 0 8px 22px rgba(180, 120, 150, 0.12);
+}
 
+.evenement-premium h3 {
+    color: var(--lavande);
+}
 .evenement-item h3 {
     color: var(--texte-fonce);
     margin-bottom: 0.5rem;
@@ -1278,21 +1291,19 @@ grid-template-columns: repeat(3, 1fr);
 
     <div class="evenements-list">
 
-        <div class="evenement-item evenement-featured">
-            <span class="event-badge">Nouvelle prestation</span>
+<div class="evenement-item evenement-premium">
+    <h3>Atelier maquillage artistique & glitter</h3>
 
-            <h3>Atelier maquillage artistique & glitter</h3>
+    <p>
+        Une animation créative et participative pour <strong>anniversaires ados et adultes</strong>,
+        <strong>EVJF</strong>, soirées privées, garden-parties et événements entre amies.
+        Au programme : paillettes visage, strass, face gems, maquillage festival et finitions artistiques personnalisées.
+    </p>
 
-            <p>
-                Une animation créative et participative pour <strong>anniversaires ados et adultes</strong>,
-                <strong>EVJF</strong>, soirées privées, garden-parties et événements entre amies.
-                Au programme : paillettes visage, strass, face gems, maquillage festival et finitions artistiques personnalisées.
-            </p>
-
-            <a href="atelier-maquillage-artistique-glitter.html" class="event-link">
-                Découvrir l’atelier glitter →
-            </a>
-        </div>
+    <a href="atelier-maquillage-artistique-glitter.html" class="event-link">
+        Découvrir l’atelier glitter →
+    </a>
+</div>
 
         <div class="evenement-item">
             <h3>Anniversaires enfants</h3>
