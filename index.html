@@ -438,7 +438,7 @@
 
         .prestations-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin-top: 2rem;
         }
@@ -1041,7 +1041,6 @@
             .m6{ grid-column: 1 / span 6; grid-row: 7 / span 2; }
         }
         .featured-prestation {
-    grid-column: 1 / -1;
     background: linear-gradient(135deg, rgba(255, 182, 217, 0.28), rgba(229, 197, 241, 0.30), rgba(255, 212, 184, 0.25));
     border: 2px solid var(--lavande);
     position: relative;
@@ -1052,12 +1051,7 @@
     font-size: 1.7rem;
 }
 
-@media (min-width: 900px) {
-    .featured-prestation {
-        max-width: 760px;
-        justify-self: center;
-    }
-}
+
     </style>
 </head>
 <body>
